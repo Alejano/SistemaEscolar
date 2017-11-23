@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6068A399-D216-49A4-806C-0A1C2F2A7383}</ProjectGuid>
+    <ProjectGuid>{840D7EC1-64E2-4CDF-B73A-C1C7757F1556}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Formulario_Profesores</RootNamespace>
-    <AssemblyName>Formulario Profesores</AssemblyName>
+    <RootNamespace>SistemaEscolar</RootNamespace>
+    <AssemblyName>SistemaEscolar</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -53,9 +53,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Formulario_Profesores
+namespace SistemaEscolar
 {
     public partial class Form1 : Form
     {

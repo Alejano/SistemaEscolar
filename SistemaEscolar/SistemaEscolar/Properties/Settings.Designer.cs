@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Formulario_Profesores.Properties
+namespace SistemaEscolar.Properties
 {
 
 
