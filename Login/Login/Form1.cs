@@ -34,5 +34,12 @@ namespace Login
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Inicio ini = new Inicio();
+            ini.Show();
+            
+        }
     }
 }

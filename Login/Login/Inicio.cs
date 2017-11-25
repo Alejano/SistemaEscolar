@@ -10,22 +10,22 @@ using System.Windows.Forms;
 
 namespace Login
 {
-    public partial class Formulario_Alumnos : Form
+    public partial class Inicio : Form
     {
-        public Formulario_Alumnos()
+        public Inicio()
         {
             InitializeComponent();
         }
 
-        private void Formulario_Alumnos_Load(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form2 fr2 = new Form2();
-            fr2.Show();
+            Formulario_Alumnos fa = new Formulario_Alumnos();
+            fa.Show();
         }
     }
 }

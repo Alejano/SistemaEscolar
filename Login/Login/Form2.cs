@@ -16,5 +16,16 @@ namespace Login
         {
             InitializeComponent();
         }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Guardar_Alumno ga = new Guardar_Alumno();
+            ga.Show();
+        }
     }
 }
