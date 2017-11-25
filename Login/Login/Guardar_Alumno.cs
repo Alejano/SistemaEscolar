@@ -14,7 +14,7 @@ namespace Login
 {
     public partial class Guardar_Alumno : Form
     {
-        static string Id_A;
+        static int Id_A;
         public Guardar_Alumno()
         {
             InitializeComponent();
@@ -22,9 +22,20 @@ namespace Login
 
         private void Guardar_Alumno_Load(object sender, EventArgs e)
         {
-            BuscarID();
-            CrearId();
+            //BuscarID();
+            
+
+            if (Formulario_Alumnos.Diferenciador_A == "Internos")
+            {
+                CrearIdI();
+            }
+            else
+            {
+                CrearIdE();
+            }
+
         }
+        /*
         static string varid = "";
         void BuscarID()
         {
@@ -33,32 +44,55 @@ namespace Login
             MessageBox.Show("Cargando");
             MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
             var db = client.GetDatabase("sistemaescolar");
-            var usuarios = db.GetCollection<BsonDocument>("Adm_Matricula");
+            var Matricula = db.GetCollection<BsonDocument>("Adm_Matricula");
 
-            usuarios.AsQueryable<BsonDocument>().ToList().ForEach(usu =>
-            varid = (varid + Convert.ToString("  id_usuario  " + usu["id"])
-            + "  nombre  " + Convert.ToString(usu["Nombre"])
-            + "  apellido  " + Convert.ToString(usu["Apellido"]) + "\r\n")
+            var filter = Builders<BsonDocument>.Filter.Gte("Edad", 22);
+            var sort = Builders<BsonDocument>.Sort.Ascending("Alejandro");
+            Matricula.Find(filter).Sort(sort).ForEachAsync(song =>
+            varid = (varid + Convert.ToString(song["_id"]) + " " + Convert.ToString(song["Nombre"]) + " " + Convert.ToString(song["Edad"]) + "\r\n")
+
+            MessageBox.Show("Los datos son " + song["Nombre"] + "  " + song["Edad"])
+            
 
             );
-
+            
             
 
             MessageBox.Show("Succeful");
         }
-        void CrearId()
+        */
+        void CrearIdI()
         {
-            BsonDocument crear_usuario = new BsonDocument
+            MessageBox.Show("creando");
+            BsonDocument crear_id = new BsonDocument
                   {
-                     {"Id_A","17112500"}
+                     {"Id_A",17112500},
+                     {"Tipo_Alumno","Interno" }
                   };
 
-            BsonDocument DatosUsuario = crear_usuario;
+            BsonDocument Datosid = crear_id;
 
             MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
             var db = client.GetDatabase("sistemaescolar");
             var usuarios = db.GetCollection<BsonDocument>("Adm_Matricula");
-            usuarios.InsertOne(DatosUsuario);
+            usuarios.InsertOne(Datosid);
+
+        }
+        void CrearIdE()
+        {
+            MessageBox.Show("creando");
+            BsonDocument crear_id = new BsonDocument
+                  {
+                     {"Id_A",17112500},
+                     {"Tipo_Alumno","Externo" }
+                  };
+
+            BsonDocument Datosid = crear_id;
+
+            MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
+            var db = client.GetDatabase("sistemaescolar");
+            var usuarios = db.GetCollection<BsonDocument>("Adm_Matricula");
+            usuarios.InsertOne(Datosid);
 
         }
     }

@@ -12,6 +12,7 @@ namespace Login
 {
     public partial class Formulario_Alumnos : Form
     {
+        public static String Diferenciador_A = ""; 
         public Formulario_Alumnos()
         {
             InitializeComponent();
@@ -24,6 +25,14 @@ namespace Login
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Diferenciador_A = "Interno";
+            Form2 fr2 = new Form2();
+            fr2.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Diferenciador_A = "Externo";
             Form2 fr2 = new Form2();
             fr2.Show();
         }
