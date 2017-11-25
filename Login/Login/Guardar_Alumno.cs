@@ -50,11 +50,12 @@ namespace Login
         
         void CrearIdI()
         {
-            ID_A = Convert.ToInt32(varid) + 1;
+           
             MessageBox.Show("creando interno");
             BsonDocument crear_id = new BsonDocument
                   {
-                     {"Id_A",ID_A}
+                     {"Id_A",ID_A},
+                      {"Nombre",textBox1.Text} 
                      
                   };
 
@@ -75,8 +76,14 @@ namespace Login
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             BuscarID();
+            ID_A = Convert.ToInt32(varid) + 1;
             CrearIdI();
+
+            //aqui vas a crear al Alumno 
+
+
         }
     }
 }
