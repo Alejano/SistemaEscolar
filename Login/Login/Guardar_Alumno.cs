@@ -14,7 +14,7 @@ namespace Login
 {
     public partial class Guardar_Alumno : Form
     {
-        static int Id_A;
+        
         public Guardar_Alumno()
         {
             InitializeComponent();
@@ -59,11 +59,16 @@ namespace Login
                   };
 
             BsonDocument Datosid = crear_id;
-            MessageBox.Show("creando registro");
+            MessageBox.Show("creando registro con nuevo id"+ ID_A);
             MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
             var db = client.GetDatabase("sistemaescolar");
             var usuarios = db.GetCollection<BsonDocument>("Adm_Matricula");
-            usuarios.InsertOne(Datosid);
+
+            var updateFilter = Builders<BsonDocument>.Filter.Eq("Id_A", Convert.ToInt32(varid));
+            var update = Builders<BsonDocument>.Update.Set("Id_A", ID_A);
+
+            usuarios.UpdateOne(updateFilter, update);
+
             MessageBox.Show("creado");
 
         }
