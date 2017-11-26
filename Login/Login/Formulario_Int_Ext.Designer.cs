@@ -1,6 +1,6 @@
 ﻿namespace Login
 {
-    partial class Form2
+    partial class Formulario_Int_Ext
     {
         /// <summary>
         /// Required designer variable.

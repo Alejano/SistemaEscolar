@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace Login
 {
-    public partial class Form1 : Form
+    public partial class Loggin : Form
     {
         string admin = "admin";
         string password = "qwerty";
 
-        public Form1()
+        public Loggin()
         {
             InitializeComponent();
         }

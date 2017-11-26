@@ -26,14 +26,14 @@ namespace Login
         private void button1_Click(object sender, EventArgs e)
         {
             Diferenciador_A = "Interno";
-            Form2 fr2 = new Form2();
+            Formulario_Int_Ext fr2 = new Formulario_Int_Ext();
             fr2.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Diferenciador_A = "Externo";
-            Form2 fr2 = new Form2();
+            Formulario_Int_Ext fr2 = new Formulario_Int_Ext();
             fr2.Show();
         }
     }

@@ -60,17 +60,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Loggin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Loggin.Designer.cs">
+      <DependentUpon>Loggin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="Formulario_Int_Ext.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="Formulario_Int_Ext.Designer.cs">
+      <DependentUpon>Formulario_Int_Ext.cs</DependentUpon>
     </Compile>
     <Compile Include="Formulario_Alumnos.cs">
       <SubType>Form</SubType>
@@ -92,11 +92,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Loggin.resx">
+      <DependentUpon>Loggin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="Formulario_Int_Ext.resx">
+      <DependentUpon>Formulario_Int_Ext.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formulario_Alumnos.resx">
       <DependentUpon>Formulario_Alumnos.cs</DependentUpon>
