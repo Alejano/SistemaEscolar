@@ -10,24 +10,22 @@ using System.Windows.Forms;
 
 namespace Login
 {
-    public partial class Form1 : Form
+    public partial class Formulario_Int_Ext : Form
     {
-        string admin = "admin";
-        string password = "qwerty";
-
-        public Form1()
+        public Formulario_Int_Ext()
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Form2_Load(object sender, EventArgs e)
         {
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Guardar_Alumno ga = new Guardar_Alumno();
+            ga.Show();
         }
     }
 }
