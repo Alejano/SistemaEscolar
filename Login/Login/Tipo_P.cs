@@ -33,37 +33,37 @@ namespace Login
             MessageBox.Show("Cargando");
             MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
             var db = client.GetDatabase("sistemaescolar");
-            var Matricula = db.GetCollection<BsonDocument>("Adm_Matricula");
-
+            var Matricula = db.GetCollection<BsonDocument>("Adm_MatriculaP");
+            
             //con este buscas todos 
-            Matricula.AsQueryable<BsonDocument>().ToList().ForEach(song =>
-             varid = (Convert.ToString(song["Id_P"]))
+            Matricula.AsQueryable<BsonDocument>().ToList().ForEach(matricu =>
+             varid = ( Convert.ToString(matricu["Id_P"]) )
 
              );
-
-
-
-            MessageBox.Show("Succeful" + varid);
+            
+            MessageBox.Show("Succeful  " + varid);
         }
 
         void CrearIdI()
         {
             // en esta parte vas a crear los registros {"Nombre",texbox2.text}
-           /* MessageBox.Show("creando interno");
-            BsonDocument crear_id = new BsonDocument
+            MessageBox.Show("creando interno");
+            ID_P = Convert.ToInt32(varid) + 1;
+
+            /*BsonDocument crear_id = new BsonDocument
                   {
-                     {"Id_P",ID_P}
+                     {"Id_P",300000}
                      // {"Nombre",textBox1.Text}
 
                   };
 
             BsonDocument Datosid = crear_id;
-            */
+           */
 
-            MessageBox.Show("creando registro con nuevo id" + ID_P);
+            MessageBox.Show("creando registro con nuevo id  " + ID_P);
             MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
             var db = client.GetDatabase("sistemaescolar");
-            var usuarios = db.GetCollection<BsonDocument>("Adm_Matricula");
+            var usuarios = db.GetCollection<BsonDocument>("Adm_MatriculaP");
             
             var updateFilter = Builders<BsonDocument>.Filter.Eq("Id_P", Convert.ToInt32(varid));
             var update = Builders<BsonDocument>.Update.Set("Id_P", ID_P);
@@ -79,9 +79,10 @@ namespace Login
         private void button1_Click(object sender, EventArgs e)
         {
             if (checkBox1.Checked) { }
-            BuscarID();
-            ID_P = Convert.ToInt32(varid) + 1;
+            BuscarID();            
             CrearIdI();
+
+
 
         }
     }
