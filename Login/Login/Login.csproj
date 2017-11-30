@@ -60,11 +60,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Loggin.cs">
+    <Compile Include="IniciarSesion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Loggin.Designer.cs">
-      <DependentUpon>Loggin.cs</DependentUpon>
+    <Compile Include="IniciarSesion.Designer.cs">
+      <DependentUpon>IniciarSesion.cs</DependentUpon>
     </Compile>
     <Compile Include="Formulario_Int_Ext.cs">
       <SubType>Form</SubType>
@@ -104,8 +104,8 @@
     <Compile Include="Tipo_P.Designer.cs">
       <DependentUpon>Tipo_P.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Loggin.resx">
-      <DependentUpon>Loggin.cs</DependentUpon>
+    <EmbeddedResource Include="IniciarSesion.resx">
+      <DependentUpon>IniciarSesion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formulario_Int_Ext.resx">
       <DependentUpon>Formulario_Int_Ext.cs</DependentUpon>
