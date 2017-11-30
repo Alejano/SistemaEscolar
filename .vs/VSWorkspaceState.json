@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Formulario Profesores"
+    "\\Login",
+    "\\Login\\SistemaEscolar"
   ],
-  "SelectedNode": "\\Formulario Profesores",
+  "SelectedNode": "\\Login\\SistemaEscolar\\Inicio.Designer.cs",
   "PreviewInSolutionExplorer": false
 }
