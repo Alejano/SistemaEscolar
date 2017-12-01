@@ -39,7 +39,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(234, 63);
+            this.label1.Location = new System.Drawing.Point(264, 93);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 17);
             this.label1.TabIndex = 0;
@@ -48,7 +48,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(35, 24);
+            this.label2.Location = new System.Drawing.Point(264, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 17);
             this.label2.TabIndex = 1;
@@ -61,7 +61,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(135, 28);
             this.button4.TabIndex = 8;
-            this.button4.Text = "Eliminar Profesor";
+            this.button4.Text = "Eliminar Alumno";
             this.button4.UseVisualStyleBackColor = true;
             // 
             // button3
@@ -71,7 +71,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(145, 28);
             this.button3.TabIndex = 7;
-            this.button3.Text = "Actualizar profesor";
+            this.button3.Text = "Actualizar Alumno";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // button5
@@ -81,7 +81,7 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(135, 28);
             this.button5.TabIndex = 6;
-            this.button5.Text = "Buscar profesor";
+            this.button5.Text = "Buscar Alumno";
             this.button5.UseVisualStyleBackColor = true;
             // 
             // button6
@@ -91,7 +91,7 @@
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(135, 28);
             this.button6.TabIndex = 5;
-            this.button6.Text = "Agregar profesor";
+            this.button6.Text = "Agregar Alumno";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 

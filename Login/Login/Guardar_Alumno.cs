@@ -29,6 +29,7 @@ namespace Login
 
         static string varid = "";
         static int ID_A = 0;
+
         void BuscarID()
         {
             
@@ -55,7 +56,7 @@ namespace Login
             BsonDocument crear_id = new BsonDocument
                   {
                      {"Id_A",ID_A},
-                      {"Nombre",textBox1.Text} 
+                     
                      
                   };
 
@@ -76,8 +77,8 @@ namespace Login
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            
+
+           
 
             if (checkBox1.Checked) {
                 Diferenciador_A = "interno";
@@ -85,27 +86,42 @@ namespace Login
                 ID_A = Convert.ToInt32(varid) + 1;
                 CrearIdI();
                 Agregar_Alumno();
+                Agregar_Direccion();
+                MessageBox.Show("El alumno " + Diferenciador_A + " Se guardo en la base correctamente");
+              
+                
+            }
+
+
+            if (checkBox2.Checked)
+            {
+                Diferenciador_A = "externo";
+                BuscarID();
+                ID_A = Convert.ToInt32(varid) + 1;
+                CrearIdI();
+                Agregar_Alumno();
+                Agregar_Direccion();
+                MessageBox.Show("El alumno " + Diferenciador_A + " Se guardo en la base correctamente");
+                
+
+
+            } else {
+
+                if (checkBox1.Checked == false || checkBox2.Checked == false)
+                {
+
+                    MessageBox.Show("Se necesita elegir tipo de alumno para continuar");
+                }
 
                 limpiar();
             }
 
 
-            if (checkBox2.Checked) {
-                Diferenciador_A = "externo";
-                BuscarID();
-                ID_A = Convert.ToInt32(varid) + 1;
-                CrearIdI();
-
-            }
-            if (checkBox1.Checked == false || checkBox2.Checked == false) {
-
-                MessageBox.Show("Se necesita elegir tippo de alumno para continuar");
-            }
-
 
 
         }
-        void Agregar_Alumno() {
+        void Agregar_Alumno()
+        {
 
 
 
@@ -115,12 +131,16 @@ namespace Login
                     {"Id_A",ID_A},
                     {"Nombre",textBox1.Text},
                     {"Apellidos",textBox2.Text},
-                    {"Edad",textBox3.Text }
+                    {"Edad",textBox3.Text },
+                    {"Telefono Casa",textBox4.Text },
+                    {"Telefono Celular",textBox5.Text },
+                    {"T_Alumno",Diferenciador_A }
+
 
                   };
 
             BsonDocument DatosAlumno = Alumno;
-            
+
             MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
             var db = client.GetDatabase("sistemaescolar");
             var usuarios = db.GetCollection<BsonDocument>("Alumnos");
@@ -130,17 +150,64 @@ namespace Login
             MessageBox.Show("alumno creado");
 
         }
-        //aqui creas el metodo Agregar_Direccion que va a conectar a la tabla Direccion_Alumno 
-        //importante copia el de id alumno
+        void Agregar_Direccion() {
+
+            MessageBox.Show("creando direccion del  Alumno");
+            BsonDocument Direccion = new BsonDocument
+                  {
+                    {"Id_A",ID_A},
+                    {"Calle",textBox6.Text},
+                    {"Entre",textBox7.Text},
+                    {"Y",textBox8.Text },
+                    {"Numero",textBox10.Text },
+                    {"Colonia",textBox11.Text },
+                    {"Codigo Postal",textBox12.Text }
 
 
+                  };
+
+            BsonDocument DireccionAlumno = Direccion;
+
+            MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
+            var db = client.GetDatabase("sistemaescolar");
+            var usuarios = db.GetCollection<BsonDocument>("Direccion_Alumno");
+
+            usuarios.InsertOne(DireccionAlumno);
+
+            MessageBox.Show("direccion de alumno creada");
+
+
+
+        }
+        
         void limpiar() {
             textBox1.Clear();
-            textBox2.Text = "";
-
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
+            textBox5.Clear();
+            textBox6.Clear();
+            textBox7.Clear();
+            textBox8.Clear();
+            textBox10.Clear();
+            textBox11.Clear();
+            textBox12.Clear();
             checkBox1.Checked = false;
+            checkBox2.Checked = false;
+            
+
         }
         private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
         {
 
         }

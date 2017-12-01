@@ -25,8 +25,8 @@ namespace Login
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Formulario_Alumnos fa = new Formulario_Alumnos();
-            fa.Show();
+            Formulario_Alumnos FA = new Formulario_Alumnos();
+            FA.Show();
         }
     }
 }
