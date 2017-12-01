@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MongoDB.Bson;
+using MongoDB.Driver;
 
 namespace Login
 {
@@ -75,6 +77,43 @@ namespace Login
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+        void Agregar_Admin()
+        {
+
+
+
+            MessageBox.Show("creando Alumno");
+            BsonDocument Alumno = new BsonDocument
+                  {//informacion del alumno
+                    {"Id_Adm",textBox1.Text},
+                    {"Usuario",textBox2.Text },
+                    {"Contraseña",textBox3.Text }
+                   
+
+
+                  };
+
+            BsonDocument DatosAlumno = Alumno;
+
+            MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
+            var db = client.GetDatabase("sistemaescolar");
+            var usuarios = db.GetCollection<BsonDocument>("Alumnos");
+
+            usuarios.InsertOne(DatosAlumno);
+
+            MessageBox.Show("alumno creado");
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }
