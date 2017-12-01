@@ -27,7 +27,38 @@ namespace Login
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (textBox1.Text != "" && textBox2.Text != "")
+            {
+                MessageBox.Show("correcto");
 
+
+
+
+
+
+
+                if (textBox1.Text == "adm" && textBox2.Text == "qwerty")
+                {
+                    Administracion adm = new Administracion();
+                    adm.Show();
+                }
+
+            }
+            else
+            {
+                if (textBox1.Text == "" && textBox2.Text == "") { MessageBox.Show("Necesita ingresar los datos"); }
+                else
+                { 
+                    if (textBox1.Text == "")
+                    {
+                        MessageBox.Show("Necesita ingresar su nombre de Usuario");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Necesita ingresar su contraseña");
+                    }
+                }
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -40,6 +71,11 @@ namespace Login
             Inicio ini = new Inicio();
             ini.Show();
             
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
