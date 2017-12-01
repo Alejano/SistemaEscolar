@@ -66,11 +66,11 @@
     <Compile Include="IniciarSesion.Designer.cs">
       <DependentUpon>IniciarSesion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formulario_Int_Ext.cs">
+    <Compile Include="Borrar_Alumno.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formulario_Int_Ext.Designer.cs">
-      <DependentUpon>Formulario_Int_Ext.cs</DependentUpon>
+    <Compile Include="Borrar_Alumno.Designer.cs">
+      <DependentUpon>Borrar_Alumno.cs</DependentUpon>
     </Compile>
     <Compile Include="Formulario_Alumnos.cs">
       <SubType>Form</SubType>
@@ -107,8 +107,8 @@
     <EmbeddedResource Include="IniciarSesion.resx">
       <DependentUpon>IniciarSesion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formulario_Int_Ext.resx">
-      <DependentUpon>Formulario_Int_Ext.cs</DependentUpon>
+    <EmbeddedResource Include="Borrar_Alumno.resx">
+      <DependentUpon>Borrar_Alumno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formulario_Alumnos.resx">
       <DependentUpon>Formulario_Alumnos.cs</DependentUpon>

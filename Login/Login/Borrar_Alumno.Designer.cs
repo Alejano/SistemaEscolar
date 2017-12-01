@@ -1,6 +1,6 @@
 ﻿namespace Login
 {
-    partial class Formulario_Int_Ext
+    partial class Borrar_Alumno
     {
         /// <summary>
         /// Required designer variable.
@@ -41,14 +41,14 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Form2
+            // Borrar_Alumno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(521, 371);
             this.Controls.Add(this.button1);
-            this.Name = "Form2";
-            this.Text = "Formulario_interno";
+            this.Name = "Borrar_Alumno";
+            this.Text = "Borrar_Alumno";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
 

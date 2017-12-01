@@ -14,7 +14,7 @@ namespace Login
 {
     public partial class Guardar_Alumno : Form
     {
-        
+        public static String Diferenciador_A = "";
         public Guardar_Alumno()
         {
             InitializeComponent();
@@ -51,7 +51,7 @@ namespace Login
         void CrearIdI()
         {
            
-            MessageBox.Show("creando interno");
+            MessageBox.Show("creando id");
             BsonDocument crear_id = new BsonDocument
                   {
                      {"Id_A",ID_A},
@@ -60,7 +60,7 @@ namespace Login
                   };
 
             BsonDocument Datosid = crear_id;
-            MessageBox.Show("creando registro con nuevo id"+ ID_A);
+            
             MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
             var db = client.GetDatabase("sistemaescolar");
             var usuarios = db.GetCollection<BsonDocument>("Adm_Matricula");
@@ -70,19 +70,78 @@ namespace Login
 
             usuarios.UpdateOne(updateFilter, update);
 
-            MessageBox.Show("creado");
+            MessageBox.Show("id creado");
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             
-            BuscarID();
-            ID_A = Convert.ToInt32(varid) + 1;
-            CrearIdI();
+            
 
-            //aqui vas a crear al Alumno 
+            if (checkBox1.Checked) {
+                Diferenciador_A = "interno";
+                BuscarID();
+                ID_A = Convert.ToInt32(varid) + 1;
+                CrearIdI();
+                Agregar_Alumno();
 
+                limpiar();
+            }
+
+
+            if (checkBox2.Checked) {
+                Diferenciador_A = "externo";
+                BuscarID();
+                ID_A = Convert.ToInt32(varid) + 1;
+                CrearIdI();
+
+            }
+            if (checkBox1.Checked == false || checkBox2.Checked == false) {
+
+                MessageBox.Show("Se necesita elegir tippo de alumno para continuar");
+            }
+
+
+
+        }
+        void Agregar_Alumno() {
+
+
+
+            MessageBox.Show("creando Alumno");
+            BsonDocument Alumno = new BsonDocument
+                  {//informacion del alumno
+                    {"Id_A",ID_A},
+                    {"Nombre",textBox1.Text},
+                    {"Apellidos",textBox2.Text},
+                    {"Edad",textBox3.Text }
+
+                  };
+
+            BsonDocument DatosAlumno = Alumno;
+            
+            MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
+            var db = client.GetDatabase("sistemaescolar");
+            var usuarios = db.GetCollection<BsonDocument>("Alumnos");
+
+            usuarios.InsertOne(DatosAlumno);
+
+            MessageBox.Show("alumno creado");
+
+        }
+        //aqui creas el metodo Agregar_Direccion que va a conectar a la tabla Direccion_Alumno 
+        //importante copia el de id alumno
+
+
+        void limpiar() {
+            textBox1.Clear();
+            textBox2.Text = "";
+
+            checkBox1.Checked = false;
+        }
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
 
         }
     }

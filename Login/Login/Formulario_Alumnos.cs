@@ -12,7 +12,7 @@ namespace Login
 {
     public partial class Formulario_Alumnos : Form
     {
-        public static String Diferenciador_A = ""; 
+        
         public Formulario_Alumnos()
         {
             InitializeComponent();
@@ -23,18 +23,12 @@ namespace Login
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+       
+       
+        private void button6_Click(object sender, EventArgs e)
         {
-            Diferenciador_A = "Interno";
-            Formulario_Int_Ext fr2 = new Formulario_Int_Ext();
-            fr2.Show();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Diferenciador_A = "Externo";
-            Formulario_Int_Ext fr2 = new Formulario_Int_Ext();
-            fr2.Show();
+            Guardar_Alumno ga = new Guardar_Alumno();
+            ga.Show();
         }
     }
 }

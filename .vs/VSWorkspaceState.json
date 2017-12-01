@@ -2,8 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\Login",
-    "\\Login\\SistemaEscolar"
+    "\\Login\\Login"
   ],
-  "SelectedNode": "\\Login\\SistemaEscolar\\Inicio.Designer.cs",
+  "SelectedNode": "\\Login\\Login\\Profesores.Designer.cs",
   "PreviewInSolutionExplorer": false
 }
