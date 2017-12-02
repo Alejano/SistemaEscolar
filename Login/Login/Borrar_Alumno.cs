@@ -16,7 +16,7 @@ namespace Login
     {
         public static string clientesx = "";
 
-        public static string nombre = "";
+        public static int id= 0;
         public Borrar_Alumno()
         {
             InitializeComponent();
@@ -24,7 +24,9 @@ namespace Login
 
         void Baja_Alumno() {
 
-            nombre = textBox1.Text;
+
+           id = Convert.ToInt32(textBox1.Text);
+            
 
 
             MessageBox.Show("Preparando carga  ............");
@@ -34,15 +36,16 @@ namespace Login
             var borrar = db.GetCollection<BsonDocument>("Alumnos");
 
             //deleting single record
-            borrar.DeleteOneAsync(Builders<BsonDocument>.Filter.Eq("Nombre", nombre));
+            borrar.DeleteOneAsync(Builders<BsonDocument>.Filter.Eq("Id_A", id));
 
-            MessageBox.Show("cargando");
+            MessageBox.Show("borrado");
 
 
             clientesx = "";
 
 
         }
+
 
         private void Form2_Load(object sender, EventArgs e)
         {

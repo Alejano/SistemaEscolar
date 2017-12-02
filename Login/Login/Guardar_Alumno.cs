@@ -149,6 +149,8 @@ namespace Login
 
             usuarios.InsertOne(DatosAlumno);
 
+           
+            
             MessageBox.Show("alumno creado");
 
         }
