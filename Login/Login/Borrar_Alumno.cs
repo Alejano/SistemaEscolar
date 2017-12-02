@@ -7,14 +7,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MongoDB.Bson;
+using MongoDB.Driver;
 
 namespace Login
 {
     public partial class Borrar_Alumno : Form
     {
+        public static string clientesx = "";
+
+        public static string nombre = "";
         public Borrar_Alumno()
         {
             InitializeComponent();
+        }
+
+        void Baja_Alumno() {
+
+            nombre = textBox1.Text;
+
+
+            MessageBox.Show("Preparando carga  ............");
+
+            MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
+            var db = client.GetDatabase("sistemaescolar");
+            var borrar = db.GetCollection<BsonDocument>("Alumnos");
+
+            //deleting single record
+            borrar.DeleteOneAsync(Builders<BsonDocument>.Filter.Eq("Nombre", nombre));
+
+            MessageBox.Show("cargando");
+
+
+            clientesx = "";
+
+
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -24,8 +51,11 @@ namespace Login
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Guardar_Alumno ga = new Guardar_Alumno();
-            ga.Show();
+            Baja_Alumno();
+        }
+
+        
+
         }
     }
-}
+

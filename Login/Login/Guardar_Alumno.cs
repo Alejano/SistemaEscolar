@@ -15,7 +15,9 @@ namespace Login
     public partial class Guardar_Alumno : Form
     {
         public static String Diferenciador_A = "";
+       // public static int ID_A = 0;
         public Guardar_Alumno()
+         
         {
             InitializeComponent();
         }
@@ -28,7 +30,7 @@ namespace Login
         }
 
         static string varid = "";
-        static int ID_A = 0;
+       static int ID_A = 0;
 
         void BuscarID()
         {

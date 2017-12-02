@@ -30,5 +30,12 @@ namespace Login
             Guardar_Alumno ga = new Guardar_Alumno();
             ga.Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Borrar_Alumno ba = new Borrar_Alumno();
+            ba.Show();
+
+        }
     }
 }
