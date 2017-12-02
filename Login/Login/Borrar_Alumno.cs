@@ -22,11 +22,12 @@ namespace Login
             InitializeComponent();
         }
 
-        void Baja_Alumno() {
+        void Baja_Alumno()
+        {
 
 
-           id = Convert.ToInt32(textBox1.Text);
-            
+            id = Convert.ToInt32(textBox1.Text);
+
 
 
             MessageBox.Show("Preparando carga  ............");
@@ -39,12 +40,32 @@ namespace Login
             borrar.DeleteOneAsync(Builders<BsonDocument>.Filter.Eq("Id_A", id));
 
             MessageBox.Show("borrado");
+            Baja_Direccion();
 
-
-            clientesx = "";
-
-
+            
         }
+        
+         void Baja_Direccion() {
+                id = Convert.ToInt32(textBox1.Text);
+
+
+
+                MessageBox.Show("Preparando carga  para direccion............");
+
+                MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
+                var db = client.GetDatabase("sistemaescolar");
+                var borrar_direccion= db.GetCollection<BsonDocument>("Direccion_Alumno");
+
+                //deleting single record
+                borrar_direccion.DeleteOneAsync(Builders<BsonDocument>.Filter.Eq("Id_A", id));
+
+                MessageBox.Show("borrado direccion del alumno");
+
+
+               
+
+            }
+        
 
 
         private void Form2_Load(object sender, EventArgs e)
@@ -55,6 +76,7 @@ namespace Login
         private void button1_Click(object sender, EventArgs e)
         {
             Baja_Alumno();
+           
         }
 
         

@@ -60,6 +60,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actualizar_Alumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Actualizar_Alumno.Designer.cs">
+      <DependentUpon>Actualizar_Alumno.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administracion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     <Compile Include="Tipo_P.Designer.cs">
       <DependentUpon>Tipo_P.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Actualizar_Alumno.resx">
+      <DependentUpon>Actualizar_Alumno.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administracion.resx">
       <DependentUpon>Administracion.cs</DependentUpon>
     </EmbeddedResource>
