@@ -62,6 +62,8 @@ namespace Login
             groupBox1.Hide();
             groupBox2.Hide();
             groupBox3.Hide();
+            
+            
         }
         void limpiar()
         {
@@ -85,26 +87,26 @@ namespace Login
 
 
 
-            MessageBox.Show("creando Alumno");
-            BsonDocument Alumno = new BsonDocument
+            MessageBox.Show("creando Administrador");
+            BsonDocument Admin = new BsonDocument
                   {//informacion del alumno
                     {"Id_Adm",textBox1.Text},
                     {"Usuario",textBox2.Text },
-                    {"Contraseña",textBox3.Text }
-                   
+                    {"Contraseña",textBox3.Text },
+                    {"Nivel",comboBox1.Text }
 
 
                   };
 
-            BsonDocument DatosAlumno = Alumno;
+            BsonDocument DatosAdmin = Admin;
 
             MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
             var db = client.GetDatabase("sistemaescolar");
-            var usuarios = db.GetCollection<BsonDocument>("Alumnos");
+            var usuarios = db.GetCollection<BsonDocument>("Adm");
 
-            usuarios.InsertOne(DatosAlumno);
+            usuarios.InsertOne(DatosAdmin);
 
-            MessageBox.Show("alumno creado");
+            MessageBox.Show("Administrador creado");
 
         }
 
@@ -115,7 +117,28 @@ namespace Login
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Agregar_Admin();
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+           
+
+            MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
+            var db = client.GetDatabase("sistemaescolar");
+            var usuarios = db.GetCollection<BsonDocument>("Adm");
+
+            var updateFilter = Builders<BsonDocument>.Filter.Eq("Id_A", textBox4.Text);
+            var update = Builders<BsonDocument>.Update.Set("Id_A", textBox4.Text);
+
+            usuarios.UpdateOne(updateFilter, update);
+
+            MessageBox.Show("adm actualizado");
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+            
         }
     }
 }
