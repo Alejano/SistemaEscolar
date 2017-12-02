@@ -51,11 +51,11 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.Agregar.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -274,6 +274,32 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Actualizar";
             // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(180, 38);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(222, 20);
+            this.textBox4.TabIndex = 2;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(13, 41);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(150, 13);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Ingrese el ID del Administrador";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(327, 232);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "Actualizar";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label2);
@@ -293,38 +319,12 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "eliminar id";
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(327, 232);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Actualizar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(13, 41);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(150, 13);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Ingrese el ID del Administrador";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(180, 38);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(222, 20);
-            this.textBox4.TabIndex = 2;
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.63415F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.36585F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 73F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 74F));
             this.tableLayoutPanel1.Location = new System.Drawing.Point(532, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 15;
