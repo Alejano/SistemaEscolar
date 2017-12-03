@@ -19,14 +19,36 @@ namespace Login
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Profesores pr = new Profesores();
-            pr.Show();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Formulario_Alumnos FA = new Formulario_Alumnos();
-            FA.Show();
+            
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void crearToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Guardar_Alumno ga = new Guardar_Alumno();
+            ga.Show();
+
+        }
+
+        private void bajaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Borrar_Alumno ba = new Borrar_Alumno();
+            ba.Show();
+        }
+
+        private void altaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Tipo_P tp = new Tipo_P();
+            tp.Show();
         }
     }
 }

@@ -39,9 +39,9 @@ namespace Login
             MessageBox.Show("Cargando");
             MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
             var db = client.GetDatabase("sistemaescolar");
-            var Matricula = db.GetCollection<BsonDocument>("Adm_Matricula");
+            var Matriculas= db.GetCollection<BsonDocument>("Adm_Matricula");
 
-            Matricula.AsQueryable<BsonDocument>().ToList().ForEach(song =>
+            Matriculas.AsQueryable<BsonDocument>().ToList().ForEach(song =>
              varid = ( Convert.ToString(song["Id_A"]))
 
              );

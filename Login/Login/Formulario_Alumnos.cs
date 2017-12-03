@@ -27,18 +27,26 @@ namespace Login
        
         private void button6_Click(object sender, EventArgs e)
         {
-            Guardar_Alumno ga = new Guardar_Alumno();
-            ga.Show();
+           
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Borrar_Alumno ba = new Borrar_Alumno();
-            ba.Show();
+            
 
         }
 
         private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           // Agregar_Direccion();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
         {
 
         }
