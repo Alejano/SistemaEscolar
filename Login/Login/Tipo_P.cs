@@ -176,19 +176,21 @@ namespace Login
                 insertar();
                 limpiar();
             }
-            if (checkBox2.Checked)
-            {
-                t_profesor = "Externo";
-                BuscarID();
-                CrearIdI();
-                insertar();
-
-            }
             else
             {
-                MessageBox.Show("Selecciona si el profesor es interno o externo");
+                if (checkBox2.Checked)
+                {
+                    t_profesor = "Externo";
+                    BuscarID();
+                    CrearIdI();
+                    insertar();
+
+                }
+                else
+                {
+                    MessageBox.Show("Selecciona si el profesor es interno o externo");
+                }
             }
-            
 
 
 

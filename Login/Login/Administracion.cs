@@ -62,8 +62,21 @@ namespace Login
             groupBox1.Hide();
             groupBox2.Hide();
             groupBox3.Hide();
+            groupBox4.Hide();
+            button2.Hide();
+
             
-            
+
+            /*
+            MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
+            var db = client.GetDatabase("sistemaescolar");
+            var usuarios = db.GetCollection<BsonDocument>("Adm");
+
+
+            var filter_id = Builders<BsonDocument>.Filter.Eq("id", ObjectId.Parse("50ed4e7d5baffd13a44d0153"));
+            var entity = usuarios.Find(filter_id).FirstOrDefault();
+           MessageBox.Show( entity.ToString());
+            */
         }
         void limpiar()
         {
@@ -122,7 +135,11 @@ namespace Login
 
         private void button2_Click(object sender, EventArgs e)
         {
-           
+
+            
+
+
+            /*
 
             MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
             var db = client.GetDatabase("sistemaescolar");
@@ -134,11 +151,47 @@ namespace Login
             usuarios.UpdateOne(updateFilter, update);
 
             MessageBox.Show("adm actualizado");
+            */
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
             
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            
+            MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
+            var db = client.GetDatabase("sistemaescolar");
+            var usuarios = db.GetCollection<BsonDocument>("Adm");
+
+
+            var filter_id = Builders<BsonDocument>.Filter.Eq("Id_Adm", "14969660");
+            var entity = usuarios.Find(filter_id).FirstOrDefault();
+            MessageBox.Show(entity.ToString());
+
+            groupBox4.Show();
+            
+            
+            var DtAdm = entity.ToArray();
+            dataGridView1.Rows.Add(DtAdm[1]);
+            dataGridView1.Rows.Add(DtAdm[2]);
+            dataGridView1.Rows.Add(DtAdm[3]);
+            
+            button2.Show();
+
+
         }
     }
 }
