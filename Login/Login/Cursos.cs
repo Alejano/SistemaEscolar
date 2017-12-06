@@ -34,7 +34,7 @@ namespace Login
 
         private void cbCursos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            mostrarCurso = cbCursos.Text;.
+            mostrarCurso = cbCursos.Text;
 
         }
     }
