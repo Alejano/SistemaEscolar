@@ -56,5 +56,11 @@ namespace Login
             Cursos curso = new Cursos();
             curso.Show();
         }
+
+        private void actualizarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Actualizar_Alumno A = new Actualizar_Alumno();
+            A.Show();
+        }
     }
 }
