@@ -19,12 +19,12 @@ namespace Login
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -51,12 +51,10 @@ namespace Login
             tp.Show();
         }
 
-        private void actualizarToolStripMenuItem_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
-            Actualizar_Alumno A = new Actualizar_Alumno();
-            A.Show();
-        
+            Cursos curso = new Cursos();
+            curso.Show();
         }
     }
 }
-

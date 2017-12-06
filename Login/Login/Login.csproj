@@ -72,11 +72,11 @@
     <Compile Include="Administracion.Designer.cs">
       <DependentUpon>Administracion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Buscar_Todos_Alumnos.cs">
+    <Compile Include="Cursos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Buscar_Todos_Alumnos.Designer.cs">
-      <DependentUpon>Buscar_Todos_Alumnos.cs</DependentUpon>
+    <Compile Include="Cursos.Designer.cs">
+      <DependentUpon>Cursos.cs</DependentUpon>
     </Compile>
     <Compile Include="IniciarSesion.cs">
       <SubType>Form</SubType>
@@ -128,8 +128,8 @@
     <EmbeddedResource Include="Administracion.resx">
       <DependentUpon>Administracion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Buscar_Todos_Alumnos.resx">
-      <DependentUpon>Buscar_Todos_Alumnos.cs</DependentUpon>
+    <EmbeddedResource Include="Cursos.resx">
+      <DependentUpon>Cursos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IniciarSesion.resx">
       <DependentUpon>IniciarSesion.cs</DependentUpon>
@@ -174,9 +174,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
