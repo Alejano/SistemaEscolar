@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
+
 namespace Login
 {
     public partial class Administracion : Form
@@ -182,13 +183,16 @@ namespace Login
             MessageBox.Show(entity.ToString());
 
             groupBox4.Show();
-            
-            
+
+            string[] DtAdm = new string[10];
+       
+            DtAdm = js.Deserialize<string[]>(entity);
+            /*
             var DtAdm = entity.ToArray();
             dataGridView1.Rows.Add(DtAdm[1]);
             dataGridView1.Rows.Add(DtAdm[2]);
             dataGridView1.Rows.Add(DtAdm[3]);
-            
+            */
             button2.Show();
 
 
