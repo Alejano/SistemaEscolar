@@ -94,7 +94,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(147, 19);
             this.button2.TabIndex = 5;
-            this.button2.Text = "boton para empesar ";
+            this.button2.Text = "boton para empezar ";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
