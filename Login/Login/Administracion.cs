@@ -186,7 +186,7 @@ namespace Login
 
             string[] DtAdm = new string[10];
        
-            DtAdm = js.Deserialize<string[]>(entity);
+           
             /*
             var DtAdm = entity.ToArray();
             dataGridView1.Rows.Add(DtAdm[1]);
