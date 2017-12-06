@@ -50,5 +50,13 @@ namespace Login
             Tipo_P tp = new Tipo_P();
             tp.Show();
         }
+
+        private void actualizarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Actualizar_Alumno A = new Actualizar_Alumno();
+            A.Show();
+        
+        }
     }
 }
+
