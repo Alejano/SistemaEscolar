@@ -78,7 +78,7 @@ namespace Login
         void insertar()
         {
            
-            MessageBox.Show("Creando documento");
+            //MessageBox.Show("Creando Profesor");
             BsonDocument crearProf = new BsonDocument
                   {
                      {"Id_P",ID_P},
@@ -88,6 +88,7 @@ namespace Login
                      {"Amaterno",textBox3.Text},
                      {"fecha_nac",dateTimePicker3.Text},
                      {"Telefono",textBox5.Text},
+                     {"email",textBox4.Text},
                     
 
                   };
@@ -96,7 +97,7 @@ namespace Login
 
             //conexion
 
-            MessageBox.Show("Conectando ... ");
+            //MessageBox.Show("Conectando ... ");
             MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
             var db = client.GetDatabase("sistemaescolar");
             var usuarios = db.GetCollection<BsonDocument>("Profesores");
@@ -105,12 +106,12 @@ namespace Login
             usuarios.InsertOne(DatosProf);
             direccion();
             insertarcurso();
-            MessageBox.Show("Profesor Creado ...");
+           
         }
 
         void insertarcurso()
         {
-            MessageBox.Show("Creando Curso");
+        
             BsonDocument crearCurso = new BsonDocument
                   {
                      {"Id_P",ID_P},                 
@@ -135,7 +136,7 @@ namespace Login
             //Sintaxis para insertar un profesor
             usuarios.InsertOne(DatosCurso);
             direccion();
-            MessageBox.Show("Curso Creado ...");
+            
 
         }
 
@@ -156,7 +157,7 @@ namespace Login
 
             BsonDocument DireccionP = crearDireccion;
 
-            MessageBox.Show("Conectando ... ");
+         
             MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
             var db = client.GetDatabase("sistemaescolar");
             var usuarios = db.GetCollection<BsonDocument>("Direccion_Profesor");
@@ -166,39 +167,71 @@ namespace Login
 
         }
 
+       
+        
+
+      
+
         private void button1_Click(object sender, EventArgs e)
         {
-            if (checkBox1.Checked)
+            if (string.IsNullOrEmpty(textBox1.Text)&& string.IsNullOrEmpty(textBox2.Text) && string.IsNullOrEmpty(textBox3.Text)
+                && string.IsNullOrEmpty(textBox4.Text) && string.IsNullOrEmpty(textBox5.Text) && string.IsNullOrEmpty(textBox6.Text)
+                && string.IsNullOrEmpty(textBox7.Text) && string.IsNullOrEmpty(textBox8.Text) && string.IsNullOrEmpty(textBox9.Text)
+                && string.IsNullOrEmpty(textBox10.Text) && string.IsNullOrEmpty(textBox11.Text) && string.IsNullOrEmpty(textBox12.Text)
+                && string.IsNullOrEmpty(textBox13.Text) && string.IsNullOrEmpty(comboBox1.Text) && string.IsNullOrEmpty(comboBox2.Text))
             {
-                t_profesor = "interno";
-                BuscarID();
-                CrearIdI();
-                insertar();
-                limpiar();
+                MessageBox.Show("No puede dejar campos vacios");
             }
+
             else
             {
-                if (checkBox2.Checked)
+                if (MessageBox.Show("Seguro que deseas agregar este profesor?", "Agregando",
+           MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+           == DialogResult.Yes)
                 {
-                    t_profesor = "Externo";
-                    BuscarID();
-                    CrearIdI();
-                    insertar();
+                    if (checkBox1.Checked)
+                    {
+                        t_profesor = "interno";
+                        BuscarID();
+                        CrearIdI();
+                        insertar();
+                        limpiar();
+                    }
+                    else
+                    {
+                        if (checkBox2.Checked)
+                        {
+                            t_profesor = "Externo";
+                            BuscarID();
+                            CrearIdI();
+                            insertar();
 
+                        }
+                        else
+                        {
+                            MessageBox.Show("Selecciona si el profesor es interno o externo");
+                        }
+                    }
+
+                    MessageBox.Show("Profesor Creado");
                 }
-                else
-                {
-                    MessageBox.Show("Selecciona si el profesor es interno o externo");
-                }
-            }
+
+        }
+           
+            
 
 
 
         }
         void limpiar() {
+            checkBox1.Checked = false;
+            checkBox2.Checked = false;
 
 
         }
+
+        
+           
 
         private void label9_Click(object sender, EventArgs e)
         {
@@ -224,5 +257,28 @@ namespace Login
         {
 
         }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+               if (Char.IsLetter(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else if (Char.IsControl(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else if (Char.IsSeparator(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            
+           
+        }
     }
-}
+    }
+

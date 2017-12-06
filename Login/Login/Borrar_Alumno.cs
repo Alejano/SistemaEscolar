@@ -14,7 +14,7 @@ namespace Login
 {
     public partial class Borrar_Alumno : Form
     {
-        public static string clientesx = "";
+       
 
         public static int id= 0;
         public Borrar_Alumno()
@@ -26,18 +26,19 @@ namespace Login
         {
 
 
-            id = Convert.ToInt32(textBox1.Text);
+           id = Convert.ToInt32(textBox1.Text);
 
 
 
-            MessageBox.Show("Preparando carga  ............");
+            MessageBox.Show("BAJA ALUMNO  ............");
 
             MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
-            var db = client.GetDatabase("sistemaescolar");
-            var borrar = db.GetCollection<BsonDocument>("Alumnos");
+            var obten = client.GetDatabase("sistemaescolar");
+            var baja= obten.GetCollection<BsonDocument>("Alumnos");
 
-            //deleting single record
-            borrar.DeleteOneAsync(Builders<BsonDocument>.Filter.Eq("Id_A", id));
+           
+            baja.DeleteOneAsync(Builders<BsonDocument>.Filter.Eq("Id_A", id));
+            
 
             MessageBox.Show("borrado");
             Baja_Direccion();
@@ -46,18 +47,20 @@ namespace Login
         }
         
          void Baja_Direccion() {
-                id = Convert.ToInt32(textBox1.Text);
+
+                
+               id = Convert.ToInt32(textBox1.Text);
 
 
 
-                MessageBox.Show("Preparando carga  para direccion............");
+                MessageBox.Show("BAJA  DIRECCION............");
 
                 MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
                 var db = client.GetDatabase("sistemaescolar");
                 var borrar_direccion= db.GetCollection<BsonDocument>("Direccion_Alumno");
 
-                //deleting single record
                 borrar_direccion.DeleteOneAsync(Builders<BsonDocument>.Filter.Eq("Id_A", id));
+           
 
                 MessageBox.Show("borrado direccion del alumno");
 
@@ -75,12 +78,22 @@ namespace Login
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Baja_Alumno();
+
+            if (MessageBox.Show("Seguro que deseas eliminar?", "Eliminando",
+        MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        == DialogResult.Yes)
+            {
+                Baja_Alumno();
+                MessageBox.Show("Eliminado");
+            }
+            
            
         }
 
-        
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
 
         }
+    }
     }
 
