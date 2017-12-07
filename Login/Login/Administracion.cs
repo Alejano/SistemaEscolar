@@ -66,7 +66,7 @@ namespace Login
             groupBox2.Hide();
             groupBox3.Hide();
             groupBox4.Hide();
-            groupBox5.Hide();
+          //  groupBox5.Hide();
             button2.Hide();
 
             
@@ -140,10 +140,14 @@ namespace Login
         private void button2_Click(object sender, EventArgs e)
         {
             int longitud = 0;
-            if (MessageBox.Show("Seguro que deseas eliminar?", "Eliminando",
+            if (MessageBox.Show("Confirme para actualizar", "actualizando",
        MessageBoxButtons.YesNo, MessageBoxIcon.Question)
        == DialogResult.Yes)
             {
+
+
+
+
                 if (textBox7.Text == textBox8.Text)
                 {
                     longitud = textBox7.Text.Length;
@@ -163,11 +167,12 @@ namespace Login
                         */
 
 
+
                         BsonDocument Admin = new BsonDocument
                   {//informacion del alumno
                     {"Id_Adm",IDB},
                     {"Usuario",textBox5.Text },
-                    {"Contraseña",textBox7.Text },
+                    {"Contraseña",textBox8.Text },
                     {"Nivel",textBox6.Text }
 
 

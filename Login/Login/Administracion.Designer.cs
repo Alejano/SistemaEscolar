@@ -66,6 +66,10 @@
             this.Id_Adm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.Agregar.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -85,7 +89,7 @@
             this.Agregar.Location = new System.Drawing.Point(0, 0);
             this.Agregar.Name = "Agregar";
             this.Agregar.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.Agregar.Size = new System.Drawing.Size(98, 323);
+            this.Agregar.Size = new System.Drawing.Size(68, 323);
             this.Agregar.TabIndex = 0;
             this.Agregar.Text = "menuStrip1";
             this.Agregar.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.Agregar_ItemClicked);
@@ -96,7 +100,7 @@
             this.agregarNuevoToolStripMenuItem,
             this.actualizarToolStripMenuItem});
             this.agregarToolStripMenuItem.Name = "agregarToolStripMenuItem";
-            this.agregarToolStripMenuItem.Size = new System.Drawing.Size(85, 19);
+            this.agregarToolStripMenuItem.Size = new System.Drawing.Size(55, 19);
             this.agregarToolStripMenuItem.Text = "Agregar";
             this.agregarToolStripMenuItem.Click += new System.EventHandler(this.agregarToolStripMenuItem_Click);
             // 
@@ -120,7 +124,7 @@
             this.porIDToolStripMenuItem,
             this.porNombreToolStripMenuItem});
             this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(85, 19);
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(55, 19);
             this.eliminarToolStripMenuItem.Text = "Eliminar";
             // 
             // porIDToolStripMenuItem
@@ -144,26 +148,25 @@
             this.porNombreToolStripMenuItem1,
             this.porEdadToolStripMenuItem});
             this.buscarToolStripMenuItem.Name = "buscarToolStripMenuItem";
-            this.buscarToolStripMenuItem.Size = new System.Drawing.Size(85, 19);
+            this.buscarToolStripMenuItem.Size = new System.Drawing.Size(55, 19);
             this.buscarToolStripMenuItem.Text = "Buscar";
-            this.buscarToolStripMenuItem.Click += new System.EventHandler(this.buscarToolStripMenuItem_Click);
             // 
             // porIDToolStripMenuItem1
             // 
             this.porIDToolStripMenuItem1.Name = "porIDToolStripMenuItem1";
-            this.porIDToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.porIDToolStripMenuItem1.Size = new System.Drawing.Size(139, 22);
             this.porIDToolStripMenuItem1.Text = "Por ID";
             // 
             // porNombreToolStripMenuItem1
             // 
             this.porNombreToolStripMenuItem1.Name = "porNombreToolStripMenuItem1";
-            this.porNombreToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.porNombreToolStripMenuItem1.Size = new System.Drawing.Size(139, 22);
             this.porNombreToolStripMenuItem1.Text = "Por Nombre";
             // 
             // porEdadToolStripMenuItem
             // 
             this.porEdadToolStripMenuItem.Name = "porEdadToolStripMenuItem";
-            this.porEdadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.porEdadToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.porEdadToolStripMenuItem.Text = "Por Edad";
             // 
             // groupBox1
@@ -281,9 +284,9 @@
             this.groupBox2.Controls.Add(this.textBox4);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Location = new System.Drawing.Point(87, 24);
+            this.groupBox2.Location = new System.Drawing.Point(71, 24);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(426, 276);
+            this.groupBox2.Size = new System.Drawing.Size(442, 276);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Actualizar";
@@ -291,20 +294,23 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.label11);
+            this.groupBox4.Controls.Add(this.label10);
+            this.groupBox4.Controls.Add(this.textBox7);
+            this.groupBox4.Controls.Add(this.textBox8);
             this.groupBox4.Controls.Add(this.textBox6);
             this.groupBox4.Controls.Add(this.textBox5);
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Controls.Add(this.label8);
-            this.groupBox4.Location = new System.Drawing.Point(21, 86);
+            this.groupBox4.Location = new System.Drawing.Point(6, 80);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(262, 117);
+            this.groupBox4.Size = new System.Drawing.Size(430, 117);
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Administrador";
             // 
             // textBox6
             // 
-            this.textBox6.Enabled = false;
             this.textBox6.Location = new System.Drawing.Point(67, 65);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(26, 20);
@@ -312,7 +318,6 @@
             // 
             // textBox5
             // 
-            this.textBox5.Enabled = false;
             this.textBox5.Location = new System.Drawing.Point(67, 26);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(150, 20);
@@ -419,6 +424,38 @@
             this.Nivel.HeaderText = "Prioridad";
             this.Nivel.Name = "Nivel";
             // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(296, 29);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(119, 20);
+            this.textBox8.TabIndex = 7;
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(296, 64);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(119, 20);
+            this.textBox7.TabIndex = 8;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(229, 33);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(61, 13);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "Contraseña";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(183, 68);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(107, 13);
+            this.label11.TabIndex = 10;
+            this.label11.Text = "Confirmar contraseña";
+            // 
             // Administracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -489,5 +526,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Id_Adm;
         private System.Windows.Forms.DataGridViewTextBoxColumn Usuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nivel;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox8;
     }
 }
