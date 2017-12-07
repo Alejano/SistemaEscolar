@@ -44,8 +44,12 @@ namespace Login
             var entity = usuarios.Find(filter_id).FirstOrDefault();
             MessageBox.Show(entity.ToString());
 
-            string[] DtAdm = new string[10];
+            //string[] DtAdm = new string[10];
+            String DtAdmjson = entity.ToString();
+            char[] separador = { '"', '"' };
+            string[] DatosAdm = DtAdmjson.Split(separador);
 
+            dataGridView1.Rows.Add(DatosAdm[7], DatosAdm[11], DatosAdm[19]);
 
             /*
             var DtAdm = entity.ToArray();
@@ -53,7 +57,7 @@ namespace Login
             dataGridView1.Rows.Add(DtAdm[2]);
             dataGridView1.Rows.Add(DtAdm[3]);
             */
-            
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
