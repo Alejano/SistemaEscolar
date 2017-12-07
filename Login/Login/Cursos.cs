@@ -35,6 +35,29 @@ namespace Login
         private void cbCursos_SelectedIndexChanged(object sender, EventArgs e)
         {
             mostrarCurso = cbCursos.Text;
+            MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
+            var db = client.GetDatabase("sistemaescolar");
+            var usuarios = db.GetCollection<BsonDocument>("Cursos");
+
+
+            var filter_id = Builders<BsonDocument>.Filter.Eq("Curso", mostrarCurso);
+            var entity = usuarios.Find(filter_id).FirstOrDefault();
+            MessageBox.Show(entity.ToString());
+
+            string[] DtAdm = new string[10];
+
+
+            /*
+            var DtAdm = entity.ToArray();
+            dataGridView1.Rows.Add(DtAdm[1]);
+            dataGridView1.Rows.Add(DtAdm[2]);
+            dataGridView1.Rows.Add(DtAdm[3]);
+            */
+            
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }
