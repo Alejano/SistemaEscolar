@@ -327,7 +327,7 @@
             this.groupBox2.Controls.Add(this.label22);
             this.groupBox2.Location = new System.Drawing.Point(12, 225);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(602, 141);
+            this.groupBox2.Size = new System.Drawing.Size(724, 141);
             this.groupBox2.TabIndex = 30;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos Nuevos";

@@ -71,13 +71,15 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(698, 350);
+            this.button1.Location = new System.Drawing.Point(731, 424);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -117,7 +119,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(9, 350);
+            this.label17.Location = new System.Drawing.Point(9, 424);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(221, 13);
             this.label17.TabIndex = 34;
@@ -125,6 +127,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label21);
+            this.groupBox1.Controls.Add(this.textBox14);
             this.groupBox1.Controls.Add(this.textBox4);
             this.groupBox1.Controls.Add(this.label20);
             this.groupBox1.Controls.Add(this.dateTimePicker3);
@@ -151,7 +155,7 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Location = new System.Drawing.Point(12, 38);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(722, 185);
+            this.groupBox1.Size = new System.Drawing.Size(722, 198);
             this.groupBox1.TabIndex = 38;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Profesor";
@@ -201,11 +205,11 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(488, 57);
+            this.label12.Location = new System.Drawing.Point(471, 57);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(85, 13);
+            this.label12.Size = new System.Drawing.Size(102, 13);
             this.label12.TabIndex = 58;
-            this.label12.Text = "Numero de casa";
+            this.label12.Text = "Numero de domicilio";
             // 
             // label11
             // 
@@ -378,9 +382,9 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Location = new System.Drawing.Point(12, 229);
+            this.groupBox2.Location = new System.Drawing.Point(12, 252);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(805, 115);
+            this.groupBox2.Size = new System.Drawing.Size(805, 155);
             this.groupBox2.TabIndex = 39;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos Curso";
@@ -501,11 +505,29 @@
             this.label14.TabIndex = 44;
             this.label14.Text = "Fecha Inicio";
             // 
+            // textBox14
+            // 
+            this.textBox14.Location = new System.Drawing.Point(616, 155);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.PasswordChar = '*';
+            this.textBox14.Size = new System.Drawing.Size(100, 20);
+            this.textBox14.TabIndex = 65;
+            this.textBox14.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox14_KeyPress);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(539, 159);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(61, 13);
+            this.label21.TabIndex = 66;
+            this.label21.Text = "Contraseña";
+            // 
             // Tipo_P
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(829, 402);
+            this.ClientSize = new System.Drawing.Size(829, 459);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label17);
@@ -568,5 +590,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.Label label21;
     }
 }

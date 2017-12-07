@@ -264,5 +264,15 @@ namespace Login
         {
 
         }
+
+        private void textBox4_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox8_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
     }
 }

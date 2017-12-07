@@ -45,6 +45,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
+            this.Id_P = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -73,6 +75,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(123, 20);
             this.textBox1.TabIndex = 2;
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // label3
             // 
@@ -104,11 +107,11 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(48, 189);
+            this.label7.Location = new System.Drawing.Point(24, 189);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(34, 13);
+            this.label7.Size = new System.Drawing.Size(106, 13);
             this.label7.TabIndex = 7;
-            this.label7.Text = "Curso";
+            this.label7.Text = "Fecha de nacimiento";
             // 
             // textBox2
             // 
@@ -144,7 +147,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(344, 359);
+            this.button1.Location = new System.Drawing.Point(310, 356);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 13;
@@ -191,9 +194,12 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(434, 66);
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id_P,
+            this.Nombre});
+            this.dataGridView1.Location = new System.Drawing.Point(434, 54);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(301, 225);
+            this.dataGridView1.Size = new System.Drawing.Size(244, 302);
             this.dataGridView1.TabIndex = 17;
             // 
             // button2
@@ -205,6 +211,16 @@
             this.button2.Text = "Buscar";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // Id_P
+            // 
+            this.Id_P.HeaderText = "Id_P";
+            this.Id_P.Name = "Id_P";
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
             // 
             // Eliminar_Profesor
             // 
@@ -248,5 +264,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id_P;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
     }
 }

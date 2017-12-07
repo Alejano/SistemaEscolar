@@ -52,6 +52,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -66,10 +70,6 @@
             this.Id_Adm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.Agregar.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -309,6 +309,39 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Administrador";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(183, 68);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(107, 13);
+            this.label11.TabIndex = 10;
+            this.label11.Text = "Confirmar contraseña";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(229, 33);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(61, 13);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "Contraseña";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(296, 64);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(119, 20);
+            this.textBox7.TabIndex = 8;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(296, 29);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(119, 20);
+            this.textBox8.TabIndex = 7;
+            this.textBox8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox8_KeyPress);
+            // 
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(67, 65);
@@ -357,6 +390,7 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(150, 20);
             this.textBox4.TabIndex = 2;
+            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged_1);
             // 
             // label7
             // 
@@ -423,38 +457,6 @@
             // 
             this.Nivel.HeaderText = "Prioridad";
             this.Nivel.Name = "Nivel";
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(296, 29);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(119, 20);
-            this.textBox8.TabIndex = 7;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(296, 64);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(119, 20);
-            this.textBox7.TabIndex = 8;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(229, 33);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(61, 13);
-            this.label10.TabIndex = 9;
-            this.label10.Text = "Contraseña";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(183, 68);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(107, 13);
-            this.label11.TabIndex = 10;
-            this.label11.Text = "Confirmar contraseña";
             // 
             // Administracion
             // 

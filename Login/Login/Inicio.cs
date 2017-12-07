@@ -62,5 +62,16 @@ namespace Login
             Actualizar_Alumno A = new Actualizar_Alumno();
             A.Show();
         }
+
+        private void profesoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bajaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Eliminar_Profesor elp = new Eliminar_Profesor();
+            elp.Show();
+        }
     }
 }
