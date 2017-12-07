@@ -114,16 +114,26 @@ namespace Login
 
 
                   };
+            int longitud = textBox7.Text.Length;
+            if (textBox9.Text == textBox3.Text)
+            {
+                longitud = textBox3.Text.Length;
+                if (longitud >= 6)
+                {
 
-            BsonDocument DatosAdmin = Admin;
+                    BsonDocument DatosAdmin = Admin;
 
-            MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
-            var db = client.GetDatabase("sistemaescolar");
-            var usuarios = db.GetCollection<BsonDocument>("Adm");
+                    MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
+                    var db = client.GetDatabase("sistemaescolar");
+                    var usuarios = db.GetCollection<BsonDocument>("Adm");
 
-            usuarios.InsertOne(DatosAdmin);
+                    usuarios.InsertOne(DatosAdmin);
 
-            MessageBox.Show("Administrador creado");
+                    MessageBox.Show("Administrador creado");
+                }
+                else { MessageBox.Show("La contraseña debe tener minimo 6 caracteres"); }
+            }
+            else { MessageBox.Show("Contraseña no coincide"); }
 
         }
 
@@ -186,6 +196,7 @@ namespace Login
 
 
                         MessageBox.Show("adm actualizado");
+                        limpiarDatos();
                     }
                     else
                     {
@@ -265,14 +276,16 @@ namespace Login
 
         }
 
-        private void textBox4_TextChanged_1(object sender, EventArgs e)
+        void limpiarDatos()
         {
+            button2.Hide();
+            textBox4.Clear();
+            textBox5.Clear();
+            textBox6.Clear();
+            textBox7.Clear();
+            textBox8.Clear();
 
         }
 
-        private void textBox8_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
     }
 }
