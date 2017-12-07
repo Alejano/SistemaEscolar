@@ -176,8 +176,7 @@ namespace Login
             MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
             var db = client.GetDatabase("sistemaescolar");
             var usuarios = db.GetCollection<BsonDocument>("Adm");
-
-
+            
             var filter_id = Builders<BsonDocument>.Filter.Eq("Id_Adm", "14969660");
             var entity = usuarios.Find(filter_id).FirstOrDefault();
             MessageBox.Show(entity.ToString());
@@ -185,8 +184,7 @@ namespace Login
             groupBox4.Show();
 
             string[] DtAdm = new string[10];
-       
-           
+                  
             /*
             var DtAdm = entity.ToArray();
             dataGridView1.Rows.Add(DtAdm[1]);
@@ -195,6 +193,10 @@ namespace Login
             */
             button2.Show();
 
+            }
+
+        private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
 
         }
     }

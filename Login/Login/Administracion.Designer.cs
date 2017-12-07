@@ -51,27 +51,27 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button3 = new System.Windows.Forms.Button();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             this.Id_Adm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Agregar.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // Agregar
@@ -85,7 +85,7 @@
             this.Agregar.Location = new System.Drawing.Point(0, 0);
             this.Agregar.Name = "Agregar";
             this.Agregar.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.Agregar.Size = new System.Drawing.Size(68, 323);
+            this.Agregar.Size = new System.Drawing.Size(98, 323);
             this.Agregar.TabIndex = 0;
             this.Agregar.Text = "menuStrip1";
             this.Agregar.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.Agregar_ItemClicked);
@@ -96,7 +96,7 @@
             this.agregarNuevoToolStripMenuItem,
             this.actualizarToolStripMenuItem});
             this.agregarToolStripMenuItem.Name = "agregarToolStripMenuItem";
-            this.agregarToolStripMenuItem.Size = new System.Drawing.Size(55, 19);
+            this.agregarToolStripMenuItem.Size = new System.Drawing.Size(85, 19);
             this.agregarToolStripMenuItem.Text = "Agregar";
             this.agregarToolStripMenuItem.Click += new System.EventHandler(this.agregarToolStripMenuItem_Click);
             // 
@@ -120,7 +120,7 @@
             this.porIDToolStripMenuItem,
             this.porNombreToolStripMenuItem});
             this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(55, 19);
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(85, 19);
             this.eliminarToolStripMenuItem.Text = "Eliminar";
             // 
             // porIDToolStripMenuItem
@@ -144,25 +144,26 @@
             this.porNombreToolStripMenuItem1,
             this.porEdadToolStripMenuItem});
             this.buscarToolStripMenuItem.Name = "buscarToolStripMenuItem";
-            this.buscarToolStripMenuItem.Size = new System.Drawing.Size(55, 19);
+            this.buscarToolStripMenuItem.Size = new System.Drawing.Size(85, 19);
             this.buscarToolStripMenuItem.Text = "Buscar";
+            this.buscarToolStripMenuItem.Click += new System.EventHandler(this.buscarToolStripMenuItem_Click);
             // 
             // porIDToolStripMenuItem1
             // 
             this.porIDToolStripMenuItem1.Name = "porIDToolStripMenuItem1";
-            this.porIDToolStripMenuItem1.Size = new System.Drawing.Size(139, 22);
+            this.porIDToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.porIDToolStripMenuItem1.Text = "Por ID";
             // 
             // porNombreToolStripMenuItem1
             // 
             this.porNombreToolStripMenuItem1.Name = "porNombreToolStripMenuItem1";
-            this.porNombreToolStripMenuItem1.Size = new System.Drawing.Size(139, 22);
+            this.porNombreToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.porNombreToolStripMenuItem1.Text = "Por Nombre";
             // 
             // porEdadToolStripMenuItem
             // 
             this.porEdadToolStripMenuItem.Name = "porEdadToolStripMenuItem";
-            this.porEdadToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.porEdadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.porEdadToolStripMenuItem.Text = "Por Edad";
             // 
             // groupBox1
@@ -288,6 +289,63 @@
             this.groupBox2.Text = "Actualizar";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.textBox6);
+            this.groupBox4.Controls.Add(this.textBox5);
+            this.groupBox4.Controls.Add(this.label9);
+            this.groupBox4.Controls.Add(this.label8);
+            this.groupBox4.Location = new System.Drawing.Point(21, 86);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(262, 117);
+            this.groupBox4.TabIndex = 4;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Administrador";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Enabled = false;
+            this.textBox6.Location = new System.Drawing.Point(67, 65);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(26, 20);
+            this.textBox6.TabIndex = 6;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Enabled = false;
+            this.textBox5.Location = new System.Drawing.Point(67, 26);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(150, 20);
+            this.textBox5.TabIndex = 5;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(28, 68);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(31, 13);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "Nivel";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(15, 29);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(44, 13);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Nombre";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(345, 36);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(57, 23);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "Buscar";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(180, 38);
@@ -346,63 +404,6 @@
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(345, 36);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(57, 23);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Buscar";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.textBox6);
-            this.groupBox4.Controls.Add(this.textBox5);
-            this.groupBox4.Controls.Add(this.label9);
-            this.groupBox4.Controls.Add(this.label8);
-            this.groupBox4.Location = new System.Drawing.Point(21, 86);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(262, 117);
-            this.groupBox4.TabIndex = 4;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Administrador";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(15, 29);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(44, 13);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Nombre";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(28, 68);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(31, 13);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "Nivel";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Enabled = false;
-            this.textBox5.Location = new System.Drawing.Point(67, 26);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(150, 20);
-            this.textBox5.TabIndex = 5;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Enabled = false;
-            this.textBox6.Location = new System.Drawing.Point(67, 65);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(26, 20);
-            this.textBox6.TabIndex = 6;
-            // 
             // Id_Adm
             // 
             this.Id_Adm.HeaderText = "ID";
@@ -438,11 +439,11 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
