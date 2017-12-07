@@ -16,6 +16,8 @@ namespace Login
     public partial class Administracion : Form
     {
         int limp = 0;
+        string[] DatosAdm = new string[99];
+        string IDB = "";
         public Administracion()
         {
             InitializeComponent();
@@ -64,6 +66,7 @@ namespace Login
             groupBox2.Hide();
             groupBox3.Hide();
             groupBox4.Hide();
+            groupBox5.Hide();
             button2.Hide();
 
             
@@ -136,23 +139,60 @@ namespace Login
 
         private void button2_Click(object sender, EventArgs e)
         {
+            int longitud = 0;
+            if (MessageBox.Show("Seguro que deseas eliminar?", "Eliminando",
+       MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+       == DialogResult.Yes)
+            {
+                if (textBox7.Text == textBox8.Text)
+                {
+                    longitud = textBox7.Text.Length;
+                    if (longitud >= 6)
+                    {
+                        MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
+                        var db = client.GetDatabase("sistemaescolar");
+                        var usuarios = db.GetCollection<BsonDocument>("Adm");
 
-            
+                        usuarios.DeleteOneAsync(Builders<BsonDocument>.Filter.Eq("Id_Adm", IDB));
+
+                        /* update de un soloregistro
+                        var updateFilter = Builders<BsonDocument>.Filter.Eq("Nombre", DatosAdm[11]);
+                        var update = Builders<BsonDocument>.Update.Set("Nombre", textBox5.Text);
+
+                        usuarios.UpdateOne(updateFilter, update);
+                        */
 
 
-            /*
+                        BsonDocument Admin = new BsonDocument
+                  {//informacion del alumno
+                    {"Id_Adm",IDB},
+                    {"Usuario",textBox5.Text },
+                    {"Contraseña",textBox7.Text },
+                    {"Nivel",textBox6.Text }
 
-            MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
-            var db = client.GetDatabase("sistemaescolar");
-            var usuarios = db.GetCollection<BsonDocument>("Adm");
 
-            var updateFilter = Builders<BsonDocument>.Filter.Eq("Id_A", textBox4.Text);
-            var update = Builders<BsonDocument>.Update.Set("Id_A", textBox4.Text);
+                  };
 
-            usuarios.UpdateOne(updateFilter, update);
+                        BsonDocument DatosAdmin = Admin;
 
-            MessageBox.Show("adm actualizado");
-            */
+
+
+                        usuarios.InsertOne(DatosAdmin);
+
+
+                        MessageBox.Show("adm actualizado");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Debe tener mas de 6 caracteres");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Las contraseñas no coinsiden");
+                }
+
+            }
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -172,13 +212,15 @@ namespace Login
 
         private void button3_Click(object sender, EventArgs e)
         {
+           IDB=textBox4.Text;
             
+
             MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
             var db = client.GetDatabase("sistemaescolar");
             var usuarios = db.GetCollection<BsonDocument>("Adm");
 
 
-            var filter_id = Builders<BsonDocument>.Filter.Eq("Id_Adm", "14969660");
+            var filter_id = Builders<BsonDocument>.Filter.Eq("Id_Adm", textBox4.Text);
             var entity = usuarios.Find(filter_id).FirstOrDefault();
             MessageBox.Show(entity.ToString());
 
@@ -186,25 +228,35 @@ namespace Login
 
             String DtAdmjson = entity.ToString();
             char[] separador = { '"','"' };
-            string[] DatosAdm = DtAdmjson.Split(separador);
+            DatosAdm = DtAdmjson.Split(separador);
 
-            dataGridView1.Rows.Add(DatosAdm[7], DatosAdm[11], DatosAdm[19]);
-            /*
-            string dato = "registro No(123aA123)";
-            char[] separador = { '(', ')' };
-            string[] stringSeparado = dato.Split(separador);
-            MessageBox.Show(stringSeparado[1]);
-            */
-            // string[] DtAdm = new string[10];
+           // dataGridView1.Rows.Add(DatosAdm[7], DatosAdm[11], DatosAdm[19]);
 
-
-            /* 
-             var DtAdm = entity.ToArray();
-             dataGridView1.Rows.Add(DtAdm[1]);
-            */
+            textBox5.Text=DatosAdm[11];
+            textBox6.Text = DatosAdm[19];
 
             button2.Show();
 
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox5_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
 
         }
     }
