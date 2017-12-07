@@ -66,6 +66,12 @@
     <Compile Include="Actualizar_Alumno.Designer.cs">
       <DependentUpon>Actualizar_Alumno.cs</DependentUpon>
     </Compile>
+    <Compile Include="Actualizar_Profesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Actualizar_Profesor.Designer.cs">
+      <DependentUpon>Actualizar_Profesor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administracion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +136,9 @@
     </Compile>
     <EmbeddedResource Include="Actualizar_Alumno.resx">
       <DependentUpon>Actualizar_Alumno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Actualizar_Profesor.resx">
+      <DependentUpon>Actualizar_Profesor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion.resx">
       <DependentUpon>Administracion.cs</DependentUpon>

@@ -176,27 +176,35 @@ namespace Login
             MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
             var db = client.GetDatabase("sistemaescolar");
             var usuarios = db.GetCollection<BsonDocument>("Adm");
-            
+
+
             var filter_id = Builders<BsonDocument>.Filter.Eq("Id_Adm", "14969660");
             var entity = usuarios.Find(filter_id).FirstOrDefault();
             MessageBox.Show(entity.ToString());
 
             groupBox4.Show();
 
-            string[] DtAdm = new string[10];
-                  
+            String DtAdmjson = entity.ToString();
+            char[] separador = { '"','"' };
+            string[] DatosAdm = DtAdmjson.Split(separador);
+
+            dataGridView1.Rows.Add(DatosAdm[7], DatosAdm[11], DatosAdm[19]);
             /*
-            var DtAdm = entity.ToArray();
-            dataGridView1.Rows.Add(DtAdm[1]);
-            dataGridView1.Rows.Add(DtAdm[2]);
-            dataGridView1.Rows.Add(DtAdm[3]);
+            string dato = "registro No(123aA123)";
+            char[] separador = { '(', ')' };
+            string[] stringSeparado = dato.Split(separador);
+            MessageBox.Show(stringSeparado[1]);
             */
+            // string[] DtAdm = new string[10];
+
+
+            /* 
+             var DtAdm = entity.ToArray();
+             dataGridView1.Rows.Add(DtAdm[1]);
+            */
+
             button2.Show();
 
-            }
-
-        private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
 
         }
     }

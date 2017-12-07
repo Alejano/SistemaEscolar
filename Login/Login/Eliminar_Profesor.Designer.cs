@@ -144,12 +144,13 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(346, 368);
+            this.button1.Location = new System.Drawing.Point(344, 359);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 13;
             this.button1.Text = "Eliminar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox7
             // 
@@ -203,6 +204,7 @@
             this.button2.TabIndex = 18;
             this.button2.Text = "Buscar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Eliminar_Profesor
             // 
