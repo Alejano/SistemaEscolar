@@ -51,6 +51,26 @@ namespace Login
 
         private void Eliminar_Profesor_Load(object sender, EventArgs e)
         {
+            button1.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
+            var db = client.GetDatabase("sistemaescolar");
+            var usuarios = db.GetCollection<BsonDocument>("Profesores");
+
+
+            var filter_id = Builders<BsonDocument>.Filter.Eq("Id_P", textBox1.Text);
+            var entity = usuarios.Find(filter_id).FirstOrDefault();
+            MessageBox.Show(entity.ToString());
+
+            button1.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
 
         }
     }
