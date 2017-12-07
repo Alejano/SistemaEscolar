@@ -184,15 +184,25 @@ namespace Login
 
             groupBox4.Show();
 
-            string[] DtAdm = new string[10];
-       
-           
+            String DtAdmjson = entity.ToString();
+            char[] separador = { '"','"' };
+            string[] DatosAdm = DtAdmjson.Split(separador);
+
+            dataGridView1.Rows.Add(DatosAdm[8], DatosAdm[12], DatosAdm[19]);
             /*
-            var DtAdm = entity.ToArray();
-            dataGridView1.Rows.Add(DtAdm[1]);
-            dataGridView1.Rows.Add(DtAdm[2]);
-            dataGridView1.Rows.Add(DtAdm[3]);
+            string dato = "registro No(123aA123)";
+            char[] separador = { '(', ')' };
+            string[] stringSeparado = dato.Split(separador);
+            MessageBox.Show(stringSeparado[1]);
             */
+            // string[] DtAdm = new string[10];
+
+
+            /* 
+             var DtAdm = entity.ToArray();
+             dataGridView1.Rows.Add(DtAdm[1]);
+            */
+
             button2.Show();
 
 
