@@ -188,7 +188,7 @@ namespace Login
             char[] separador = { '"','"' };
             string[] DatosAdm = DtAdmjson.Split(separador);
 
-            dataGridView1.Rows.Add(DatosAdm[8], DatosAdm[12], DatosAdm[19]);
+            dataGridView1.Rows.Add(DatosAdm[7], DatosAdm[11], DatosAdm[19]);
             /*
             string dato = "registro No(123aA123)";
             char[] separador = { '(', ')' };
