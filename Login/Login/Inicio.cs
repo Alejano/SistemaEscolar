@@ -12,6 +12,8 @@ namespace Login
 {
     public partial class Inicio : Form
     {
+        public TimeSpanConverter tiempo;
+    
         public Inicio()
         {
             InitializeComponent();
@@ -53,6 +55,7 @@ namespace Login
 
         private void button3_Click(object sender, EventArgs e)
         {
+
             Cursos curso = new Cursos();
             curso.Show();
         }
@@ -73,5 +76,13 @@ namespace Login
             Eliminar_Profesor elp = new Eliminar_Profesor();
             elp.Show();
         }
+        
+        //Para la hora actual
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            textBox1.Text = Convert.ToString(DateTime.Now.TimeOfDay);
+        }
     }
+        
 }
