@@ -409,7 +409,7 @@ namespace Login
         {
             limp = 5;
             Limpiar();
-            MessageBox.Show("Buscar por ID");
+            //MessageBox.Show("Buscar por ID");
             groupBox7.Show();
         }
 
