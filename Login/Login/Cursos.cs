@@ -43,6 +43,20 @@ namespace Login
             curso.AsQueryable<BsonDocument>().ToList().ForEach(song =>
             cbCursos.Items.Add(nombreCurso + Convert.ToString(song["Curso"]))
             );
+            if (rbActualizar.Checked)
+            {
+                
+                gpActualizar.Visible = true;
+
+            }
+            else if (rbEliminar.Checked)
+            {
+                gpActualizar.Visible = false;
+            }
+            else
+            {
+                gpActualizar.Visible = false;
+            }
         }
 
         private void cbCursos_SelectedIndexChanged(object sender, EventArgs e)
@@ -62,9 +76,9 @@ namespace Login
             String DtAdmjson = entity.ToString();
             char[] separador = { '"', '"' };
             //dataGridView1.Rows.Add(DtAdmjson.Split(separador));
-            //string[] DatosAdm = DtAdmjson.Split(separador);
+            string[] DatosAdm = DtAdmjson.Split(separador);
 
-            //dataGridView1.Rows.Add(DatosAdm[7], DatosAdm[11], DatosAdm[19]);
+            dataGridView1.Rows.Add(DatosAdm[14]);
             
             /*
             var DtAdm = entity.ToArray();

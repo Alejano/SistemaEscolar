@@ -37,8 +37,13 @@
             this.gpActualizar = new System.Windows.Forms.GroupBox();
             this.rbActualizar = new System.Windows.Forms.RadioButton();
             this.rbEliminar = new System.Windows.Forms.RadioButton();
+            this.cbFeInicio = new System.Windows.Forms.CheckBox();
+            this.cbFeFin = new System.Windows.Forms.CheckBox();
+            this.cbHorario = new System.Windows.Forms.CheckBox();
+            this.cbDias = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.gbOpCRUD.SuspendLayout();
+            this.gpActualizar.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbCursos
@@ -96,6 +101,10 @@
             // 
             // gpActualizar
             // 
+            this.gpActualizar.Controls.Add(this.cbDias);
+            this.gpActualizar.Controls.Add(this.cbHorario);
+            this.gpActualizar.Controls.Add(this.cbFeFin);
+            this.gpActualizar.Controls.Add(this.cbFeInicio);
             this.gpActualizar.Location = new System.Drawing.Point(6, 53);
             this.gpActualizar.Name = "gpActualizar";
             this.gpActualizar.Size = new System.Drawing.Size(354, 187);
@@ -124,6 +133,46 @@
             this.rbEliminar.Text = "Eliminar";
             this.rbEliminar.UseVisualStyleBackColor = true;
             // 
+            // cbFeInicio
+            // 
+            this.cbFeInicio.AutoSize = true;
+            this.cbFeInicio.Location = new System.Drawing.Point(7, 20);
+            this.cbFeInicio.Name = "cbFeInicio";
+            this.cbFeInicio.Size = new System.Drawing.Size(87, 17);
+            this.cbFeInicio.TabIndex = 0;
+            this.cbFeInicio.Text = "Fecha Inicio:";
+            this.cbFeInicio.UseVisualStyleBackColor = true;
+            // 
+            // cbFeFin
+            // 
+            this.cbFeFin.AutoSize = true;
+            this.cbFeFin.Location = new System.Drawing.Point(6, 64);
+            this.cbFeFin.Name = "cbFeFin";
+            this.cbFeFin.Size = new System.Drawing.Size(100, 17);
+            this.cbFeFin.TabIndex = 0;
+            this.cbFeFin.Text = "Fecha Termino:";
+            this.cbFeFin.UseVisualStyleBackColor = true;
+            // 
+            // cbHorario
+            // 
+            this.cbHorario.AutoSize = true;
+            this.cbHorario.Location = new System.Drawing.Point(6, 102);
+            this.cbHorario.Name = "cbHorario";
+            this.cbHorario.Size = new System.Drawing.Size(63, 17);
+            this.cbHorario.TabIndex = 0;
+            this.cbHorario.Text = "Horario:";
+            this.cbHorario.UseVisualStyleBackColor = true;
+            // 
+            // cbDias
+            // 
+            this.cbDias.AutoSize = true;
+            this.cbDias.Location = new System.Drawing.Point(6, 144);
+            this.cbDias.Name = "cbDias";
+            this.cbDias.Size = new System.Drawing.Size(50, 17);
+            this.cbDias.TabIndex = 0;
+            this.cbDias.Text = "Dias:";
+            this.cbDias.UseVisualStyleBackColor = true;
+            // 
             // Cursos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -139,6 +188,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.gbOpCRUD.ResumeLayout(false);
             this.gbOpCRUD.PerformLayout();
+            this.gpActualizar.ResumeLayout(false);
+            this.gpActualizar.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -155,5 +206,9 @@
         private System.Windows.Forms.RadioButton rbEliminar;
         private System.Windows.Forms.RadioButton rbActualizar;
         private System.Windows.Forms.GroupBox gpActualizar;
+        private System.Windows.Forms.CheckBox cbDias;
+        private System.Windows.Forms.CheckBox cbHorario;
+        private System.Windows.Forms.CheckBox cbFeFin;
+        private System.Windows.Forms.CheckBox cbFeInicio;
     }
 }
