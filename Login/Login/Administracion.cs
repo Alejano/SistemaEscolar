@@ -31,7 +31,7 @@ namespace Login
         private void agregarNuevoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             limp = 1;
-            limpiar();
+            Limpiar();
             MessageBox.Show("se agregara uno nuevo");
             groupBox1.Show();
 
@@ -41,7 +41,7 @@ namespace Login
         private void actualizarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             limp = 2;
-            limpiar();
+            Limpiar();
             MessageBox.Show("se actualizara uno ");
             groupBox2.Show();
         }
@@ -49,7 +49,7 @@ namespace Login
         private void porIDToolStripMenuItem_Click(object sender, EventArgs e)
         {
             limp = 3;
-            limpiar();
+            Limpiar();
             MessageBox.Show("se eliminara por id");
             groupBox3.Show();
 
@@ -66,23 +66,24 @@ namespace Login
             groupBox2.Hide();
             groupBox3.Hide();
             groupBox4.Hide();
-          //  groupBox5.Hide();
             button2.Hide();
+            button5.Hide();
 
             
 
-            /*
+            
             MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
             var db = client.GetDatabase("sistemaescolar");
             var usuarios = db.GetCollection<BsonDocument>("Adm");
 
+            usuarios.AsQueryable<BsonDocument>().ToList().ForEach(song =>
+            dataGridView1.Rows.Add(Convert.ToString(song["Id_Adm"]) , Convert.ToString(song["Usuario"]), Convert.ToString(song["Nivel"]))
+            ); 
 
-            var filter_id = Builders<BsonDocument>.Filter.Eq("id", ObjectId.Parse("50ed4e7d5baffd13a44d0153"));
-            var entity = usuarios.Find(filter_id).FirstOrDefault();
-           MessageBox.Show( entity.ToString());
-            */
+
         }
-        void limpiar()
+       
+        void Limpiar()
         {
             if (limp == 1) { groupBox2.Hide(); groupBox3.Hide(); }
             if (limp == 2) { groupBox1.Hide(); groupBox3.Hide(); }
@@ -130,6 +131,8 @@ namespace Login
                     usuarios.InsertOne(DatosAdmin);
 
                     MessageBox.Show("Administrador creado");
+                    limpiarDatos();
+                    Actualizar();
                 }
                 else { MessageBox.Show("La contraseña debe tener minimo 6 caracteres"); }
             }
@@ -169,14 +172,7 @@ namespace Login
 
                         usuarios.DeleteOneAsync(Builders<BsonDocument>.Filter.Eq("Id_Adm", IDB));
 
-                        /* update de un soloregistro
-                        var updateFilter = Builders<BsonDocument>.Filter.Eq("Nombre", DatosAdm[11]);
-                        var update = Builders<BsonDocument>.Update.Set("Nombre", textBox5.Text);
-
-                        usuarios.UpdateOne(updateFilter, update);
-                        */
-
-
+ 
 
                         BsonDocument Admin = new BsonDocument
                   {//informacion del alumno
@@ -195,8 +191,11 @@ namespace Login
                         usuarios.InsertOne(DatosAdmin);
 
 
-                        MessageBox.Show("adm actualizado");
+                        MessageBox.Show("Administrador actualizado");
                         limpiarDatos();
+                        Actualizar();
+                        groupBox4.Hide();
+                        
                     }
                     else
                     {
@@ -279,13 +278,84 @@ namespace Login
         void limpiarDatos()
         {
             button2.Hide();
+            button5.Hide();
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
             textBox4.Clear();
             textBox5.Clear();
             textBox6.Clear();
             textBox7.Clear();
             textBox8.Clear();
+            textBox9.Clear();
+            textBox10.Clear();
+            textBox11.Clear();
+            textBox12.Clear();
+
 
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            button5.Show();
+
+            IDB = textBox10.Text;
+
+
+            MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
+            var db = client.GetDatabase("sistemaescolar");
+            var usuarios = db.GetCollection<BsonDocument>("Adm");
+
+
+            var filter_id = Builders<BsonDocument>.Filter.Eq("Id_Adm",IDB);
+            var entity = usuarios.Find(filter_id).FirstOrDefault();
+            MessageBox.Show(entity.ToString());
+
+            groupBox4.Show();
+
+            String DtAdmjson = entity.ToString();
+            char[] separador = { '"', '"' };
+            DatosAdm = DtAdmjson.Split(separador);
+
+         
+            textBox11.Text = DatosAdm[7];
+            textBox12.Text = DatosAdm[11];
+            textBox13.Text = DatosAdm[19];
+
+            button2.Show();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+           
+            if (MessageBox.Show("Seguro que desea Eliminar?", "Eliminar",
+       MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+       == DialogResult.Yes)
+            {
+                IDB = textBox10.Text;
+                MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
+                var db = client.GetDatabase("sistemaescolar");
+                var usuarios = db.GetCollection<BsonDocument>("Adm");
+
+                usuarios.DeleteOneAsync(Builders<BsonDocument>.Filter.Eq("Id_Adm", IDB));
+                Actualizar();
+                limpiarDatos();
+            }
+
+        }
+
+        void Actualizar()
+        {
+
+            dataGridView1.Rows.Clear();
+
+            MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
+            var db = client.GetDatabase("sistemaescolar");
+            var usuarios = db.GetCollection<BsonDocument>("Adm");
+
+            usuarios.AsQueryable<BsonDocument>().ToList().ForEach(song =>
+            dataGridView1.Rows.Add(Convert.ToString(song["Id_Adm"]), Convert.ToString(song["Usuario"]), Convert.ToString(song["Nivel"]))
+            );
+        }
     }
 }

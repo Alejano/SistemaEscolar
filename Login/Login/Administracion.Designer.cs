@@ -39,6 +39,8 @@
             this.porNombreToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.porEdadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -51,6 +53,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -65,18 +71,23 @@
             this.Id_Adm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.Agregar.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // Agregar
@@ -130,7 +141,7 @@
             // porIDToolStripMenuItem
             // 
             this.porIDToolStripMenuItem.Name = "porIDToolStripMenuItem";
-            this.porIDToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.porIDToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.porIDToolStripMenuItem.Text = "Por ID";
             this.porIDToolStripMenuItem.Click += new System.EventHandler(this.porIDToolStripMenuItem_Click);
             // 
@@ -176,13 +187,29 @@
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(87, 40);
+            this.groupBox1.Location = new System.Drawing.Point(71, 23);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(426, 253);
+            this.groupBox1.Size = new System.Drawing.Size(442, 277);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Agregar Administrador";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(244, 124);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(86, 20);
+            this.textBox9.TabIndex = 13;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(130, 127);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(108, 13);
+            this.label12.TabIndex = 12;
+            this.label12.Text = "Confirmar Contraseña";
             // 
             // button1
             // 
@@ -304,6 +331,38 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Administrador";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(183, 68);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(107, 13);
+            this.label11.TabIndex = 10;
+            this.label11.Text = "Confirmar contraseña";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(229, 33);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(61, 13);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "Contraseña";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(296, 64);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(119, 20);
+            this.textBox7.TabIndex = 8;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(296, 29);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(119, 20);
+            this.textBox8.TabIndex = 7;
+            // 
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(67, 65);
@@ -374,10 +433,14 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.button5);
+            this.groupBox3.Controls.Add(this.button4);
+            this.groupBox3.Controls.Add(this.groupBox5);
+            this.groupBox3.Controls.Add(this.textBox10);
             this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Location = new System.Drawing.Point(75, 12);
+            this.groupBox3.Location = new System.Drawing.Point(71, 23);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(432, 288);
+            this.groupBox3.Size = new System.Drawing.Size(442, 277);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Eliminar por ID";
@@ -393,6 +456,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowDrop = true;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id_Adm,
@@ -400,7 +464,8 @@
             this.Nivel});
             this.dataGridView1.Location = new System.Drawing.Point(519, 24);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(313, 150);
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(313, 276);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -419,53 +484,98 @@
             this.Nivel.HeaderText = "Prioridad";
             this.Nivel.Name = "Nivel";
             // 
-            // textBox8
+            // textBox10
             // 
-            this.textBox8.Location = new System.Drawing.Point(296, 29);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(119, 20);
-            this.textBox8.TabIndex = 7;
+            this.textBox10.Location = new System.Drawing.Point(119, 23);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(113, 20);
+            this.textBox10.TabIndex = 1;
             // 
-            // textBox7
+            // groupBox5
             // 
-            this.textBox7.Location = new System.Drawing.Point(296, 64);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(119, 20);
-            this.textBox7.TabIndex = 8;
+            this.groupBox5.Controls.Add(this.textBox13);
+            this.groupBox5.Controls.Add(this.label16);
+            this.groupBox5.Controls.Add(this.textBox12);
+            this.groupBox5.Controls.Add(this.textBox11);
+            this.groupBox5.Controls.Add(this.label15);
+            this.groupBox5.Controls.Add(this.label14);
+            this.groupBox5.Location = new System.Drawing.Point(30, 92);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(345, 124);
+            this.groupBox5.TabIndex = 3;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Datos del usuario a borrar";
             // 
-            // label10
+            // textBox13
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(229, 33);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(61, 13);
-            this.label10.TabIndex = 9;
-            this.label10.Text = "Contraseña";
+            this.textBox13.Enabled = false;
+            this.textBox13.Location = new System.Drawing.Point(308, 49);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(32, 20);
+            this.textBox13.TabIndex = 14;
             // 
-            // label11
+            // label16
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(183, 68);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(107, 13);
-            this.label11.TabIndex = 10;
-            this.label11.Text = "Confirmar contraseña";
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(213, 52);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(89, 13);
+            this.label16.TabIndex = 13;
+            this.label16.Text = "Nivel de prioridad";
             // 
-            // label12
+            // textBox12
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(130, 127);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(108, 13);
-            this.label12.TabIndex = 12;
-            this.label12.Text = "Confirmar Contraseña";
+            this.textBox12.Enabled = false;
+            this.textBox12.Location = new System.Drawing.Point(53, 63);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(113, 20);
+            this.textBox12.TabIndex = 12;
             // 
-            // textBox9
+            // textBox11
             // 
-            this.textBox9.Location = new System.Drawing.Point(244, 124);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(86, 20);
-            this.textBox9.TabIndex = 13;
+            this.textBox11.Enabled = false;
+            this.textBox11.Location = new System.Drawing.Point(53, 35);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(113, 20);
+            this.textBox11.TabIndex = 11;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(3, 66);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(43, 13);
+            this.label15.TabIndex = 10;
+            this.label15.Text = "Usuario";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(16, 39);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(18, 13);
+            this.label14.TabIndex = 9;
+            this.label14.Text = "ID";
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(246, 21);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 4;
+            this.button4.Text = "Buscar";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(345, 233);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 5;
+            this.button5.Text = "Eliminar";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // Administracion
             // 
@@ -492,6 +602,8 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -542,5 +654,15 @@
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
     }
 }
