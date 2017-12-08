@@ -445,8 +445,19 @@ namespace Login
             longitud = textBox14.Text.Length;
             if (longitud < 6)
             {
-                MessageBox.Show("Contraseña demasiado debil");
+                //MessageBox.Show("Contraseña demasiado debil");
+                label22.Text = "Contraseña demasiado debil";
             }
+        }
+
+        private void textBox14_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
