@@ -86,5 +86,11 @@ namespace Login
         {
 
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DateTime tiempoHoy = DateTime.Now;
+            label4.Text = tiempoHoy.ToString();
+        }
     }
 }
