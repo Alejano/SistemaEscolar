@@ -18,6 +18,7 @@ namespace Login
         int limp = 0;
         string[] DatosAdm = new string[99];
         string IDB = "";
+        static int ID_adm =0;
         public Administracion()
         {
             InitializeComponent();
@@ -34,6 +35,7 @@ namespace Login
             Limpiar();
             //MessageBox.Show("se agregara uno nuevo");
             groupBox1.Show();
+            Obtenerid();
 
 
         }
@@ -62,6 +64,7 @@ namespace Login
 
         private void Administracion_Load(object sender, EventArgs e)
         {
+           
             groupBox1.Hide();
             groupBox2.Hide();
             groupBox3.Hide();
@@ -108,6 +111,7 @@ namespace Login
 
 
 
+            
             MessageBox.Show("creando Administrador");
             BsonDocument Admin = new BsonDocument
                   {//informacion del alumno
@@ -153,6 +157,21 @@ namespace Login
             Agregar_Admin();
         }
 
+        void Obtenerid()
+        {
+            MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
+            var db = client.GetDatabase("sistemaescolar");
+            var usuarios = db.GetCollection<BsonDocument>("Adm");
+
+            usuarios.AsQueryable<BsonDocument>().ToList().ForEach(song =>
+          ID_adm = Convert.ToInt32(song["Id_Adm"])
+           );
+
+            ID_adm = ID_adm+1;
+            textBox1.Text = Convert.ToString(ID_adm);
+
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             int longitud = 0;
@@ -160,8 +179,6 @@ namespace Login
        MessageBoxButtons.YesNo, MessageBoxIcon.Question)
        == DialogResult.Yes)
             {
-
-
 
 
                 if (textBox7.Text == textBox8.Text)

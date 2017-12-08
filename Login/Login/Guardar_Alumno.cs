@@ -29,7 +29,7 @@ namespace Login
 
         }
 
-        static string varid = "";
+      
        static int ID_A = 0;
 
         void BuscarID()
@@ -42,80 +42,62 @@ namespace Login
             var Matriculas= db.GetCollection<BsonDocument>("Adm_Matricula");
 
             Matriculas.AsQueryable<BsonDocument>().ToList().ForEach(song =>
-             varid = ( Convert.ToString(song["Id_A"]))
+            ID_A=Convert.ToInt32(song["Id_A"])
 
              );
 
 
 
-            MessageBox.Show("Succeful"+varid);
+           
         }
         
-        void CrearIdI()
-        {
-           
-            MessageBox.Show("creando id");
-            BsonDocument crear_id = new BsonDocument
-                  {
-                     {"Id_A",ID_A},
-                     
-                     
-                  };
-
-            BsonDocument Datosid = crear_id;
-            
-            MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
-            var db = client.GetDatabase("sistemaescolar");
-            var usuarios = db.GetCollection<BsonDocument>("Adm_Matricula");
-
-            var updateFilter = Builders<BsonDocument>.Filter.Eq("Id_A", Convert.ToInt32(varid));
-            var update = Builders<BsonDocument>.Update.Set("Id_A", ID_A);
-
-            usuarios.UpdateOne(updateFilter, update);
-
-            MessageBox.Show("id creado");
-
-        }
+      
 
         private void button1_Click(object sender, EventArgs e)
         {
 
-           
 
-            if (checkBox1.Checked) {
+
+            if (checkBox1.Checked)
+            {
+                
                 Diferenciador_A = "interno";
                 BuscarID();
-                ID_A = Convert.ToInt32(varid) + 1;
-                CrearIdI();
+                ID_A = ID_A + 1;
                 Agregar_Alumno();
                 Agregar_Direccion();
                 MessageBox.Show("El alumno " + Diferenciador_A + " Se guardo en la base correctamente");
-              
-                
+
+
             }
-
-
-            if (checkBox2.Checked)
+            else
             {
-                Diferenciador_A = "externo";
-                BuscarID();
-                ID_A = Convert.ToInt32(varid) + 1;
-                CrearIdI();
-                Agregar_Alumno();
-                Agregar_Direccion();
-                MessageBox.Show("El alumno " + Diferenciador_A + " Se guardo en la base correctamente");
-                
 
 
-            } else {
+                if (checkBox2.Checked)
+                {
+                    
+                    Diferenciador_A = "externo";
+                    BuscarID();
+                    ID_A = ID_A + 1;
+                    Agregar_Alumno();
+                    Agregar_Direccion();
+                    MessageBox.Show("El alumno " + Diferenciador_A + " Se guardo en la base correctamente");
 
-                if (checkBox1.Checked == false || checkBox2.Checked == false)
+
+
+                }
+                else
                 {
 
-                    MessageBox.Show("Se necesita elegir tipo de alumno para continuar");
-                }
+                    if (checkBox1.Checked == false || checkBox2.Checked == false)
+                    {
 
-                limpiar();
+                        MessageBox.Show("Se necesita elegir tipo de alumno para continuar");
+                    }
+
+                    limpiar();
+                }
             }
 
 
@@ -270,7 +252,7 @@ namespace Login
 
         private void textBox6_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter))
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter) && (e.KeyChar != (char)Keys.Space))
             {
                 MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
@@ -280,7 +262,7 @@ namespace Login
 
         private void textBox7_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter))
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter) && (e.KeyChar != (char)Keys.Space))
             {
                 MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
@@ -290,7 +272,7 @@ namespace Login
 
         private void textBox8_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter))
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter) && (e.KeyChar != (char)Keys.Space))
             {
                 MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
@@ -320,7 +302,7 @@ namespace Login
 
         private void textBox11_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter))
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter) && (e.KeyChar != (char)Keys.Space))
             {
                 MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
@@ -330,12 +312,44 @@ namespace Login
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter))
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter) && (e.KeyChar != (char)Keys.Space))
             {
                 MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
             }
+        }
+
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox8_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+          
+          
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+           
+            
+        }
+
+        private void checkBox1_Click(object sender, EventArgs e)
+        {
+            checkBox2.Checked = false;
+        }
+
+        private void checkBox2_Click(object sender, EventArgs e)
+        {
+            checkBox1.Checked = false;
         }
     }
 }
