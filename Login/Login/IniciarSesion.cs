@@ -7,13 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MongoDB.Bson;
+using MongoDB.Driver;
 
 namespace Login
 {
     public partial class IniciarSesion : Form
-    {
-        string admin = "admin";
-        string password = "qwerty";
+    {   
+        
 
         public IniciarSesion()
         {
@@ -29,7 +30,7 @@ namespace Login
         {
             if (textBox1.Text != "" && textBox2.Text != "")
             {
-                MessageBox.Show("correcto");
+               
 
 
 
@@ -62,8 +63,16 @@ namespace Login
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
+        {/*
+            MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
+            var db = client.GetDatabase("sistemaescolar");
+            var usuarios = db.GetCollection<BsonDocument>("Adm");
 
+            usuarios.AsQueryable<BsonDocument>().ToList().ForEach(song =>
+             clientesx = (clientesx + Convert.ToString(song["Usuario"]) + " " + Convert.ToString(song["Contraseña"])  + "\r\n")
+
+            );
+            */
         }
 
         private void button2_Click(object sender, EventArgs e)

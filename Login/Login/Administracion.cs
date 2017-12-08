@@ -32,7 +32,7 @@ namespace Login
         {
             limp = 1;
             Limpiar();
-            MessageBox.Show("se agregara uno nuevo");
+            //MessageBox.Show("se agregara uno nuevo");
             groupBox1.Show();
 
 
@@ -42,7 +42,7 @@ namespace Login
         {
             limp = 2;
             Limpiar();
-            MessageBox.Show("se actualizara uno ");
+           // MessageBox.Show("se actualizara uno ");
             groupBox2.Show();
         }
 
@@ -50,14 +50,14 @@ namespace Login
         {
             limp = 3;
             Limpiar();
-            MessageBox.Show("se eliminara por id");
+          //  MessageBox.Show("se eliminara por id");
             groupBox3.Show();
 
         }
 
         private void porNombreToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("se eliminara por nombre");
+           // MessageBox.Show("se eliminara por nombre");
         }
 
         private void Administracion_Load(object sender, EventArgs e)
@@ -370,7 +370,7 @@ namespace Login
         {
             limp = 4;
             Limpiar();
-            MessageBox.Show("Buscar por ID");
+            //MessageBox.Show("Buscar por ID");
             groupBox6.Show();
         }
 
