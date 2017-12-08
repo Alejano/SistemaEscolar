@@ -157,7 +157,7 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Location = new System.Drawing.Point(12, 38);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(722, 198);
+            this.groupBox1.Size = new System.Drawing.Size(747, 198);
             this.groupBox1.TabIndex = 38;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Profesor";
@@ -166,7 +166,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(539, 159);
+            this.label21.Location = new System.Drawing.Point(539, 154);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(61, 13);
             this.label21.TabIndex = 66;
@@ -174,7 +174,7 @@
             // 
             // textBox14
             // 
-            this.textBox14.Location = new System.Drawing.Point(616, 155);
+            this.textBox14.Location = new System.Drawing.Point(616, 151);
             this.textBox14.Name = "textBox14";
             this.textBox14.PasswordChar = '*';
             this.textBox14.Size = new System.Drawing.Size(100, 20);
@@ -530,7 +530,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(647, 178);
+            this.label22.Location = new System.Drawing.Point(585, 182);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(0, 13);
             this.label22.TabIndex = 67;

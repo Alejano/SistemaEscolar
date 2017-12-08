@@ -448,6 +448,10 @@ namespace Login
                 //MessageBox.Show("Contraseña demasiado debil");
                 label22.Text = "Contraseña demasiado debil";
             }
+            else
+            {
+                label22.Text = "Contraseña fuerte";
+            }
         }
 
         private void textBox14_TextChanged(object sender, EventArgs e)
