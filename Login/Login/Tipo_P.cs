@@ -25,54 +25,24 @@ namespace Login
 
         }
         int longitud = 0;
-        static string varid = "";
+       
         static int ID_P = 0;
         void BuscarID()
         {
 
             MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
             var db = client.GetDatabase("sistemaescolar");
-            var Matricula = db.GetCollection<BsonDocument>("Adm_MatriculaP");
+            var Matricula = db.GetCollection<BsonDocument>("Profesores");
 
             //con este buscas todos 
             Matricula.AsQueryable<BsonDocument>().ToList().ForEach(matricu =>
-             varid = (Convert.ToString(matricu["Id_P"]))
+             ID_P = Convert.ToInt32(matricu["Id_P"])
 
              );
 
         }
 
-        void CrearIdI()
-        {
-            // en esta parte vas a crear los registros {"Nombre",texbox2.text}
-
-            ID_P = Convert.ToInt32(varid) + 1;
-
-            /*BsonDocument crear_id = new BsonDocument
-                  {
-                     {"Id_P",300000}
-                     // {"Nombre",textBox1.Text}
-
-                  };
-
-            BsonDocument Datosid = crear_id;
-           */
-
-
-            MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
-            var db = client.GetDatabase("sistemaescolar");
-            var usuarios = db.GetCollection<BsonDocument>("Adm_MatriculaP");
-
-            var updateFilter = Builders<BsonDocument>.Filter.Eq("Id_P", Convert.ToInt32(varid));
-            var update = Builders<BsonDocument>.Update.Set("Id_P", ID_P);
-
-            usuarios.UpdateOne(updateFilter, update);
-
-            //con este haces un insert
-            //usuarios.InsertOne(Datosid);
-
-
-        }
+        
 
         //Metodo para insertar 
         void insertar()
@@ -195,7 +165,7 @@ namespace Login
                     {
                         t_profesor = "interno";
                         BuscarID();
-                        CrearIdI();
+                        ID_P = ID_P + 1;
                         insertar();
                         limpiar();
                         MessageBox.Show("Profesor Creado");
@@ -206,8 +176,9 @@ namespace Login
                         {
                             t_profesor = "Externo";
                             BuscarID();
-                            CrearIdI();
+                            ID_P = ID_P + 1;
                             insertar();
+                            limpiar();
                             MessageBox.Show("Profesor Creado");
                         }
 
