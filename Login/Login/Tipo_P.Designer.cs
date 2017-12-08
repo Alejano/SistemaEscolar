@@ -34,6 +34,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -73,7 +74,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -97,6 +97,7 @@
             this.checkBox1.TabIndex = 1;
             this.checkBox1.Text = "Interno";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.Click += new System.EventHandler(this.checkBox1_Click);
             // 
             // checkBox2
             // 
@@ -107,6 +108,7 @@
             this.checkBox2.TabIndex = 3;
             this.checkBox2.Text = "Externo";
             this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.Click += new System.EventHandler(this.checkBox2_Click);
             // 
             // label16
             // 
@@ -162,6 +164,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Profesor";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(647, 178);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(0, 13);
+            this.label22.TabIndex = 67;
             // 
             // label21
             // 
@@ -526,14 +536,6 @@
             this.label14.Size = new System.Drawing.Size(65, 13);
             this.label14.TabIndex = 44;
             this.label14.Text = "Fecha Inicio";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(647, 178);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(0, 13);
-            this.label22.TabIndex = 67;
             // 
             // Tipo_P
             // 

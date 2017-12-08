@@ -35,9 +35,6 @@ namespace Login
 
 
 
-
-
-
                 if (textBox1.Text == "adm" && textBox2.Text == "qwerty")
                 {
                     Administracion adm = new Administracion();
