@@ -111,27 +111,27 @@
             // crearToolStripMenuItem
             // 
             this.crearToolStripMenuItem.Name = "crearToolStripMenuItem";
-            this.crearToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.crearToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.crearToolStripMenuItem.Text = "Alta";
             this.crearToolStripMenuItem.Click += new System.EventHandler(this.crearToolStripMenuItem_Click);
             // 
             // leerToolStripMenuItem
             // 
             this.leerToolStripMenuItem.Name = "leerToolStripMenuItem";
-            this.leerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.leerToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.leerToolStripMenuItem.Text = "Buscar";
             // 
             // actualizarToolStripMenuItem
             // 
             this.actualizarToolStripMenuItem.Name = "actualizarToolStripMenuItem";
-            this.actualizarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.actualizarToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.actualizarToolStripMenuItem.Text = "Actualizar";
             this.actualizarToolStripMenuItem.Click += new System.EventHandler(this.actualizarToolStripMenuItem_Click);
             // 
             // bajaToolStripMenuItem
             // 
             this.bajaToolStripMenuItem.Name = "bajaToolStripMenuItem";
-            this.bajaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.bajaToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.bajaToolStripMenuItem.Text = "Baja";
             this.bajaToolStripMenuItem.Click += new System.EventHandler(this.bajaToolStripMenuItem_Click);
             // 
@@ -150,26 +150,26 @@
             // altaToolStripMenuItem
             // 
             this.altaToolStripMenuItem.Name = "altaToolStripMenuItem";
-            this.altaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.altaToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.altaToolStripMenuItem.Text = "Alta";
             this.altaToolStripMenuItem.Click += new System.EventHandler(this.altaToolStripMenuItem_Click);
             // 
             // buscarToolStripMenuItem
             // 
             this.buscarToolStripMenuItem.Name = "buscarToolStripMenuItem";
-            this.buscarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.buscarToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.buscarToolStripMenuItem.Text = "Buscar";
             // 
             // actualizarToolStripMenuItem1
             // 
             this.actualizarToolStripMenuItem1.Name = "actualizarToolStripMenuItem1";
-            this.actualizarToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.actualizarToolStripMenuItem1.Size = new System.Drawing.Size(126, 22);
             this.actualizarToolStripMenuItem1.Text = "Actualizar";
             // 
             // bajaToolStripMenuItem1
             // 
             this.bajaToolStripMenuItem1.Name = "bajaToolStripMenuItem1";
-            this.bajaToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.bajaToolStripMenuItem1.Size = new System.Drawing.Size(126, 22);
             this.bajaToolStripMenuItem1.Text = "Baja";
             this.bajaToolStripMenuItem1.Click += new System.EventHandler(this.bajaToolStripMenuItem1_Click);
             // 
@@ -186,9 +186,9 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(89, 226);
+            this.textBox1.Location = new System.Drawing.Point(65, 225);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.Size = new System.Drawing.Size(153, 20);
             this.textBox1.TabIndex = 4;
             // 
             // Inicio

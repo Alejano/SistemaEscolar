@@ -11,9 +11,7 @@ using System.Windows.Forms;
 namespace Login
 {
     public partial class Inicio : Form
-    {
-        public TimeSpanConverter tiempo;
-    
+    {    
         public Inicio()
         {
             InitializeComponent();
@@ -81,7 +79,8 @@ namespace Login
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            textBox1.Text = Convert.ToString(DateTime.Now.TimeOfDay);
+            DateTime tiempoHoy = DateTime.Now;
+            textBox1.Text = tiempoHoy.ToString();
         }
     }
         
