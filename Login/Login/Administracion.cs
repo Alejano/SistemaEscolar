@@ -66,6 +66,8 @@ namespace Login
             groupBox2.Hide();
             groupBox3.Hide();
             groupBox4.Hide();
+            groupBox6.Hide();
+            groupBox7.Hide();
             button2.Hide();
             button5.Hide();
 
@@ -85,10 +87,11 @@ namespace Login
        
         void Limpiar()
         {
-            if (limp == 1) { groupBox2.Hide(); groupBox3.Hide(); }
-            if (limp == 2) { groupBox1.Hide(); groupBox3.Hide(); }
-            if (limp == 3) { groupBox1.Hide(); groupBox2.Hide(); }
-
+            if (limp == 1) { groupBox2.Hide(); groupBox3.Hide(); groupBox4.Hide(); groupBox7.Hide(); }
+            if (limp == 2) { groupBox1.Hide(); groupBox3.Hide(); groupBox4.Hide(); groupBox7.Hide(); }
+            if (limp == 3) { groupBox1.Hide(); groupBox2.Hide(); groupBox4.Hide(); groupBox7.Hide(); }
+            if (limp == 4) { groupBox1.Hide(); groupBox2.Hide(); groupBox3.Hide(); groupBox7.Hide(); }
+            if (limp == 5) { groupBox1.Hide(); groupBox2.Hide(); groupBox3.Hide(); groupBox4.Hide(); }
         }
 
         private void Agregar_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -356,6 +359,119 @@ namespace Login
             usuarios.AsQueryable<BsonDocument>().ToList().ForEach(song =>
             dataGridView1.Rows.Add(Convert.ToString(song["Id_Adm"]), Convert.ToString(song["Usuario"]), Convert.ToString(song["Nivel"]))
             );
+        }
+
+        private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void porIDToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            limp = 4;
+            Limpiar();
+            MessageBox.Show("Buscar por ID");
+            groupBox6.Show();
+        }
+
+        private void groupBox6_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox14_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void textBox14_TextChanged(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow Row in dataGridView1.Rows)
+            {
+
+                String strFila = Row.Index.ToString();
+                string Valor = Convert.ToString(Row.Cells["Id_Adm"].Value);
+
+                if (Valor == this.textBox14.Text)
+                {
+                    dataGridView1.Rows[Convert.ToInt32(strFila)].DefaultCellStyle.BackColor = Color.Red;
+                }
+                else { dataGridView1.Rows[Convert.ToInt32(strFila)].DefaultCellStyle.BackColor = Color.White; }
+            }
+        }
+
+        private void porNombreToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            limp = 5;
+            Limpiar();
+            MessageBox.Show("Buscar por ID");
+            groupBox7.Show();
+        }
+
+        private void textBox15_TextChanged(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow Row in dataGridView1.Rows)
+            {
+
+                String strFila = Row.Index.ToString();
+                string Valor = Convert.ToString(Row.Cells["Usuario"].Value);
+
+                if (Valor == this.textBox15.Text)
+                {
+                    dataGridView1.Rows[Convert.ToInt32(strFila)].DefaultCellStyle.BackColor = Color.Red;
+                }
+                else { dataGridView1.Rows[Convert.ToInt32(strFila)].DefaultCellStyle.BackColor = Color.White; }
+            }
+        }
+
+        private void textBox15_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter))
+            {
+                MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void textBox10_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox10_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void textBox4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
         }
     }
 }

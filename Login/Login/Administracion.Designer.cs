@@ -37,7 +37,6 @@
             this.buscarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.porIDToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.porNombreToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.porEdadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -81,6 +80,14 @@
             this.label14 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.button6 = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.button7 = new System.Windows.Forms.Button();
             this.Agregar.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -88,6 +95,8 @@
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // Agregar
@@ -149,29 +158,25 @@
             // 
             this.buscarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.porIDToolStripMenuItem1,
-            this.porNombreToolStripMenuItem1,
-            this.porEdadToolStripMenuItem});
+            this.porNombreToolStripMenuItem1});
             this.buscarToolStripMenuItem.Name = "buscarToolStripMenuItem";
             this.buscarToolStripMenuItem.Size = new System.Drawing.Size(55, 19);
             this.buscarToolStripMenuItem.Text = "Buscar";
+            this.buscarToolStripMenuItem.Click += new System.EventHandler(this.buscarToolStripMenuItem_Click);
             // 
             // porIDToolStripMenuItem1
             // 
             this.porIDToolStripMenuItem1.Name = "porIDToolStripMenuItem1";
-            this.porIDToolStripMenuItem1.Size = new System.Drawing.Size(139, 22);
+            this.porIDToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.porIDToolStripMenuItem1.Text = "Por ID";
+            this.porIDToolStripMenuItem1.Click += new System.EventHandler(this.porIDToolStripMenuItem1_Click);
             // 
             // porNombreToolStripMenuItem1
             // 
             this.porNombreToolStripMenuItem1.Name = "porNombreToolStripMenuItem1";
-            this.porNombreToolStripMenuItem1.Size = new System.Drawing.Size(139, 22);
+            this.porNombreToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.porNombreToolStripMenuItem1.Text = "Por Nombre";
-            // 
-            // porEdadToolStripMenuItem
-            // 
-            this.porEdadToolStripMenuItem.Name = "porEdadToolStripMenuItem";
-            this.porEdadToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            this.porEdadToolStripMenuItem.Text = "Por Edad";
+            this.porNombreToolStripMenuItem1.Click += new System.EventHandler(this.porNombreToolStripMenuItem1_Click);
             // 
             // groupBox1
             // 
@@ -289,6 +294,7 @@
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 1;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // label1
             // 
@@ -411,6 +417,7 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(150, 20);
             this.textBox4.TabIndex = 2;
+            this.textBox4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox4_KeyPress);
             // 
             // label7
             // 
@@ -490,6 +497,8 @@
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(113, 20);
             this.textBox10.TabIndex = 1;
+            this.textBox10.TextChanged += new System.EventHandler(this.textBox10_TextChanged);
+            this.textBox10.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox10_KeyPress);
             // 
             // groupBox5
             // 
@@ -577,11 +586,92 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.textBox14);
+            this.groupBox6.Controls.Add(this.label13);
+            this.groupBox6.Controls.Add(this.button6);
+            this.groupBox6.Location = new System.Drawing.Point(71, 23);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(442, 276);
+            this.groupBox6.TabIndex = 4;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Buscar Por ID";
+            this.groupBox6.Enter += new System.EventHandler(this.groupBox6_Enter);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(257, 33);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 0;
+            this.button6.Text = "Buscar";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(13, 36);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(57, 13);
+            this.label13.TabIndex = 1;
+            this.label13.Text = "Ingrese Id ";
+            // 
+            // textBox14
+            // 
+            this.textBox14.Location = new System.Drawing.Point(83, 33);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new System.Drawing.Size(137, 20);
+            this.textBox14.TabIndex = 2;
+            this.textBox14.TextChanged += new System.EventHandler(this.textBox14_TextChanged);
+            this.textBox14.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox14_KeyPress);
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.textBox15);
+            this.groupBox7.Controls.Add(this.label17);
+            this.groupBox7.Controls.Add(this.button7);
+            this.groupBox7.Location = new System.Drawing.Point(71, 23);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(442, 276);
+            this.groupBox7.TabIndex = 5;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Buscar Por Nombre";
+            // 
+            // textBox15
+            // 
+            this.textBox15.Location = new System.Drawing.Point(120, 33);
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Size = new System.Drawing.Size(137, 20);
+            this.textBox15.TabIndex = 2;
+            this.textBox15.TextChanged += new System.EventHandler(this.textBox15_TextChanged);
+            this.textBox15.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox15_KeyPress);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(13, 36);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(91, 13);
+            this.label17.TabIndex = 1;
+            this.label17.Text = "Ingrese el nombre";
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(302, 33);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 23);
+            this.button7.TabIndex = 0;
+            this.button7.Text = "Buscar";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
             // Administracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(844, 323);
+            this.Controls.Add(this.groupBox7);
+            this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
@@ -604,6 +694,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -620,7 +714,6 @@
         private System.Windows.Forms.ToolStripMenuItem buscarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem porIDToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem porNombreToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem porEdadToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label1;
@@ -664,5 +757,13 @@
         private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Button button7;
     }
 }
