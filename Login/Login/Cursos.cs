@@ -17,6 +17,7 @@ namespace Login
     {
         public static string nombreCurso = "";
         public static string mostrarCurso = "";
+        string[] DatosAdm = new string[99];
         public Cursos()
         {
             InitializeComponent();
@@ -36,62 +37,46 @@ namespace Login
 
         private void Cursos_Load(object sender, EventArgs e)
         {
-            gbOpCRUD.Visible = false;
             MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
             var db = client.GetDatabase("sistemaescolar");
-            var curso = db.GetCollection<BsonDocument>("Cursos");
-            curso.AsQueryable<BsonDocument>().ToList().ForEach(song =>
+            var cursoCB = db.GetCollection<BsonDocument>("Cursos");
+            cursoCB.AsQueryable<BsonDocument>().ToList().ForEach(song =>
             cbCursos.Items.Add(nombreCurso + Convert.ToString(song["Curso"]))
             );
-            if (rbActualizar.Checked)
-            {
-                
-                gpActualizar.Visible = true;
-
-            }
-            else if (rbEliminar.Checked)
-            {
-                gpActualizar.Visible = false;
-            }
-            else
-            {
-                gpActualizar.Visible = false;
-            }
+            Button addNewRowButton = new Button();
+            MongoClient client1 = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
+            var db1 = client.GetDatabase("sistemaescolar");
+            var cursoTodos = db.GetCollection<BsonDocument>("Cursos");
+            cursoTodos.AsQueryable<BsonDocument>().ToList().ForEach(song =>
+            dgvCursos.Rows.Add(Convert.ToString(song["Grupo"]), Convert.ToString(song["Curso"]), 
+            Convert.ToString(song["Departamento"]), Convert.ToString(song["F_inicio"]), Convert.ToString(song["F_final"]), 
+            Convert.ToString(song["Horario"]), Convert.ToString(song["Dia"])
+            ));
         }
 
         private void cbCursos_SelectedIndexChanged(object sender, EventArgs e)
         {
             mostrarCurso = cbCursos.Text;
-            gbOpCRUD.Visible = true;
             MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
             var db = client.GetDatabase("sistemaescolar");
-            var usuarios = db.GetCollection<BsonDocument>("Cursos");
-
-
+            var cursoFilter = db.GetCollection<BsonDocument>("Cursos");
             var filter_id = Builders<BsonDocument>.Filter.Eq("Curso", mostrarCurso);
-            var entity = usuarios.Find(filter_id).FirstOrDefault();
-            MessageBox.Show(entity.ToString());
 
-            //string[] DtAdm = new string[10];
-            String DtAdmjson = entity.ToString();
-            char[] separador = { '"', '"' };
-            //dataGridView1.Rows.Add(DtAdmjson.Split(separador));
-            string[] DatosAdm = DtAdmjson.Split(separador);
+            var entity = cursoFilter.Find(filter_id).FirstOrDefault();
 
-            dataGridView1.Rows.Add(DatosAdm[14]);
-            
-            /*
-            var DtAdm = entity.ToArray();
-            dataGridView1.Rows.Add(DtAdm[1]);
-            dataGridView1.Rows.Add(DtAdm[2]);
-            dataGridView1.Rows.Add(DtAdm[3]);
-            */
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            if (entity == null)
+            {
+                MessageBox.Show("Id no existe", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                String DtAdmjson = entity.ToString();
+                char[] separador = { '"', '"' };
+                DatosAdm = DtAdmjson.Split(separador);
+                
+                dgvCursos.Rows.Add(DatosAdm[32]);
+                dgvCursos.Refresh();
+            }
         }
     }
 }
