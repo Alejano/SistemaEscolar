@@ -581,5 +581,11 @@ namespace Login
         {
             e.Handled = true;
         }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            PDF_Alumnos padfa = new PDF_Alumnos();
+            padfa.Show();
+        }
     }
 }

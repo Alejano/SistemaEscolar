@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\..\..\..\Documents\programas\C# y PDF\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="MongoDB.Bson, Version=2.4.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MongoDB.Bson.2.4.4\lib\net45\MongoDB.Bson.dll</HintPath>
     </Reference>
@@ -120,6 +123,12 @@
     <Compile Include="Inicio.Designer.cs">
       <DependentUpon>Inicio.cs</DependentUpon>
     </Compile>
+    <Compile Include="PDF_Alumnos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PDF_Alumnos.Designer.cs">
+      <DependentUpon>PDF_Alumnos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Profesores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PDF_Alumnos.resx">
+      <DependentUpon>PDF_Alumnos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Profesores.resx">
       <DependentUpon>Profesores.cs</DependentUpon>
