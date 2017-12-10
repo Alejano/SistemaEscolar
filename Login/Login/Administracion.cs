@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using System.Threading;
 
 
 namespace Login
@@ -28,6 +29,43 @@ namespace Login
         {
 
         }
+
+        private void Cargando()
+        {
+           
+            progressBar1.Show();
+
+            progressBar1.Visible = true;
+          
+            progressBar1.Minimum = 1;
+         
+            progressBar1.Maximum = 1000000; ;
+           
+            progressBar1.Value = 1;
+           
+            progressBar1.Step = 1;
+
+        
+            for (int x = 1; x <= 1500000; x++)
+            {
+                
+                if (progressBar1.Value < 100000 || x > 600000)
+                {
+                    progressBar1.PerformStep();
+                }
+               
+               
+
+            }
+            if(progressBar1.Value == 1000000)
+            {
+                MessageBox.Show("Carga completa");
+                progressBar1.Hide();
+               
+
+            }
+        }
+       
 
         private void agregarNuevoToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -57,14 +95,10 @@ namespace Login
 
         }
 
-        private void porNombreToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-           // MessageBox.Show("se eliminara por nombre");
-        }
 
         private void Administracion_Load(object sender, EventArgs e)
         {
-           
+            
             groupBox1.Hide();
             groupBox2.Hide();
             groupBox3.Hide();
@@ -73,7 +107,8 @@ namespace Login
             groupBox7.Hide();
             button2.Hide();
             button5.Hide();
-
+            label19.Text = IniciarSesion.usu;
+            progressBar1.Hide();
             
 
             
@@ -90,11 +125,12 @@ namespace Login
        
         void Limpiar()
         {
-            if (limp == 1) { groupBox2.Hide(); groupBox3.Hide(); groupBox4.Hide(); groupBox7.Hide(); }
-            if (limp == 2) { groupBox1.Hide(); groupBox3.Hide(); groupBox4.Hide(); groupBox7.Hide(); }
-            if (limp == 3) { groupBox1.Hide(); groupBox2.Hide(); groupBox4.Hide(); groupBox7.Hide(); }
-            if (limp == 4) { groupBox1.Hide(); groupBox2.Hide(); groupBox3.Hide(); groupBox7.Hide(); }
-            if (limp == 5) { groupBox1.Hide(); groupBox2.Hide(); groupBox3.Hide(); groupBox4.Hide(); }
+            if (limp == 1) { groupBox2.Hide(); groupBox3.Hide(); groupBox4.Hide(); groupBox7.Hide(); groupBox8.Hide(); }
+            if (limp == 2) { groupBox1.Hide(); groupBox3.Hide(); groupBox4.Hide(); groupBox7.Hide(); groupBox8.Hide(); }
+            if (limp == 3) { groupBox1.Hide(); groupBox2.Hide(); groupBox4.Hide(); groupBox7.Hide(); groupBox8.Hide(); }
+            if (limp == 4) { groupBox1.Hide(); groupBox2.Hide(); groupBox3.Hide(); groupBox7.Hide(); groupBox8.Hide(); }
+            if (limp == 5) { groupBox1.Hide(); groupBox2.Hide(); groupBox3.Hide(); groupBox4.Hide(); groupBox8.Hide(); }
+            if (limp == 5) { groupBox1.Hide(); groupBox2.Hide(); groupBox3.Hide(); groupBox4.Hide(); groupBox7.Hide(); }
         }
 
         private void Agregar_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -108,11 +144,11 @@ namespace Login
         }
         void Agregar_Admin()
         {
-
+            bool verificacion = false;
 
 
             
-            MessageBox.Show("creando Administrador");
+           // MessageBox.Show("creando Administrador");
             BsonDocument Admin = new BsonDocument
                   {//informacion del alumno
                     {"Id_Adm",textBox1.Text},
@@ -122,6 +158,7 @@ namespace Login
 
 
                   };
+            BsonDocument DatosAdmin = Admin;
             int longitud = textBox7.Text.Length;
             if (textBox9.Text == textBox3.Text)
             {
@@ -129,17 +166,36 @@ namespace Login
                 if (longitud >= 6)
                 {
 
-                    BsonDocument DatosAdmin = Admin;
+    
 
-                    MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
-                    var db = client.GetDatabase("sistemaescolar");
-                    var usuarios = db.GetCollection<BsonDocument>("Adm");
+                    foreach (DataGridViewRow Row in dataGridView1.Rows)
+                    {
 
-                    usuarios.InsertOne(DatosAdmin);
+                        String strFila = Row.Index.ToString();
+                        string Valor = Convert.ToString(Row.Cells["Usuario"].Value);
 
-                    MessageBox.Show("Administrador creado");
-                    limpiarDatos();
-                    Actualizar();
+                        if (Valor == this.textBox2.Text)
+                        {
+                            verificacion = true;
+                        }
+                        
+                    }
+                    if (verificacion == true)
+                    {
+                        MessageBox.Show("Usuario ya existe");
+                    }
+                    else
+                    {
+                        MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
+                        var db = client.GetDatabase("sistemaescolar");
+                        var usuarios = db.GetCollection<BsonDocument>("Adm");
+
+                        usuarios.InsertOne(DatosAdmin);
+                        Cargando();
+                        //MessageBox.Show("Administrador creado");
+                        limpiarDatos();
+                        Actualizar();
+                    }
                 }
                 else { MessageBox.Show("La contraseña debe tener minimo 6 caracteres"); }
             }
@@ -210,7 +266,7 @@ namespace Login
 
                         usuarios.InsertOne(DatosAdmin);
 
-
+                        Cargando();
                         MessageBox.Show("Administrador actualizado");
                         limpiarDatos();
                         Actualizar();
@@ -257,20 +313,28 @@ namespace Login
 
             var filter_id = Builders<BsonDocument>.Filter.Eq("Id_Adm", textBox4.Text);
             var entity = usuarios.Find(filter_id).FirstOrDefault();
-            MessageBox.Show(entity.ToString());
 
-            groupBox4.Show();
+            if (entity == null)
+            {
+                MessageBox.Show("Id no existe", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                groupBox4.Show();
 
-            String DtAdmjson = entity.ToString();
-            char[] separador = { '"','"' };
-            DatosAdm = DtAdmjson.Split(separador);
+                String DtAdmjson = entity.ToString();
+                char[] separador = { '"', '"' };
+                DatosAdm = DtAdmjson.Split(separador);
 
-           // dataGridView1.Rows.Add(DatosAdm[7], DatosAdm[11], DatosAdm[19]);
+                // dataGridView1.Rows.Add(DatosAdm[7], DatosAdm[11], DatosAdm[19]);
 
-            textBox5.Text=DatosAdm[11];
-            textBox6.Text = DatosAdm[19];
+                textBox5.Text = DatosAdm[11];
+                textBox6.Text = DatosAdm[19];
 
-            button2.Show();
+                button2.Show();
+            }
+
+          
 
 
         }
@@ -311,7 +375,7 @@ namespace Login
             textBox10.Clear();
             textBox11.Clear();
             textBox12.Clear();
-
+           
 
         }
 
@@ -329,20 +393,28 @@ namespace Login
 
             var filter_id = Builders<BsonDocument>.Filter.Eq("Id_Adm",IDB);
             var entity = usuarios.Find(filter_id).FirstOrDefault();
-            MessageBox.Show(entity.ToString());
+            
+            if (entity == null)
+            {
+                MessageBox.Show("ID no existe", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                groupBox4.Show();
 
-            groupBox4.Show();
+                String DtAdmjson = entity.ToString();
+                char[] separador = { '"', '"' };
+                DatosAdm = DtAdmjson.Split(separador);
 
-            String DtAdmjson = entity.ToString();
-            char[] separador = { '"', '"' };
-            DatosAdm = DtAdmjson.Split(separador);
 
-         
-            textBox11.Text = DatosAdm[7];
-            textBox12.Text = DatosAdm[11];
-            textBox13.Text = DatosAdm[19];
+                textBox11.Text = DatosAdm[7];
+                textBox12.Text = DatosAdm[11];
+                textBox13.Text = DatosAdm[19];
 
-            button2.Show();
+                button2.Show();
+            }
+
+            
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -358,6 +430,7 @@ namespace Login
                 var usuarios = db.GetCollection<BsonDocument>("Adm");
 
                 usuarios.DeleteOneAsync(Builders<BsonDocument>.Filter.Eq("Id_Adm", IDB));
+                Cargando();
                 Actualizar();
                 limpiarDatos();
             }
@@ -489,6 +562,30 @@ namespace Login
                 e.Handled = true;
                 return;
             }
+        }
+
+        private void label19_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void inicioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            limp = 6;
+            Limpiar();
+            //MessageBox.Show("se agregara uno nuevo");
+            groupBox8.Show();
+        }
+
+        private void comboBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            PDF_Alumnos padfa = new PDF_Alumnos();
+            padfa.Show();
         }
     }
 }
