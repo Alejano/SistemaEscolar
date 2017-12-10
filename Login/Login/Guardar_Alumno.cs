@@ -147,7 +147,7 @@ namespace Login
                     {"Entre",textBox7.Text},
                     {"Y",textBox8.Text },
                     {"Numero",textBox10.Text },
-                    {"Colonia",textBox11.Text },
+                   // {"Colonia",textBox11.Text },
                     {"Codigo Postal",textBox12.Text }
 
 
@@ -178,7 +178,7 @@ namespace Login
             textBox9.Clear();
             textBox8.Clear();
             textBox10.Clear();
-            textBox11.Clear();
+            //textBox11.Clear();
             textBox12.Clear();
             checkBox1.Checked = false;
             checkBox2.Checked = false;
