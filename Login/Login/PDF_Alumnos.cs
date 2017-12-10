@@ -34,36 +34,32 @@ namespace Login
         {
 
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        void crearPDF(string nombre)
         {
-            // Creamos el documento con el tamaño de página tradicional
+         
             Document doc = new Document(PageSize.LETTER);
-            // Indicamos donde vamos a guardar el documento
+            MessageBox.Show(nombre);
             PdfWriter writer = PdfWriter.GetInstance(doc,
-                                        new FileStream(@"C:\Users\jano_\Desktop\prueba.pdf", FileMode.Create));
+                                        new FileStream(@nombre, FileMode.Create));
 
-            // Le colocamos el título y el autor
-            // **Nota: Esto no será visible en el documento
+        
             doc.AddTitle("Mi primer PDF");
             doc.AddCreator("soy jano");
 
-            // Abrimos el archivo
             doc.Open();
 
-            // Creamos el tipo de Font que vamos utilizar
+         
             iTextSharp.text.Font _standardFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 8, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
 
-            // Escribimos el encabezamiento en el documento
+       
             doc.Add(new Paragraph("Mi primer documento PDF"));
             doc.Add(Chunk.NEWLINE);
 
-            // Creamos una tabla que contendrá el nombre, apellido y país
-            // de nuestros visitante.
+           
             PdfPTable tblPrueba = new PdfPTable(3);
             tblPrueba.WidthPercentage = 100;
 
-            // Configuramos el título de las columnas de la tabla
+          
             PdfPCell clNombre = new PdfPCell(new Phrase("Nombre", _standardFont));
             clNombre.BorderWidth = 0;
             clNombre.BorderWidthBottom = 0.75f;
@@ -76,12 +72,12 @@ namespace Login
             clPais.BorderWidth = 0;
             clPais.BorderWidthBottom = 0.75f;
 
-            // Añadimos las celdas a la tabla
+            
             tblPrueba.AddCell(clNombre);
             tblPrueba.AddCell(clApellido);
             tblPrueba.AddCell(clPais);
 
-            // Llenamos la tabla con información
+           
             clNombre = new PdfPCell(new Phrase("Roberto", _standardFont));
             clNombre.BorderWidth = 0;
 
@@ -91,7 +87,7 @@ namespace Login
             clPais = new PdfPCell(new Phrase("Puerto Rico", _standardFont));
             clPais.BorderWidth = 0;
 
-            // Añadimos las celdas a la tabla
+           
             tblPrueba.AddCell(clNombre);
             tblPrueba.AddCell(clApellido);
             tblPrueba.AddCell(clPais);
@@ -100,6 +96,32 @@ namespace Login
 
             doc.Close();
             writer.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Stream myStream;
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+
+            saveFileDialog1.Filter = "pdf (*.pdf)|*.pdf| txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            saveFileDialog1.FilterIndex = 2;
+            saveFileDialog1.RestoreDirectory = true;
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                if ((myStream = saveFileDialog1.OpenFile()) != null)
+                {
+                  
+                    myStream.Close();
+                }
+            }
+
+            crearPDF(saveFileDialog1.FileName);
         }
     }
 }
