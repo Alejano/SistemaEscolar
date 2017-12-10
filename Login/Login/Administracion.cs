@@ -73,7 +73,7 @@ namespace Login
             groupBox7.Hide();
             button2.Hide();
             button5.Hide();
-
+            label19.Text = IniciarSesion.usu;
             
 
             
@@ -90,11 +90,11 @@ namespace Login
        
         void Limpiar()
         {
-            if (limp == 1) { groupBox2.Hide(); groupBox3.Hide(); groupBox4.Hide(); groupBox7.Hide(); }
-            if (limp == 2) { groupBox1.Hide(); groupBox3.Hide(); groupBox4.Hide(); groupBox7.Hide(); }
-            if (limp == 3) { groupBox1.Hide(); groupBox2.Hide(); groupBox4.Hide(); groupBox7.Hide(); }
-            if (limp == 4) { groupBox1.Hide(); groupBox2.Hide(); groupBox3.Hide(); groupBox7.Hide(); }
-            if (limp == 5) { groupBox1.Hide(); groupBox2.Hide(); groupBox3.Hide(); groupBox4.Hide(); }
+            if (limp == 1) { groupBox2.Hide(); groupBox3.Hide(); groupBox4.Hide(); groupBox7.Hide(); groupBox8.Hide(); }
+            if (limp == 2) { groupBox1.Hide(); groupBox3.Hide(); groupBox4.Hide(); groupBox7.Hide(); groupBox8.Hide(); }
+            if (limp == 3) { groupBox1.Hide(); groupBox2.Hide(); groupBox4.Hide(); groupBox7.Hide(); groupBox8.Hide(); }
+            if (limp == 4) { groupBox1.Hide(); groupBox2.Hide(); groupBox3.Hide(); groupBox7.Hide(); groupBox8.Hide(); }
+            if (limp == 5) { groupBox1.Hide(); groupBox2.Hide(); groupBox3.Hide(); groupBox4.Hide(); groupBox8.Hide(); }
         }
 
         private void Agregar_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -311,7 +311,7 @@ namespace Login
             textBox10.Clear();
             textBox11.Clear();
             textBox12.Clear();
-
+            groupBox8.Show();
 
         }
 
@@ -489,6 +489,16 @@ namespace Login
                 e.Handled = true;
                 return;
             }
+        }
+
+        private void label19_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void inicioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Limpiar();
         }
     }
 }
