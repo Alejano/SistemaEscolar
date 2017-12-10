@@ -145,12 +145,12 @@ namespace Login
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textBox1.Text) && string.IsNullOrEmpty(textBox2.Text) && string.IsNullOrEmpty(textBox3.Text)
-                && string.IsNullOrEmpty(textBox4.Text) && string.IsNullOrEmpty(textBox5.Text) && string.IsNullOrEmpty(textBox6.Text)
-                && string.IsNullOrEmpty(textBox7.Text) && string.IsNullOrEmpty(textBox8.Text) && string.IsNullOrEmpty(textBox9.Text)
-                && string.IsNullOrEmpty(textBox10.Text) && string.IsNullOrEmpty(textBox11.Text) && string.IsNullOrEmpty(textBox12.Text)
-                && string.IsNullOrEmpty(textBox13.Text) && string.IsNullOrEmpty(comboBox1.Text) && string.IsNullOrEmpty(comboBox2.Text)
-                && string.IsNullOrEmpty(textBox14.Text))
+            if (string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text) || string.IsNullOrEmpty(textBox3.Text)
+                || string.IsNullOrEmpty(textBox4.Text) || string.IsNullOrEmpty(textBox5.Text) || string.IsNullOrEmpty(textBox6.Text)
+                || string.IsNullOrEmpty(textBox7.Text) || string.IsNullOrEmpty(textBox8.Text) || string.IsNullOrEmpty(textBox9.Text)
+                || string.IsNullOrEmpty(textBox10.Text) || string.IsNullOrEmpty(textBox11.Text) || string.IsNullOrEmpty(textBox12.Text)
+                || string.IsNullOrEmpty(textBox13.Text) || string.IsNullOrEmpty(comboBox1.Text) || string.IsNullOrEmpty(comboBox2.Text)
+                || string.IsNullOrEmpty(textBox14.Text))
             {
                 MessageBox.Show("No puede dejar campos vacios");
             }
@@ -203,7 +203,22 @@ namespace Login
         {
             checkBox1.Checked = false;
             checkBox2.Checked = false;
-
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
+            textBox5.Clear();
+            textBox6.Clear();
+            textBox7.Clear();
+            textBox8.Clear();
+            textBox9.Clear();
+            textBox10.Clear();
+            textBox11.Clear();
+            textBox12.Clear();
+            textBox13.Clear();
+            textBox14.Clear();
+            comboBox1.SelectedIndex = -1;
+            comboBox2.SelectedIndex = -1;
 
         }
 
@@ -443,6 +458,11 @@ namespace Login
         private void checkBox2_Click(object sender, EventArgs e)
         {
             checkBox1.Checked = false;
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
