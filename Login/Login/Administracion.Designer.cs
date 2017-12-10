@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Agregar = new System.Windows.Forms.MenuStrip();
             this.agregarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarNuevoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -92,6 +93,8 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.inicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Agregar.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -102,6 +105,7 @@
             this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Agregar
@@ -116,7 +120,7 @@
             this.Agregar.Location = new System.Drawing.Point(0, 0);
             this.Agregar.Name = "Agregar";
             this.Agregar.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.Agregar.Size = new System.Drawing.Size(68, 323);
+            this.Agregar.Size = new System.Drawing.Size(68, 334);
             this.Agregar.TabIndex = 0;
             this.Agregar.Text = "menuStrip1";
             this.Agregar.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.Agregar_ItemClicked);
@@ -234,6 +238,8 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.AutoCompleteCustomSource.AddRange(new string[] {
+            "2"});
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "1",
@@ -242,6 +248,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(41, 21);
             this.comboBox1.TabIndex = 10;
+            this.comboBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBox1_KeyPress);
             // 
             // label6
             // 
@@ -452,7 +459,7 @@
             this.groupBox3.Controls.Add(this.groupBox5);
             this.groupBox3.Controls.Add(this.textBox10);
             this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Location = new System.Drawing.Point(71, 23);
+            this.groupBox3.Location = new System.Drawing.Point(71, 24);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(442, 277);
             this.groupBox3.TabIndex = 0;
@@ -572,7 +579,16 @@
             this.Id_Adm,
             this.Usuario,
             this.Nivel});
-            this.dataGridView1.Location = new System.Drawing.Point(519, 3);
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle9;
+            this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveBorder;
+            this.dataGridView1.Location = new System.Drawing.Point(519, 35);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(313, 276);
@@ -602,7 +618,7 @@
             this.groupBox6.Controls.Add(this.textBox14);
             this.groupBox6.Controls.Add(this.label13);
             this.groupBox6.Controls.Add(this.button6);
-            this.groupBox6.Location = new System.Drawing.Point(71, 24);
+            this.groupBox6.Location = new System.Drawing.Point(71, 25);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(442, 276);
             this.groupBox6.TabIndex = 4;
@@ -642,7 +658,7 @@
             this.groupBox7.Controls.Add(this.textBox15);
             this.groupBox7.Controls.Add(this.label17);
             this.groupBox7.Controls.Add(this.button7);
-            this.groupBox7.Location = new System.Drawing.Point(71, 24);
+            this.groupBox7.Location = new System.Drawing.Point(71, 25);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(442, 276);
             this.groupBox7.TabIndex = 5;
@@ -678,9 +694,10 @@
             // 
             // groupBox8
             // 
+            this.groupBox8.Controls.Add(this.pictureBox1);
             this.groupBox8.Controls.Add(this.label19);
             this.groupBox8.Controls.Add(this.label18);
-            this.groupBox8.Location = new System.Drawing.Point(71, 0);
+            this.groupBox8.Location = new System.Drawing.Point(71, 11);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(442, 323);
             this.groupBox8.TabIndex = 6;
@@ -709,15 +726,31 @@
             // inicioToolStripMenuItem
             // 
             this.inicioToolStripMenuItem.Name = "inicioToolStripMenuItem";
-            this.inicioToolStripMenuItem.Size = new System.Drawing.Size(85, 19);
+            this.inicioToolStripMenuItem.Size = new System.Drawing.Size(55, 19);
             this.inicioToolStripMenuItem.Text = "Inicio";
             this.inicioToolStripMenuItem.Click += new System.EventHandler(this.inicioToolStripMenuItem_Click);
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(550, 96);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(266, 50);
+            this.progressBar1.TabIndex = 7;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(24, 76);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(79, 65);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // Administracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(844, 323);
+            this.ClientSize = new System.Drawing.Size(938, 334);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.groupBox8);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox6);
@@ -749,6 +782,7 @@
             this.groupBox7.PerformLayout();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -820,5 +854,7 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.ToolStripMenuItem inicioToolStripMenuItem;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
