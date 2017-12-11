@@ -75,7 +75,6 @@ namespace Login
 
             //Sintaxis para insertar un profesor
             usuarios.InsertOne(DatosProf);
-            direccion();
             insertarcurso();
 
         }
@@ -92,7 +91,10 @@ namespace Login
                      {"F_final",dateTimePicker2.Text },
                      {"Grupo",textBox13.Text },
                      {"Horario",comboBox1.Text },
-                      {"Dia",comboBox2.Text }
+                     {"Dia",comboBox2.Text },
+                     {"Precio",textBox15.Text },
+                     {"Cupo_minimo",textBox16.Text },
+                     {"Cupo_maximo",textBox17.Text }
                   };
 
             BsonDocument DatosCurso = crearCurso;
@@ -107,7 +109,7 @@ namespace Login
             //Sintaxis para insertar un profesor
             usuarios.InsertOne(DatosCurso);
             direccion();
-
+           
 
         }
 
@@ -119,6 +121,7 @@ namespace Login
 
             BsonDocument crearDireccion = new BsonDocument
             {
+                {"Id_P",ID_P },
                 {"Calle", textBox6.Text},
                 {"Colonia",textBox7.Text},
                 {"Estado",textBox8.Text},
@@ -166,7 +169,7 @@ namespace Login
                         t_profesor = "interno";
                         BuscarID();
                         ID_P = ID_P + 1;
-                        insertar();
+                        insertar(); 
                         limpiar();
                         MessageBox.Show("Profesor Creado");
                     }
@@ -463,6 +466,46 @@ namespace Login
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox15_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter))
+            {
+                
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox15_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox16_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter))
+            {
+               
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void textBox17_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter))
+            {
+
+                e.Handled = true;
+                return;
+            }
         }
     }
 }

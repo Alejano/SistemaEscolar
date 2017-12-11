@@ -473,7 +473,7 @@ namespace Login
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter))
             {
-                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+               
                 e.Handled = true;
                 return;
             }
@@ -523,7 +523,7 @@ namespace Login
         {
             if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter))
             {
-                MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+               
                 e.Handled = true;
                 return;
             }
@@ -538,7 +538,7 @@ namespace Login
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter))
             {
-                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+               
                 e.Handled = true;
                 return;
             }
@@ -548,7 +548,7 @@ namespace Login
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter))
             {
-                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+               
                 e.Handled = true;
                 return;
             }
@@ -558,7 +558,7 @@ namespace Login
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter))
             {
-                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                
                 e.Handled = true;
                 return;
             }
@@ -586,6 +586,33 @@ namespace Login
         {
             PDF_Alumnos padfa = new PDF_Alumnos();
             padfa.Show();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Reportes_cursos rp = new Reportes_cursos();
+            rp.Show();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
+            var db = client.GetDatabase("sistemaescolar");
+            var usuarios = db.GetCollection<BsonDocument>("CursoAlumno");
+
+            BsonDocument Admin = new BsonDocument
+                  {//informacion del alumno
+                    {"Id_A",14949462},
+                    {"Grupo","ProSis01" },
+                    {"Promedio",8 }
+
+                  };
+
+            BsonDocument DatosAdmin = Admin;
+
+
+
+            usuarios.InsertOne(DatosAdmin);
         }
     }
 }
