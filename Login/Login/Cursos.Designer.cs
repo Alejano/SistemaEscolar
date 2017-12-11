@@ -30,26 +30,21 @@
         {
             this.cbCursos = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tbFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tbHorario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gbOpCRUD = new System.Windows.Forms.GroupBox();
-            this.gpActualizar = new System.Windows.Forms.GroupBox();
-            this.rbActualizar = new System.Windows.Forms.RadioButton();
-            this.rbEliminar = new System.Windows.Forms.RadioButton();
-            this.cbFeInicio = new System.Windows.Forms.CheckBox();
-            this.cbFeFin = new System.Windows.Forms.CheckBox();
-            this.cbHorario = new System.Windows.Forms.CheckBox();
-            this.cbDias = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.gbOpCRUD.SuspendLayout();
-            this.gpActualizar.SuspendLayout();
+            this.dgvCursos = new System.Windows.Forms.DataGridView();
+            this.Grupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Departamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaTermino = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Horario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dias = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCursos)).BeginInit();
             this.SuspendLayout();
             // 
             // cbCursos
             // 
             this.cbCursos.FormattingEnabled = true;
-            this.cbCursos.Location = new System.Drawing.Point(130, 44);
+            this.cbCursos.Location = new System.Drawing.Point(157, 36);
             this.cbCursos.Name = "cbCursos";
             this.cbCursos.Size = new System.Drawing.Size(111, 21);
             this.cbCursos.TabIndex = 0;
@@ -58,138 +53,86 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 47);
+            this.label1.Location = new System.Drawing.Point(32, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(104, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Seleccione el Curso:";
             // 
-            // dataGridView1
+            // dgvCursos
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.tbFecha,
-            this.tbHorario});
-            this.dataGridView1.Location = new System.Drawing.Point(469, 22);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(244, 183);
-            this.dataGridView1.TabIndex = 2;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dgvCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCursos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Grupo,
+            this.Nombre,
+            this.Departamento,
+            this.FechaInicio,
+            this.FechaTermino,
+            this.Horario,
+            this.Dias});
+            this.dgvCursos.Location = new System.Drawing.Point(35, 93);
+            this.dgvCursos.Name = "dgvCursos";
+            this.dgvCursos.ReadOnly = true;
+            this.dgvCursos.Size = new System.Drawing.Size(813, 220);
+            this.dgvCursos.TabIndex = 2;
             // 
-            // tbFecha
+            // Grupo
             // 
-            this.tbFecha.HeaderText = "Fechas";
-            this.tbFecha.Name = "tbFecha";
-            this.tbFecha.ReadOnly = true;
+            this.Grupo.HeaderText = "Grupo";
+            this.Grupo.Name = "Grupo";
+            this.Grupo.ReadOnly = true;
+            this.Grupo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Grupo.Width = 61;
             // 
-            // tbHorario
+            // Nombre
             // 
-            this.tbHorario.HeaderText = "Horario";
-            this.tbHorario.Name = "tbHorario";
-            this.tbHorario.ReadOnly = true;
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.ToolTipText = "ergferge";
             // 
-            // gbOpCRUD
+            // Departamento
             // 
-            this.gbOpCRUD.Controls.Add(this.rbEliminar);
-            this.gbOpCRUD.Controls.Add(this.rbActualizar);
-            this.gbOpCRUD.Controls.Add(this.gpActualizar);
-            this.gbOpCRUD.Location = new System.Drawing.Point(23, 71);
-            this.gbOpCRUD.Name = "gbOpCRUD";
-            this.gbOpCRUD.Size = new System.Drawing.Size(366, 246);
-            this.gbOpCRUD.TabIndex = 3;
-            this.gbOpCRUD.TabStop = false;
+            this.Departamento.HeaderText = "Departamento";
+            this.Departamento.Name = "Departamento";
+            this.Departamento.ReadOnly = true;
             // 
-            // gpActualizar
+            // FechaInicio
             // 
-            this.gpActualizar.Controls.Add(this.cbDias);
-            this.gpActualizar.Controls.Add(this.cbHorario);
-            this.gpActualizar.Controls.Add(this.cbFeFin);
-            this.gpActualizar.Controls.Add(this.cbFeInicio);
-            this.gpActualizar.Location = new System.Drawing.Point(6, 53);
-            this.gpActualizar.Name = "gpActualizar";
-            this.gpActualizar.Size = new System.Drawing.Size(354, 187);
-            this.gpActualizar.TabIndex = 0;
-            this.gpActualizar.TabStop = false;
+            this.FechaInicio.HeaderText = "Fecha de Inicio";
+            this.FechaInicio.Name = "FechaInicio";
+            this.FechaInicio.ReadOnly = true;
             // 
-            // rbActualizar
+            // FechaTermino
             // 
-            this.rbActualizar.AutoSize = true;
-            this.rbActualizar.Location = new System.Drawing.Point(42, 20);
-            this.rbActualizar.Name = "rbActualizar";
-            this.rbActualizar.Size = new System.Drawing.Size(71, 17);
-            this.rbActualizar.TabIndex = 1;
-            this.rbActualizar.TabStop = true;
-            this.rbActualizar.Text = "Actualizar";
-            this.rbActualizar.UseVisualStyleBackColor = true;
+            this.FechaTermino.HeaderText = "Fecha de Termino";
+            this.FechaTermino.Name = "FechaTermino";
+            this.FechaTermino.ReadOnly = true;
             // 
-            // rbEliminar
+            // Horario
             // 
-            this.rbEliminar.AutoSize = true;
-            this.rbEliminar.Location = new System.Drawing.Point(200, 20);
-            this.rbEliminar.Name = "rbEliminar";
-            this.rbEliminar.Size = new System.Drawing.Size(61, 17);
-            this.rbEliminar.TabIndex = 2;
-            this.rbEliminar.TabStop = true;
-            this.rbEliminar.Text = "Eliminar";
-            this.rbEliminar.UseVisualStyleBackColor = true;
+            this.Horario.HeaderText = "Horario";
+            this.Horario.Name = "Horario";
+            this.Horario.ReadOnly = true;
             // 
-            // cbFeInicio
+            // Dias
             // 
-            this.cbFeInicio.AutoSize = true;
-            this.cbFeInicio.Location = new System.Drawing.Point(7, 20);
-            this.cbFeInicio.Name = "cbFeInicio";
-            this.cbFeInicio.Size = new System.Drawing.Size(87, 17);
-            this.cbFeInicio.TabIndex = 0;
-            this.cbFeInicio.Text = "Fecha Inicio:";
-            this.cbFeInicio.UseVisualStyleBackColor = true;
-            // 
-            // cbFeFin
-            // 
-            this.cbFeFin.AutoSize = true;
-            this.cbFeFin.Location = new System.Drawing.Point(6, 64);
-            this.cbFeFin.Name = "cbFeFin";
-            this.cbFeFin.Size = new System.Drawing.Size(100, 17);
-            this.cbFeFin.TabIndex = 0;
-            this.cbFeFin.Text = "Fecha Termino:";
-            this.cbFeFin.UseVisualStyleBackColor = true;
-            // 
-            // cbHorario
-            // 
-            this.cbHorario.AutoSize = true;
-            this.cbHorario.Location = new System.Drawing.Point(6, 102);
-            this.cbHorario.Name = "cbHorario";
-            this.cbHorario.Size = new System.Drawing.Size(63, 17);
-            this.cbHorario.TabIndex = 0;
-            this.cbHorario.Text = "Horario:";
-            this.cbHorario.UseVisualStyleBackColor = true;
-            // 
-            // cbDias
-            // 
-            this.cbDias.AutoSize = true;
-            this.cbDias.Location = new System.Drawing.Point(6, 144);
-            this.cbDias.Name = "cbDias";
-            this.cbDias.Size = new System.Drawing.Size(50, 17);
-            this.cbDias.TabIndex = 0;
-            this.cbDias.Text = "Dias:";
-            this.cbDias.UseVisualStyleBackColor = true;
+            this.Dias.HeaderText = "Dias";
+            this.Dias.Name = "Dias";
+            this.Dias.ReadOnly = true;
             // 
             // Cursos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(897, 339);
-            this.Controls.Add(this.gbOpCRUD);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvCursos);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbCursos);
             this.Name = "Cursos";
             this.Text = "Cursos";
             this.Load += new System.EventHandler(this.Cursos_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.gbOpCRUD.ResumeLayout(false);
-            this.gbOpCRUD.PerformLayout();
-            this.gpActualizar.ResumeLayout(false);
-            this.gpActualizar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCursos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,16 +142,13 @@
 
         private System.Windows.Forms.ComboBox cbCursos;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tbFecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tbHorario;
-        private System.Windows.Forms.GroupBox gbOpCRUD;
-        private System.Windows.Forms.RadioButton rbEliminar;
-        private System.Windows.Forms.RadioButton rbActualizar;
-        private System.Windows.Forms.GroupBox gpActualizar;
-        private System.Windows.Forms.CheckBox cbDias;
-        private System.Windows.Forms.CheckBox cbHorario;
-        private System.Windows.Forms.CheckBox cbFeFin;
-        private System.Windows.Forms.CheckBox cbFeInicio;
+        private System.Windows.Forms.DataGridView dgvCursos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Grupo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Departamento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaInicio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaTermino;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Horario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dias;
     }
 }
