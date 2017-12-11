@@ -29,7 +29,7 @@ namespace Login
         }
 
 
-        void direccionP()
+        void direccion()
         {
 
             MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
@@ -39,6 +39,8 @@ namespace Login
 
             var filter_id = Builders<BsonDocument>.Filter.Eq("Id_P", Convert.ToUInt32(textBox1.Text));
             var entity = usuarios.Find(filter_id).FirstOrDefault();
+
+            //MessageBox.Show(entity.ToString());
 
             String DtAdmjson = entity.ToString();
             char[] separador = { '"', '"' };
@@ -50,6 +52,18 @@ namespace Login
             textBox9.Text = DatosProf[21];
             textBox10.Text = DatosProf[25];
 
+        }
+
+        void bajaDireccion()
+        {
+            id = Convert.ToInt32(textBox1.Text);
+
+            MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
+            var obten = client.GetDatabase("sistemaescolar");
+            var baja = obten.GetCollection<BsonDocument>("Direccion_Profesor");
+
+
+            baja.DeleteOneAsync(Builders<BsonDocument>.Filter.Eq("Id_P", id));
         }
 
         void Baja_Profesor()
@@ -64,13 +78,10 @@ namespace Login
 
             MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
             var obten = client.GetDatabase("sistemaescolar");
-            var baja = obten.GetCollection<BsonDocument>("Profesores");
+            var baja = obten.GetCollection<BsonDocument>("profesor");
 
 
             baja.DeleteOneAsync(Builders<BsonDocument>.Filter.Eq("Id_P", id));
-
-
-            //MessageBox.Show("borrado");
         }
 
 
@@ -89,7 +100,7 @@ namespace Login
 
             MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
             var db = client.GetDatabase("sistemaescolar");
-            var usuarios = db.GetCollection<BsonDocument>("Profesores");
+            var usuarios = db.GetCollection<BsonDocument>("profesor");
 
             usuarios.AsQueryable<BsonDocument>().ToList().ForEach(equis =>
             dataGridView1.Rows.Add(Convert.ToString(equis["Id_P"]), Convert.ToString(equis["Nombre"]))
@@ -116,7 +127,7 @@ namespace Login
 
                 MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
                 var db = client.GetDatabase("sistemaescolar");
-                var usuarios = db.GetCollection<BsonDocument>("Profesores");
+                var usuarios = db.GetCollection<BsonDocument>("profesor");
 
 
                 var filter_id = Builders<BsonDocument>.Filter.Eq("Id_P", Convert.ToUInt32(textBox1.Text));
@@ -134,9 +145,8 @@ namespace Login
                     groupBox1.Show();
                     button2.Show();
                     dataGridView1.Hide();
-                    direccionP();
 
-
+                    direccion();
                     String DtAdmjson = entity.ToString();
                     char[] separador = { '"', '"' };
                     DatosProf = DtAdmjson.Split(separador);
@@ -148,21 +158,21 @@ namespace Login
                     textBox6.Text = DatosProf[21];
                     dateTimePicker3.Text = DatosProf[25];
 
+                   
 
                 }
 
             }
         }
-        void eliminarDireccion()
+        
+           
+
+        void Actualizardireccion()
         {
 
-        }
-
-        void direccion()
+            BsonDocument crearDireccion = new BsonDocument
             {
-
-                BsonDocument crearDireccion = new BsonDocument
-            {
+                {"Id_P",ID_P },
                 {"Calle", textBox7.Text},
                 {"Colonia",textBox11.Text},
                 {"Estado",textBox8.Text},
@@ -170,16 +180,16 @@ namespace Login
                 {"CP",textBox10.Text }
             };
 
-                BsonDocument DireccionP = crearDireccion;
+            BsonDocument DireccionP = crearDireccion;
 
 
-                MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
-                var db = client.GetDatabase("sistemaescolar");
-                var usuarios = db.GetCollection<BsonDocument>("Direccion_Profesor");
+            MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
+            var db = client.GetDatabase("sistemaescolar");
+            var usuarios = db.GetCollection<BsonDocument>("Direccion_Profesor");
 
-                usuarios.InsertOne(DireccionP);
+            usuarios.InsertOne(DireccionP);
 
-            
+
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -215,6 +225,7 @@ namespace Login
            == DialogResult.Yes)
                 {
                     Baja_Profesor();
+                    bajaDireccion();
                     Id_Pr = textBox1.Text;
                     int idActualizado = Convert.ToInt32(Id_Pr);
                     BsonDocument crearProf = new BsonDocument
@@ -234,12 +245,12 @@ namespace Login
                     
                     MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
                     var db = client.GetDatabase("sistemaescolar");
-                    var usuarios = db.GetCollection<BsonDocument>("Profesores");
+                    var usuarios = db.GetCollection<BsonDocument>("profesor");
 
                     //Sintaxis para insertar un profesor
+                   // direccionP();
                     usuarios.InsertOne(DatosProf);
-                    direccion();
-
+                     Actualizardireccion();
 
                 }
             }
