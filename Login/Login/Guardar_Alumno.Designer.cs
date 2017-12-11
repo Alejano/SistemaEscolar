@@ -35,6 +35,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.textBox13 = new System.Windows.Forms.TextBox();
@@ -61,8 +63,6 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.textBox15 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -156,6 +156,24 @@
             this.groupBox1.Text = "Informacion del Alumno";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // textBox15
+            // 
+            this.textBox15.Location = new System.Drawing.Point(131, 134);
+            this.textBox15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Size = new System.Drawing.Size(169, 22);
+            this.textBox15.TabIndex = 4;
+            this.textBox15.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox15_KeyPress);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(6, 105);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(114, 17);
+            this.label17.TabIndex = 17;
+            this.label17.Text = "Apellido Materno";
+            // 
             // textBox14
             // 
             this.textBox14.Location = new System.Drawing.Point(405, 213);
@@ -182,6 +200,7 @@
             this.textBox13.PasswordChar = '*';
             this.textBox13.Size = new System.Drawing.Size(169, 22);
             this.textBox13.TabIndex = 10;
+            this.textBox13.TextChanged += new System.EventHandler(this.textBox13_TextChanged);
             // 
             // label11
             // 
@@ -208,6 +227,7 @@
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(169, 22);
             this.textBox9.TabIndex = 7;
+            this.textBox9.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             // 
             // checkBox2
             // 
@@ -261,6 +281,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(169, 22);
             this.textBox3.TabIndex = 3;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             this.textBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
             // 
             // textBox2
@@ -284,7 +305,7 @@
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(551, 66);
+            this.textBox8.Location = new System.Drawing.Point(104, 165);
             this.textBox8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(169, 22);
@@ -337,7 +358,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(25, 147);
+            this.label14.Location = new System.Drawing.Point(28, 118);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(55, 17);
             this.label14.TabIndex = 21;
@@ -345,7 +366,7 @@
             // 
             // textBox10
             // 
-            this.textBox10.Location = new System.Drawing.Point(104, 103);
+            this.textBox10.Location = new System.Drawing.Point(551, 64);
             this.textBox10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(169, 22);
@@ -364,7 +385,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(188, 154);
+            this.label13.Location = new System.Drawing.Point(188, 130);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(0, 17);
             this.label13.TabIndex = 14;
@@ -380,7 +401,7 @@
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(104, 147);
+            this.textBox7.Location = new System.Drawing.Point(104, 118);
             this.textBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(169, 22);
@@ -395,12 +416,13 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(169, 22);
             this.textBox6.TabIndex = 12;
+            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             this.textBox6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox6_KeyPress);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(25, 108);
+            this.label6.Location = new System.Drawing.Point(25, 168);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 17);
             this.label6.TabIndex = 5;
@@ -409,27 +431,10 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(25, 92);
+            this.label7.Location = new System.Drawing.Point(25, 152);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(0, 17);
             this.label7.TabIndex = 4;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(6, 105);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(114, 17);
-            this.label17.TabIndex = 17;
-            this.label17.Text = "Apellido Materno";
-            // 
-            // textBox15
-            // 
-            this.textBox15.Location = new System.Drawing.Point(131, 134);
-            this.textBox15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(169, 22);
-            this.textBox15.TabIndex = 4;
             // 
             // Guardar_Alumno
             // 

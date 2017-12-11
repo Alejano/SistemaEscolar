@@ -60,13 +60,20 @@ namespace Login
 
             if (checkBox1.Checked)
             {
-                
-                Diferenciador_A = "interno";
-                BuscarID();
-                ID_A = ID_A + 1;
-                Agregar_Alumno();
-                Agregar_Direccion();
-                MessageBox.Show("El alumno " + Diferenciador_A + " Se guardo en la base correctamente");
+
+                if ( MessageBox.Show("Seguro desesas guardar?", "Guardando",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                == DialogResult.Yes)
+                {
+                    Diferenciador_A = "interno";
+                    BuscarID();
+                    ID_A = ID_A + 1;
+                    Agregar_Alumno();
+                    Agregar_Direccion();
+                    MessageBox.Show("El alumno " + Diferenciador_A + " Se guardo en la base correctamente");
+
+                }
+               
 
 
             }
@@ -76,13 +83,22 @@ namespace Login
 
                 if (checkBox2.Checked)
                 {
-                    
-                    Diferenciador_A = "externo";
-                    BuscarID();
-                    ID_A = ID_A + 1;
-                    Agregar_Alumno();
-                    Agregar_Direccion();
-                    MessageBox.Show("El alumno " + Diferenciador_A + " Se guardo en la base correctamente");
+
+                    if (MessageBox.Show("Seguro desesas guardar?", "Guardando",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                    == DialogResult.Yes)
+                    {
+                        Diferenciador_A = "externo";
+                        BuscarID();
+                        ID_A = ID_A + 1;
+                        Agregar_Alumno();
+                        Agregar_Direccion();
+                        MessageBox.Show("El alumno " + Diferenciador_A + " Se guardo en la base correctamente");
+
+                    }
+
+                   
+                   
 
 
 
@@ -100,10 +116,11 @@ namespace Login
                 }
             }
 
+            
 
 
 
-        }
+            }
         void Agregar_Alumno()
         {
 
@@ -114,12 +131,16 @@ namespace Login
                   {//informacion del alumno
                     {"Id_A",ID_A},
                     {"Nombre",textBox1.Text},
-                    {"Apellidos",textBox2.Text},
-                    {"Edad",textBox3.Text },
+                    {"Apellido_Paterno",textBox2.Text},
+                    {"Apellido_Materno",textBox3.Text},
+                    {"Edad",textBox15.Text },
                     {"Telefono_Casa",textBox4.Text },
                     {"Telefono_Celular",textBox5.Text },
-                    {"Correo_Electronco",textBox9.Text },
-                    {"T_Alumno",Diferenciador_A }
+                    {"Correo_Electronico",textBox9.Text },
+                    {"Contraseña",textBox13.Text },
+                    //{"Confirmacion",textBox14.Text },
+                    {"T_Alumno",Diferenciador_A },
+
 
 
                   };
@@ -144,10 +165,9 @@ namespace Login
                   {
                     {"Id_A",ID_A},
                     {"Calle",textBox6.Text},
-                    {"Entre",textBox7.Text},
-                    {"Y",textBox8.Text },
-                    {"Numero",textBox10.Text },
-                   // {"Colonia",textBox11.Text },
+                    {"Colonia",textBox7.Text},
+                    {"Numero",textBox8.Text },
+                    {"Estado",textBox10.Text },
                     {"Codigo Postal",textBox12.Text }
 
 
@@ -175,11 +195,13 @@ namespace Login
             textBox5.Clear();
             textBox6.Clear();
             textBox7.Clear();
-            textBox9.Clear();
             textBox8.Clear();
+            textBox9.Clear();
             textBox10.Clear();
-            //textBox11.Clear();
             textBox12.Clear();
+            textBox13.Clear();
+            textBox14.Clear();
+            textBox15.Clear();
             checkBox1.Checked = false;
             checkBox2.Checked = false;
             
@@ -206,8 +228,10 @@ namespace Login
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+
         {
-            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter))
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter) && (e.KeyChar != (char)Keys.Space))
+               // if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter))
             {
                 MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
@@ -222,7 +246,7 @@ namespace Login
 
         private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter))
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter))
             {
                 MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
@@ -272,7 +296,7 @@ namespace Login
 
         private void textBox8_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter) && (e.KeyChar != (char)Keys.Space))
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter))
             {
                 MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
@@ -292,7 +316,7 @@ namespace Login
 
         private void textBox10_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter))
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter) && (e.KeyChar != (char)Keys.Space))
             {
                 MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
@@ -312,7 +336,7 @@ namespace Login
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter) && (e.KeyChar != (char)Keys.Space))
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter))
             {
                 MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
@@ -350,6 +374,38 @@ namespace Login
         private void checkBox2_Click(object sender, EventArgs e)
         {
             checkBox1.Checked = false;
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox9_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox15_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void textBox13_TextChanged(object sender, EventArgs e)
+        {
+           // if (textBox7.Text == textBox8.Text) {
+              //  MessageBox.Show("ok");
+            
         }
     }
 }
