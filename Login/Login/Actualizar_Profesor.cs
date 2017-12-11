@@ -18,9 +18,9 @@ namespace Login
         string[] DatosProf = new string[99];
         public static string t_profesor = "";
         static int ID_P = 0;
-        public static int id = 0;
+        public static int id ;
 
-        public static int Id_Pr;
+        public static string Id_Pr;
         public static string tipoProf;
 
         public Actualizar_Profesor()
@@ -153,7 +153,10 @@ namespace Login
 
             }
         }
-        
+        void eliminarDireccion()
+        {
+
+        }
 
         void direccion()
             {
@@ -212,9 +215,11 @@ namespace Login
            == DialogResult.Yes)
                 {
                     Baja_Profesor();
+                    Id_Pr = textBox1.Text;
+                    int idActualizado = Convert.ToInt32(Id_Pr);
                     BsonDocument crearProf = new BsonDocument
                     {
-                      {"Id_P",textBox1.Text},
+                      {"Id_P",idActualizado},
                      {"t_profesor",t_profesor},
                      {"Nombre",textBox2.Text},
                      {"Apaterno",textBox3.Text},
