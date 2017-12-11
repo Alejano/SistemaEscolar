@@ -59,7 +59,7 @@ namespace Login
 
         private void Eliminar_Profesor_Load(object sender, EventArgs e)
         {
-            String equis1;
+            
 
             dataGridView1.AutoGenerateColumns = true;
 
@@ -156,6 +156,11 @@ namespace Login
                 //el resto de teclas pulsadas se desactivan 
                 e.Handled = true;
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

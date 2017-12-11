@@ -63,7 +63,7 @@ namespace Login
 
         void Buscar_Nombre() {
             string variable = "";
-            variable = textBox14.Text;
+          //  variable = textBox14.Text;
             MessageBox.Show("buscando");
             MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
             var db = client.GetDatabase("sistemaescolar");
