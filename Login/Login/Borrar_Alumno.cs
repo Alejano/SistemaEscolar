@@ -80,8 +80,8 @@ namespace Login
         {
 
             if (MessageBox.Show("Seguro que deseas eliminar?", "Eliminando",
-        MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-        == DialogResult.Yes)
+            MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            == DialogResult.Yes)
             {
                 Baja_Alumno();
                 MessageBox.Show("Eliminado");
