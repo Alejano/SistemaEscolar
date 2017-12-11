@@ -204,7 +204,7 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(137, 20);
             this.textBox4.TabIndex = 63;
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+           // this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // label20
             // 
