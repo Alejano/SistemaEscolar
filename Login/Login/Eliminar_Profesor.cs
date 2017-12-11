@@ -59,7 +59,7 @@ namespace Login
 
         private void Eliminar_Profesor_Load(object sender, EventArgs e)
         {
-            //String equis1;
+            
 
             dataGridView1.AutoGenerateColumns = true;
 
@@ -158,17 +158,7 @@ namespace Login
             }
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

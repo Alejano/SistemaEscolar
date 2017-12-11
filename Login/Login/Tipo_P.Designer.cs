@@ -37,7 +37,6 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -62,6 +61,12 @@
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
@@ -74,12 +79,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.label25 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -136,10 +136,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBox4);
             this.groupBox1.Controls.Add(this.label22);
             this.groupBox1.Controls.Add(this.label21);
             this.groupBox1.Controls.Add(this.textBox14);
-            this.groupBox1.Controls.Add(this.textBox4);
             this.groupBox1.Controls.Add(this.label20);
             this.groupBox1.Controls.Add(this.dateTimePicker3);
             this.groupBox1.Controls.Add(this.textBox1);
@@ -163,7 +163,7 @@
             this.groupBox1.Controls.Add(this.textBox7);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Location = new System.Drawing.Point(12, 38);
+            this.groupBox1.Location = new System.Drawing.Point(12, 39);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(805, 198);
             this.groupBox1.TabIndex = 38;
@@ -197,13 +197,6 @@
             this.textBox14.TabIndex = 65;
             this.textBox14.TextChanged += new System.EventHandler(this.textBox14_TextChanged);
             this.textBox14.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox14_KeyPress);
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(579, 28);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(137, 20);
-            this.textBox4.TabIndex = 63;
             // 
             // label20
             // 
@@ -434,6 +427,58 @@
             this.groupBox2.Text = "Datos Curso";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
+            // textBox17
+            // 
+            this.textBox17.Location = new System.Drawing.Point(455, 123);
+            this.textBox17.Name = "textBox17";
+            this.textBox17.Size = new System.Drawing.Size(29, 20);
+            this.textBox17.TabIndex = 63;
+            this.textBox17.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox17_KeyPress);
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(372, 126);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(72, 13);
+            this.label25.TabIndex = 62;
+            this.label25.Text = "Costo maximo";
+            // 
+            // textBox16
+            // 
+            this.textBox16.Location = new System.Drawing.Point(313, 123);
+            this.textBox16.Name = "textBox16";
+            this.textBox16.Size = new System.Drawing.Size(30, 20);
+            this.textBox16.TabIndex = 61;
+            this.textBox16.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox16_KeyPress);
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(240, 126);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(67, 13);
+            this.label24.TabIndex = 60;
+            this.label24.Text = "Cupo minimo";
+            // 
+            // textBox15
+            // 
+            this.textBox15.Location = new System.Drawing.Point(93, 123);
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Size = new System.Drawing.Size(114, 20);
+            this.textBox15.TabIndex = 59;
+            this.textBox15.TextChanged += new System.EventHandler(this.textBox15_TextChanged_1);
+            this.textBox15.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox15_KeyPress);
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(50, 126);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(34, 13);
+            this.label23.TabIndex = 58;
+            this.label23.Text = "Costo";
+            // 
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
@@ -551,57 +596,12 @@
             this.label14.TabIndex = 44;
             this.label14.Text = "Fecha Inicio";
             // 
-            // label23
+            // textBox4
             // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(50, 126);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(34, 13);
-            this.label23.TabIndex = 58;
-            this.label23.Text = "Costo";
-            // 
-            // textBox15
-            // 
-            this.textBox15.Location = new System.Drawing.Point(93, 123);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(114, 20);
-            this.textBox15.TabIndex = 59;
-            this.textBox15.TextChanged += new System.EventHandler(this.textBox15_TextChanged_1);
-            this.textBox15.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox15_KeyPress);
-            // 
-            // textBox16
-            // 
-            this.textBox16.Location = new System.Drawing.Point(313, 123);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(30, 20);
-            this.textBox16.TabIndex = 61;
-            this.textBox16.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox16_KeyPress);
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(240, 126);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(67, 13);
-            this.label24.TabIndex = 60;
-            this.label24.Text = "Cupo minimo";
-            // 
-            // textBox17
-            // 
-            this.textBox17.Location = new System.Drawing.Point(455, 123);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(29, 20);
-            this.textBox17.TabIndex = 63;
-            this.textBox17.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox17_KeyPress);
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(372, 126);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(72, 13);
-            this.label25.TabIndex = 62;
-            this.label25.Text = "Costo maximo";
+            this.textBox4.Location = new System.Drawing.Point(579, 27);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(119, 20);
+            this.textBox4.TabIndex = 68;
             // 
             // Tipo_P
             // 
@@ -668,7 +668,6 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.Label label21;
@@ -679,5 +678,6 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox textBox16;
         private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox textBox4;
     }
 }

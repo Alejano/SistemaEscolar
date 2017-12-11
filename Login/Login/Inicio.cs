@@ -82,6 +82,12 @@ namespace Login
             DateTime tiempoHoy = DateTime.Now;
             textBox1.Text = tiempoHoy.ToString();
         }
+
+        private void actualizarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Actualizar_Profesor acp = new Actualizar_Profesor();
+            acp.Show();
+        }
     }
         
 }
