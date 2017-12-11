@@ -67,7 +67,7 @@ namespace Login
             MessageBox.Show("buscando");
             MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
             var db = client.GetDatabase("sistemaescolar");
-            var buscar = db.GetCollection<BsonDocument>("Alumnos");
+            var buscar = db.GetCollection<BsonDocument>("alumno");
 
             var filter = Builders<BsonDocument>.Filter.Eq("Nombre", variable);
 
@@ -126,6 +126,11 @@ namespace Login
         private void label24_Click(object sender, EventArgs e)
         {
 
+
+        }
+
+        private void Actualizar_Alumno_Load(object sender, EventArgs e)
+        {
 
         }
     }

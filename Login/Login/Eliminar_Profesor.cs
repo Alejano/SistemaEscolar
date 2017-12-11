@@ -65,7 +65,7 @@ namespace Login
 
             MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
             var db = client.GetDatabase("sistemaescolar");
-            var usuarios = db.GetCollection<BsonDocument>("Profesores");
+            var usuarios = db.GetCollection<BsonDocument>("profesor");
 
             usuarios.AsQueryable<BsonDocument>().ToList().ForEach(equis =>
             dataGridView1.Rows.Add(Convert.ToString(equis["Id_P"]) , Convert.ToString(equis["Nombre"]))
@@ -88,7 +88,7 @@ namespace Login
                 
                 MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
                 var db = client.GetDatabase("sistemaescolar");
-                var usuarios = db.GetCollection<BsonDocument>("Profesores");
+                var usuarios = db.GetCollection<BsonDocument>("profesor");
 
 
                 var filter_id = Builders<BsonDocument>.Filter.Eq("Id_P", Convert.ToUInt32(textBox1.Text));
@@ -124,7 +124,7 @@ namespace Login
 
                 MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
                 var db = client.GetDatabase("sistemaescolar");
-                var usuarios = db.GetCollection<BsonDocument>("Profesores");
+                var usuarios = db.GetCollection<BsonDocument>("profesor");
 
                 usuarios.AsQueryable<BsonDocument>().ToList().ForEach(equis =>
                 dataGridView1.Rows.Add(Convert.ToString(equis["Id_P"]), Convert.ToString(equis["Nombre"]))

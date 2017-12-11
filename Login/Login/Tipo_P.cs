@@ -32,7 +32,7 @@ namespace Login
 
             MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
             var db = client.GetDatabase("sistemaescolar");
-            var Matricula = db.GetCollection<BsonDocument>("Profesores");
+            var Matricula = db.GetCollection<BsonDocument>("profesor");
 
             //con este buscas todos 
             Matricula.AsQueryable<BsonDocument>().ToList().ForEach(matricu =>
@@ -71,7 +71,7 @@ namespace Login
             //MessageBox.Show("Conectando ... ");
             MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
             var db = client.GetDatabase("sistemaescolar");
-            var usuarios = db.GetCollection<BsonDocument>("Profesores");
+            var usuarios = db.GetCollection<BsonDocument>("profesor");
 
             //Sintaxis para insertar un profesor
             usuarios.InsertOne(DatosProf);

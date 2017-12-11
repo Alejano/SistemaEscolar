@@ -34,7 +34,7 @@ namespace Login
 
             MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
             var obten = client.GetDatabase("sistemaescolar");
-            var baja= obten.GetCollection<BsonDocument>("Alumnos");
+            var baja= obten.GetCollection<BsonDocument>("alumno");
 
            
             baja.DeleteOneAsync(Builders<BsonDocument>.Filter.Eq("Id_A", id));
