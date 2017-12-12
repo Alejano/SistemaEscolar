@@ -88,6 +88,12 @@ namespace Login
             Actualizar_Profesor acp = new Actualizar_Profesor();
             acp.Show();
         }
+
+        private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BuscarProfesor buscarprof = new BuscarProfesor();
+            buscarprof.Show();
+        }
     }
         
 }
