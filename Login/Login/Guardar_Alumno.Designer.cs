@@ -163,6 +163,7 @@
             this.textBox15.Name = "textBox15";
             this.textBox15.Size = new System.Drawing.Size(169, 22);
             this.textBox15.TabIndex = 4;
+            this.textBox15.TextChanged += new System.EventHandler(this.textBox15_TextChanged);
             this.textBox15.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox15_KeyPress);
             // 
             // label17

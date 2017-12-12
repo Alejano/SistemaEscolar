@@ -60,7 +60,7 @@ namespace Login
 
         private void actualizarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Actualizar_Alumno A = new Actualizar_Alumno();
+            Actualizar_Alumnos A = new Actualizar_Alumnos();
             A.Show();
         }
 

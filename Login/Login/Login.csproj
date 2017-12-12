@@ -63,11 +63,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Actualizar_Alumno.cs">
+    <Compile Include="Actualizar_Alumnos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Actualizar_Alumno.Designer.cs">
-      <DependentUpon>Actualizar_Alumno.cs</DependentUpon>
+    <Compile Include="Actualizar_Alumnos.Designer.cs">
+      <DependentUpon>Actualizar_Alumnos.cs</DependentUpon>
     </Compile>
     <Compile Include="Actualizar_Profesor.cs">
       <SubType>Form</SubType>
@@ -149,8 +149,8 @@
     <Compile Include="Tipo_P.Designer.cs">
       <DependentUpon>Tipo_P.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Actualizar_Alumno.resx">
-      <DependentUpon>Actualizar_Alumno.cs</DependentUpon>
+    <EmbeddedResource Include="Actualizar_Alumnos.resx">
+      <DependentUpon>Actualizar_Alumnos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Actualizar_Profesor.resx">
       <DependentUpon>Actualizar_Profesor.cs</DependentUpon>
