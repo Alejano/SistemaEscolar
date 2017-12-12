@@ -60,7 +60,7 @@ namespace Login
 
         private void actualizarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Actualizar_Alumno A = new Actualizar_Alumno();
+            Actualizar_Alumnos A = new Actualizar_Alumnos();
             A.Show();
         }
 
@@ -87,6 +87,12 @@ namespace Login
         {
             Actualizar_Profesor acp = new Actualizar_Profesor();
             acp.Show();
+        }
+
+        private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BuscarProfesor buscarprof = new BuscarProfesor();
+            buscarprof.Show();
         }
     }
         

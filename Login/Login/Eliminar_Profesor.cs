@@ -36,7 +36,7 @@ namespace Login
 
             MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
             var obten = client.GetDatabase("sistemaescolar");
-            var baja = obten.GetCollection<BsonDocument>("Profesores");
+            var baja = obten.GetCollection<BsonDocument>("profesor");
 
 
             baja.DeleteOneAsync(Builders<BsonDocument>.Filter.Eq("Id_P", id));
@@ -44,6 +44,18 @@ namespace Login
 
             //MessageBox.Show("borrado");
          }
+
+        void bajaDireccion()
+        {
+            id = Convert.ToInt32(textBox1.Text);
+
+            MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
+            var obten = client.GetDatabase("sistemaescolar");
+            var baja = obten.GetCollection<BsonDocument>("Direccion_Profesor");
+
+
+            baja.DeleteOneAsync(Builders<BsonDocument>.Filter.Eq("Id_P", id));
+        }
 
         void limpiar()
         {
@@ -82,9 +94,7 @@ namespace Login
             }
 
             else
-            {
-
-                
+            {          
                 
                 MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
                 var db = client.GetDatabase("sistemaescolar");
@@ -93,7 +103,7 @@ namespace Login
 
                 var filter_id = Builders<BsonDocument>.Filter.Eq("Id_P", Convert.ToUInt32(textBox1.Text));
                 var entity = usuarios.Find(filter_id).FirstOrDefault();
-             //   MessageBox.Show(entity.ToString());
+             // MessageBox.Show(entity.ToString());
 
                 String DtAdmjson = entity.ToString();
                 char[] separador = { '"', '"' };
@@ -111,12 +121,34 @@ namespace Login
             }
         }
 
+       void  buscarDireccion()
+        {
+            MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
+            var db = client.GetDatabase("sistemaescolar");
+            var usuarios = db.GetCollection<BsonDocument>("Direccion_Profesor");
+
+
+            var filter_id = Builders<BsonDocument>.Filter.Eq("Id_P", Convert.ToUInt32(textBox1.Text));
+            var entity = usuarios.Find(filter_id).FirstOrDefault();
+
+            //MessageBox.Show(entity.ToString());
+
+            String DtAdmjson = entity.ToString();
+            char[] separador = { '"', '"' };
+            DatosProf = DtAdmjson.Split(separador);
+        }
+
+
        private void button1_Click(object sender, EventArgs e)
         {
+           
+
             if (MessageBox.Show("¿Seguro que deseas eliminar este profesor?", "Profesor Eliminado",
          MessageBoxButtons.YesNo, MessageBoxIcon.Question)
          == DialogResult.Yes)
             {
+                buscarDireccion();
+                bajaDireccion();
                 Baja_Profesor();
                 limpiar();
 
@@ -129,10 +161,6 @@ namespace Login
                 usuarios.AsQueryable<BsonDocument>().ToList().ForEach(equis =>
                 dataGridView1.Rows.Add(Convert.ToString(equis["Id_P"]), Convert.ToString(equis["Nombre"]))
                 );
-
-
-
-
             }
             else
             {
