@@ -64,6 +64,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Id_P = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -116,6 +117,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label22);
             this.groupBox1.Controls.Add(this.label21);
             this.groupBox1.Controls.Add(this.textBox14);
@@ -145,7 +147,7 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Location = new System.Drawing.Point(12, 66);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(737, 198);
+            this.groupBox1.Size = new System.Drawing.Size(737, 209);
             this.groupBox1.TabIndex = 39;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Profesor";
@@ -260,6 +262,7 @@
             this.checkBox1.TabIndex = 1;
             this.checkBox1.Text = "Interno";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // textBox5
             // 
@@ -383,7 +386,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(504, 17);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(245, 258);
+            this.dataGridView1.Size = new System.Drawing.Size(245, 268);
             this.dataGridView1.TabIndex = 41;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -391,11 +394,22 @@
             // 
             this.Id_P.HeaderText = "Id_P";
             this.Id_P.Name = "Id_P";
+            this.Id_P.ReadOnly = true;
             // 
             // Nombre
             // 
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(511, 178);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(215, 13);
+            this.label6.TabIndex = 68;
+            this.label6.Text = "Ingresa tu contraseña para guardar cambios";
             // 
             // Actualizar_Profesor
             // 
@@ -458,5 +472,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id_P;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.Label label6;
     }
 }

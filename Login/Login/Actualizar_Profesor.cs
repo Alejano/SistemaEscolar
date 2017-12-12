@@ -19,6 +19,7 @@ namespace Login
         public static string t_profesor = "";
         static int ID_P = 0;
         public static int id ;
+        string IDP;
 
         public static string Id_Pr;
         public static string tipoProf;
@@ -203,6 +204,20 @@ namespace Login
 
         }
 
+        void Actualizar()
+        {
+
+            dataGridView1.Rows.Clear();
+
+            MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
+            var db = client.GetDatabase("sistemaescolar");
+            var usuarios = db.GetCollection<BsonDocument>("profesores");
+
+            usuarios.AsQueryable<BsonDocument>().ToList().ForEach(song =>
+            dataGridView1.Rows.Add(Convert.ToString(song["Id_P"]), Convert.ToString(song["Nombre"]))
+            );
+        }
+
         private void dateTimePicker3_ValueChanged(object sender, EventArgs e)
         {
 
@@ -225,14 +240,23 @@ namespace Login
            MessageBoxButtons.YesNo, MessageBoxIcon.Question)
            == DialogResult.Yes)
                 {
+                    //Id_Pr = textBox1.Text;
+                    //int idActualizado = Convert.ToInt32(Id_Pr);
+                
                     Baja_Profesor();
                     bajaDireccion();
-                    Id_Pr = textBox1.Text;
-                    int idActualizado = Convert.ToInt32(Id_Pr);
+                    
+                                     
+                                       
+                    MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
+                    var db = client.GetDatabase("sistemaescolar");
+                    var usuarios = db.GetCollection<BsonDocument>("profesor");
+                     usuarios.DeleteOneAsync(Builders<BsonDocument>.Filter.Eq("Id_P", textBox1.Text));
+
+
                     BsonDocument crearProf = new BsonDocument
                     {
-                      {"Id_P",idActualizado},
-                     {"t_profesor",t_profesor},
+                      {"Id_P",Convert.ToInt32(textBox1.Text)},
                      {"Nombre",textBox2.Text},
                      {"Apaterno",textBox3.Text},
                      {"Amaterno",textBox6.Text},
@@ -243,15 +267,14 @@ namespace Login
                     };
                     BsonDocument DatosProf = crearProf;
 
-                    
-                    MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
-                    var db = client.GetDatabase("sistemaescolar");
-                    var usuarios = db.GetCollection<BsonDocument>("profesor");
 
                     //Sintaxis para insertar un profesor
-                   // direccionP();
+                    // direccionP();
                     usuarios.InsertOne(DatosProf);
                      Actualizardireccion();
+
+                    MessageBox.Show("Profesor Actualizado correctamente");
+                    Actualizar();
 
                 }
             }
@@ -273,6 +296,11 @@ namespace Login
                 //el resto de teclas pulsadas se desactivan 
                 e.Handled = true;
             }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
