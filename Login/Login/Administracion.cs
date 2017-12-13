@@ -595,6 +595,8 @@ namespace Login
         {
             Reportes_cursos rp = new Reportes_cursos();
             rp.Show();
+            Close();
+
         }
 
         private void button8_Click(object sender, EventArgs e)

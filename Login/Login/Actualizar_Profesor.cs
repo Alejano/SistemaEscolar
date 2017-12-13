@@ -148,14 +148,14 @@ namespace Login
                     char[] separador = { '"', '"' };
                     DatosProf = DtAdmjson.Split(separador);
 
-                    MessageBox.Show(Convert.ToString( DtAdmjson));
                     
-                    MessageBox.Show(Convert.ToString(DatosProf[9])+
-                        Convert.ToString(DatosProf[13])+
-                        Convert.ToString(DatosProf[17])+
-                        Convert.ToString(DatosProf[21])+
-                        Convert.ToString(DatosProf[25])+
-                        Convert.ToString(DatosProf[33]));
+                    
+                    MessageBox.Show(Convert.ToString("nombre " + DatosProf[9])+
+                        Convert.ToString(" apat "+DatosProf[13])+
+                        Convert.ToString(" ama " + DatosProf[17])+
+                        Convert.ToString(" fecha " + DatosProf[21])+
+                        Convert.ToString(" tel " + DatosProf[25])+
+                        Convert.ToString(" corr " + DatosProf[29]));
                         
                     
                    textBox2.Text = DatosProf[9];

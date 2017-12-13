@@ -16,7 +16,7 @@ namespace Login
     {
         string[] DatosAlum = new string[99];
         public static string t_alumno = "";
-        public static int ID_A = 14949460;
+        public static int ID_A = 0;
         public static int id;
         
 
@@ -37,7 +37,7 @@ namespace Login
             var usuarios = db.GetCollection<BsonDocument>("Direccion_Alumno");
 
 
-            var filter_id = Builders<BsonDocument>.Filter.Eq("Id_A", Convert.ToUInt32(textBox1.Text));
+            var filter_id = Builders<BsonDocument>.Filter.Eq("Id_A", ID_A);
             var entity = usuarios.Find(filter_id).FirstOrDefault();
 
            
@@ -60,7 +60,7 @@ namespace Login
             BsonDocument crearAlum = new BsonDocument
                     {
 
-                     {"Id_A",id},
+                     {"Id_A",ID_A},
 
                      {"Nombre",textBox2.Text},
                      {"Apellido_Paterno",textBox3.Text},
@@ -88,7 +88,7 @@ namespace Login
             BsonDocument crearDireccion = new BsonDocument
             {
                 
-                { "Id_A",id },
+                { "Id_A",ID_A },
                 {"Calle", textBox12.Text},
                 {"Colonia",textBox11.Text},
                 {"Estado",textBox8.Text},
@@ -117,7 +117,7 @@ namespace Login
             var baja = obten.GetCollection<BsonDocument>("alumno");
 
 
-            baja.DeleteOneAsync(Builders<BsonDocument>.Filter.Eq("Id_A", id));
+            baja.DeleteOneAsync(Builders<BsonDocument>.Filter.Eq("Id_A", ID_A));
         }
 
         void Baja_Direccion()
@@ -129,7 +129,7 @@ namespace Login
             var baja = obten.GetCollection<BsonDocument>("Direccion_Alumno");
 
 
-            baja.DeleteOneAsync(Builders<BsonDocument>.Filter.Eq("Id_A", id));
+            baja.DeleteOneAsync(Builders<BsonDocument>.Filter.Eq("Id_A", ID_A));
         }
 
 
@@ -152,6 +152,7 @@ namespace Login
 
         private void button3_Click(object sender, EventArgs e)
         {
+            ID_A = Convert.ToInt32(textBox1.Text);
             if (string.IsNullOrEmpty(textBox1.Text))
             {
                 MessageBox.Show("Ingrese un numero de cuenta para actualizarlo");
@@ -165,7 +166,7 @@ namespace Login
                 var usuarios = db.GetCollection<BsonDocument>("alumno");
 
 
-                var filter_id = Builders<BsonDocument>.Filter.Eq("Id_A", Convert.ToUInt32(textBox1.Text));
+                var filter_id = Builders<BsonDocument>.Filter.Eq("Id_A", ID_A);
                 var entity = usuarios.Find(filter_id).FirstOrDefault();
                 
 
@@ -438,6 +439,7 @@ namespace Login
         }
         void limpiar()
         {
+            ID_A = 0;
             textBox1.Clear();
             textBox2.Clear();
             textBox3.Clear();
