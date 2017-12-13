@@ -14,12 +14,17 @@ namespace Login
 {
     public partial class Actualizar_Alumnos : Form
     {
-        public static int ID_A = 0;
-       
         string[] DatosAlum = new string[99];
         public static string t_alumno = "";
-        
+        public static int ID_A = 0;
         public static int id;
+        //public IDP;
+        public static string Id_Pr;
+        public static string tipoProf;
+
+
+
+        
 
         
         
