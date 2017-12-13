@@ -14,8 +14,8 @@ namespace Login
 {
     public partial class Guardar_Alumno : Form
     {
-        public static String Diferenciador_A = "";
-       
+        public static string Diferenciador_A = "";
+        public static int ID_A = 0;
         public Guardar_Alumno()
          
         {
@@ -30,7 +30,7 @@ namespace Login
         }
 
 
-        static int ID_A = 0; 
+        //static int ID_A = 0; 
 
         void BuscarID()
         {
@@ -55,60 +55,43 @@ namespace Login
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text) || string.IsNullOrEmpty(textBox3.Text)
-               || string.IsNullOrEmpty(textBox4.Text) || string.IsNullOrEmpty(textBox5.Text) || string.IsNullOrEmpty(textBox6.Text)
-               || string.IsNullOrEmpty(textBox7.Text) || string.IsNullOrEmpty(textBox8.Text) || string.IsNullOrEmpty(textBox9.Text)
-               || string.IsNullOrEmpty(textBox10.Text) || string.IsNullOrEmpty(textBox12.Text)
-               || string.IsNullOrEmpty(textBox13.Text)
-               || string.IsNullOrEmpty(textBox14.Text))
+            if (textBox13.Text == textBox14.Text)
             {
-                MessageBox.Show("No puede dejar campos vacios");
-            }
-
-           
-
-
-                    if (checkBox1.Checked)
-            {
-
-                if ( MessageBox.Show("Seguro desesas guardar?", "Guardando",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-                == DialogResult.Yes)
-                {
-                    Diferenciador_A = "interno";
-                    BuscarID();
-                    ID_A = ID_A + 1;
-                    Agregar_Alumno();
-                    Agregar_Direccion();
-                    MessageBox.Show("El alumno " + Diferenciador_A + " Se guardo en la base correctamente");
-
-                }
-               
-
 
             }
             else
             {
 
 
-                if (checkBox2.Checked)
+
+                if (string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text) || string.IsNullOrEmpty(textBox3.Text)
+                   || string.IsNullOrEmpty(textBox4.Text) || string.IsNullOrEmpty(textBox5.Text) || string.IsNullOrEmpty(textBox6.Text)
+                   || string.IsNullOrEmpty(textBox7.Text) || string.IsNullOrEmpty(textBox8.Text) || string.IsNullOrEmpty(textBox9.Text)
+                   || string.IsNullOrEmpty(textBox10.Text) || string.IsNullOrEmpty(textBox12.Text)
+                   || string.IsNullOrEmpty(textBox13.Text) || string.IsNullOrEmpty(checkBox1.Text) || string.IsNullOrEmpty(checkBox2.Text)
+                   || string.IsNullOrEmpty(textBox14.Text))
+                {
+                    MessageBox.Show("No puede dejar campos vacios");
+                }
+
+
+
+
+                if (checkBox1.Checked)
                 {
 
                     if (MessageBox.Show("Seguro desesas guardar?", "Guardando",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-                    == DialogResult.Yes)
+            MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            == DialogResult.Yes)
                     {
-                        Diferenciador_A = "externo";
+                        Diferenciador_A = "interno";
                         BuscarID();
                         ID_A = ID_A + 1;
                         Agregar_Alumno();
                         Agregar_Direccion();
-                        MessageBox.Show("El alumno " + Diferenciador_A + " Se guardo en la base correctamente");
+                        MessageBox.Show("El alumno " + Diferenciador_A + " se guardo en la base correctamente");
 
                     }
-
-                   
-                   
 
 
 
@@ -116,31 +99,58 @@ namespace Login
                 else
                 {
 
-                    if (checkBox1.Checked == false || checkBox2.Checked == false)
+
+                    if (checkBox2.Checked)
                     {
 
-                        MessageBox.Show("Se necesita elegir tipo de alumno para continuar");
-                    }
+                        if (MessageBox.Show("Seguro desesas guardar?", "Guardando",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                        == DialogResult.Yes)
+                        {
+                            Diferenciador_A = "externo";
+                            BuscarID();
+                            ID_A = ID_A + 1;
+                            Agregar_Alumno();
+                            Agregar_Direccion();
+                            MessageBox.Show("El alumno " + Diferenciador_A + " Se guardo en la base correctamente");
 
-                    limpiar();
+                        }
+
+
+
+
+
+
+                    }
+                    else
+                    {
+
+                        if (checkBox1.Checked == false || checkBox2.Checked == false)
+                        {
+
+                            MessageBox.Show("Se necesita elegir tipo de alumno (interno/externo) para continuar");
+                        }
+
+
+                    }
                 }
             }
-
-            
-
+                    limpiar();
 
 
-            }
+
+
+        }
         void Agregar_Alumno()
         {
 
-           //public static int ID_A = 0;
+           
 
-            MessageBox.Show("creando Alumno");
+           
             BsonDocument Alumno = new BsonDocument
-                  {//informacion del alumno
-                    //ID_A = ID_A + 1;
-                    { "Id_A",ID_A},
+                  {
+                    
+                    {"Id_A",ID_A},
                     {"Nombre",textBox1.Text},
                     {"Apellido_Paterno",textBox2.Text},
                     {"Apellido_Materno",textBox3.Text},
@@ -149,7 +159,6 @@ namespace Login
                     {"Telefono_Celular",textBox5.Text },
                     {"Correo_Electronico",textBox9.Text },
                     {"Contraseña",textBox13.Text },
-                   
                     {"T_Alumno",Diferenciador_A },
 
 
@@ -428,6 +437,12 @@ namespace Login
         {
             Inicio ini = new Inicio();
             ini.Show();
+            Hide();
+        }
+
+        private void textBox14_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

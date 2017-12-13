@@ -16,7 +16,7 @@ namespace Login
     {
 
         public static int id = 0;
-        //public static string p;
+       
         string[] DatosAlum = new string[99];
         
         public Borrar_Alumno()
@@ -32,7 +32,7 @@ namespace Login
 
 
 
-            MessageBox.Show("BAJA ALUMNO  ............");
+           
 
             MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
             var obten = client.GetDatabase("sistemaescolar");
@@ -42,8 +42,7 @@ namespace Login
             baja.DeleteOneAsync(Builders<BsonDocument>.Filter.Eq("Id_A", id));
             
 
-            MessageBox.Show("borrado");
-            
+           
 
             
         }
@@ -51,7 +50,7 @@ namespace Login
         void bajaDireccion()
         {
             id = Convert.ToInt32(textBox1.Text);
-            MessageBox.Show("BAJA DIRECCION ALUMNO  ............");
+           
 
             MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
             var obten = client.GetDatabase("sistemaescolar");
@@ -94,11 +93,11 @@ namespace Login
         private void button1_Click(object sender, EventArgs e)
         {
 
-            if (MessageBox.Show("¿Seguro que deseas eliminar este profesor?", "Profesor Eliminado",
+            if (MessageBox.Show("¿Seguro que deseas eliminar este alumno?", "Profesor Eliminado",
          MessageBoxButtons.YesNo, MessageBoxIcon.Question)
          == DialogResult.Yes)
             {
-                //buscarDireccion();
+               
                 
                 Baja_Alumno();
                 bajaDireccion();
@@ -131,41 +130,7 @@ namespace Login
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(textBox1.Text))
-            {
-                MessageBox.Show("Ingrese  numero  cuenta para eliminar alumno");
-            }
-
-            else
-            {
-
-                MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
-                var db = client.GetDatabase("sistemaescolar");
-                var usuarios = db.GetCollection<BsonDocument>("alumno");
-
-
-                var filter_id = Builders<BsonDocument>.Filter.Eq("Id_A", Convert.ToUInt32(textBox1.Text));
-                var entity = usuarios.Find(filter_id).FirstOrDefault();
-                // MessageBox.Show(entity.ToString());
-
-                String DtAdmjson = entity.ToString();
-                char[] separador = { '"', '"' };
-                DatosAlum = DtAdmjson.Split(separador);
-
-                textBox2.Text = DatosAlum[9];
-                textBox3.Text = DatosAlum[13];
-                textBox4.Text = DatosAlum[17];
-                textBox7.Text = DatosAlum[41];
-               
-
-
-
-                button1.Show();
-            }
-
-        }
+      
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -181,23 +146,54 @@ namespace Login
         {
             Inicio ini = new Inicio();
             ini.Show();
+            Hide();
         }
-        /* void buscarDireccion()
-{
-MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
-var db = client.GetDatabase("sistemaescolar");
-var usuarios = db.GetCollection<BsonDocument>("Direccion_Alumno");
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBox1.Text))
+            {
+                MessageBox.Show("Ingrese un numero de cuenta para eliminar");
+            }
+
+            else
+            {
+
+                MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
+                var db = client.GetDatabase("sistemaescolar");
+                var usuarios = db.GetCollection<BsonDocument>("alumno");
 
 
-var filter_id = Builders<BsonDocument>.Filter.Eq("Id_A", Convert.ToUInt32(textBox1.Text));
-var entity = usuarios.Find(filter_id).FirstOrDefault();
+                var filter_id = Builders<BsonDocument>.Filter.Eq("Id_A", Convert.ToUInt32(textBox1.Text));
+                var entity = usuarios.Find(filter_id).FirstOrDefault();
 
-//MessageBox.Show(entity.ToString());
+                if (entity == null)
+                {
+                    MessageBox.Show("Id no existe", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
 
-String DtAdmjson = entity.ToString();
-char[] separador = { '"', '"' };
-DatosAlum = DtAdmjson.Split(separador);
-}*/
+
+                    String DtAdmjson = entity.ToString();
+                    char[] separador = { '"', '"' };
+                    DatosAlum = DtAdmjson.Split(separador);
+
+                    textBox2.Text = DatosAlum[9];
+                    textBox3.Text = DatosAlum[13];
+                    textBox4.Text = DatosAlum[17];
+                    textBox7.Text = DatosAlum[41];
+
+
+
+
+                    button1.Show();
+                }
+            }
+        }
+
+        
+       
     }
     }
 

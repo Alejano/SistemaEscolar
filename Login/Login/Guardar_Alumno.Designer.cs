@@ -109,7 +109,7 @@
             this.button1.Location = new System.Drawing.Point(36, 460);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(94, 30);
             this.button1.TabIndex = 17;
             this.button1.Text = "Guardar";
             this.button1.UseVisualStyleBackColor = true;
@@ -163,7 +163,7 @@
             this.dateTimePicker3.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker3.Name = "dateTimePicker3";
             this.dateTimePicker3.Size = new System.Drawing.Size(265, 22);
-            this.dateTimePicker3.TabIndex = 62;
+            this.dateTimePicker3.TabIndex = 4;
             // 
             // label17
             // 
@@ -182,6 +182,7 @@
             this.textBox14.PasswordChar = '*';
             this.textBox14.Size = new System.Drawing.Size(169, 22);
             this.textBox14.TabIndex = 11;
+            this.textBox14.TextChanged += new System.EventHandler(this.textBox14_TextChanged);
             // 
             // label16
             // 
@@ -309,7 +310,7 @@
             this.textBox8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(169, 22);
-            this.textBox8.TabIndex = 15;
+            this.textBox8.TabIndex = 14;
             this.textBox8.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             this.textBox8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox8_KeyPress);
             // 
@@ -370,7 +371,7 @@
             this.textBox10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(169, 22);
-            this.textBox10.TabIndex = 13;
+            this.textBox10.TabIndex = 15;
             this.textBox10.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox10_KeyPress);
             // 
             // label12
@@ -405,7 +406,7 @@
             this.textBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(169, 22);
-            this.textBox7.TabIndex = 14;
+            this.textBox7.TabIndex = 13;
             this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             this.textBox7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox7_KeyPress);
             // 
@@ -438,12 +439,12 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(713, 460);
+            this.button2.Location = new System.Drawing.Point(698, 460);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(88, 30);
             this.button2.TabIndex = 18;
-            this.button2.Text = "Cerrar";
+            this.button2.Text = "Regresar";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 

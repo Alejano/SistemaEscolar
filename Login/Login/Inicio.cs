@@ -36,6 +36,7 @@ namespace Login
         {
             Guardar_Alumno ga = new Guardar_Alumno();
             ga.Show();
+            Hide();
 
         }
 
@@ -43,6 +44,7 @@ namespace Login
         {
             Borrar_Alumno ba = new Borrar_Alumno();
             ba.Show();
+            Hide();
         }
 
         private void altaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -62,6 +64,7 @@ namespace Login
         {
             Actualizar_Alumnos A = new Actualizar_Alumnos();
             A.Show();
+            Hide();
         }
 
         private void profesoresToolStripMenuItem_Click(object sender, EventArgs e)
@@ -99,6 +102,7 @@ namespace Login
         {
             BuscarAlumno buscaralum = new BuscarAlumno();
             buscaralum.Show();
+            Hide();
         }
 
         private void alumnosToolStripMenuItem_Click(object sender, EventArgs e)

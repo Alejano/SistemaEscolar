@@ -259,6 +259,7 @@ namespace Login
         {
             Inicio ini = new Inicio();
             ini.Show();
+            Hide();
         }
     }
 }

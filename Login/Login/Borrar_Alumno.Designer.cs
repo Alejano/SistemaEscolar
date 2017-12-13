@@ -52,10 +52,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(34, 444);
+            this.button1.Location = new System.Drawing.Point(44, 454);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 31);
+            this.button1.Size = new System.Drawing.Size(111, 31);
             this.button1.TabIndex = 3;
             this.button1.Text = "Eliminar";
             this.button1.UseVisualStyleBackColor = true;
@@ -105,7 +105,7 @@
             // 
             // Id_P
             // 
-            this.Id_P.HeaderText = "Id_P";
+            this.Id_P.HeaderText = "Id_A";
             this.Id_P.Name = "Id_P";
             this.Id_P.ReadOnly = true;
             // 
@@ -124,7 +124,7 @@
             this.button2.TabIndex = 2;
             this.button2.Text = "Buscar";
             this.button2.UseVisualStyleBackColor = true;
-          //  this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // groupBox1
             // 
@@ -223,11 +223,11 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(774, 454);
+            this.button3.Location = new System.Drawing.Point(765, 454);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(101, 31);
-            this.button3.TabIndex = 21;
+            this.button3.Size = new System.Drawing.Size(110, 31);
+            this.button3.TabIndex = 4;
             this.button3.Text = "Regresar";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -264,8 +264,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id_P;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label4;
@@ -277,5 +275,7 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id_P;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
     }
 }
