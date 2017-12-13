@@ -100,12 +100,18 @@ namespace Login
 
         private void leerToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
             BuscarAlumno buscaralum = new BuscarAlumno();
             buscaralum.Show();
             Hide();
         }
 
         private void alumnosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Inicio_Load(object sender, EventArgs e)
         {
 
         }

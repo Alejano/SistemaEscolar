@@ -39,7 +39,7 @@ namespace Login
             
             MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
             var db = client.GetDatabase("sistemaescolar");
-            var Matriculas= db.GetCollection<BsonDocument>("Adm_Matricula");
+            var Matriculas= db.GetCollection<BsonDocument>("alumno");
 
             Matriculas.AsQueryable<BsonDocument>().ToList().ForEach(song =>
             ID_A=Convert.ToInt32(song["Id_A"])
@@ -134,8 +134,9 @@ namespace Login
 
                     }
                 }
+                limpiar();
             }
-                    limpiar();
+                
 
 
 
