@@ -94,6 +94,17 @@ namespace Login
             BuscarProfesor buscarprof = new BuscarProfesor();
             buscarprof.Show();
         }
+
+        private void leerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BuscarAlumno buscaralum = new BuscarAlumno();
+            buscaralum.Show();
+        }
+
+        private void alumnosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
         
 }
