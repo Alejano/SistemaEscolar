@@ -33,7 +33,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.Id_P = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.t_profesor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apaterno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Amaterno = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,7 +48,6 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id_P,
-            this.t_profesor,
             this.Nombre,
             this.Apaterno,
             this.Amaterno,
@@ -95,12 +93,6 @@
             this.Id_P.HeaderText = "Id_P";
             this.Id_P.Name = "Id_P";
             this.Id_P.ReadOnly = true;
-            // 
-            // t_profesor
-            // 
-            this.t_profesor.HeaderText = "t_profesor";
-            this.t_profesor.Name = "t_profesor";
-            this.t_profesor.ReadOnly = true;
             // 
             // Nombre
             // 
@@ -169,7 +161,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id_P;
-        private System.Windows.Forms.DataGridViewTextBoxColumn t_profesor;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Apaterno;
         private System.Windows.Forms.DataGridViewTextBoxColumn Amaterno;

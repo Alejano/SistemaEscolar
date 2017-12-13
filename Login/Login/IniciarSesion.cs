@@ -104,16 +104,35 @@ namespace Login
         {
             dataGridView1.Hide();
 
+            conectar();
+           
+
+
+        }
+
+        void conectar() {
             MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
             var db = client.GetDatabase("sistemaescolar");
             var usuarios = db.GetCollection<BsonDocument>("Adm");
-           
+
+            if (usuarios == null)
+            {
+               
+                MessageBox.Show("Conccion no exitosa, verifique su internet");
+                Close();
+            }
+            else
+            {
+                
                 usuarios.AsQueryable<BsonDocument>().ToList().ForEach(song =>
 
-             dataGridView1.Rows.Add(Convert.ToString(song["Usuario"]), Convert.ToString(song["Contraseña"]), Convert.ToString(song["Nivel"]))
-            );
+         dataGridView1.Rows.Add(Convert.ToString(song["Usuario"]), Convert.ToString(song["Contraseña"]), Convert.ToString(song["Nivel"]))
+        );
+                
 
-           
+            }
+            
+
 
 
         }
