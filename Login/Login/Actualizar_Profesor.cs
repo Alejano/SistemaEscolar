@@ -17,7 +17,7 @@ namespace Login
 
         string[] DatosProf = new string[99];
         public static string t_profesor = "";
-        static int ID_P = 0;
+        public static int ID_P = 0;
         public static int id ;
         string IDP;
 
@@ -38,10 +38,10 @@ namespace Login
             var usuarios = db.GetCollection<BsonDocument>("Direccion_Profesor");
 
 
-            var filter_id = Builders<BsonDocument>.Filter.Eq("Id_P", Convert.ToUInt32(textBox1.Text));
+            var filter_id = Builders<BsonDocument>.Filter.Eq("Id_P",ID_P);
             var entity = usuarios.Find(filter_id).FirstOrDefault();
 
-            //MessageBox.Show(entity.ToString());
+           MessageBox.Show(entity.ToString());
 
             String DtAdmjson = entity.ToString();
             char[] separador = { '"', '"' };
@@ -57,22 +57,17 @@ namespace Login
 
         void bajaDireccion()
         {
-            id = Convert.ToInt32(textBox1.Text);
-
+        
             MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
             var obten = client.GetDatabase("sistemaescolar");
             var baja = obten.GetCollection<BsonDocument>("Direccion_Profesor");
 
 
-            baja.DeleteOneAsync(Builders<BsonDocument>.Filter.Eq("Id_P", id));
+            baja.DeleteOneAsync(Builders<BsonDocument>.Filter.Eq("Id_P", ID_P));
         }
 
         void Baja_Profesor()
         {
-
-
-            id = Convert.ToInt32(textBox1.Text);
-
 
 
            // MessageBox.Show("Eliminando Profesor ...");
@@ -82,7 +77,7 @@ namespace Login
             var baja = obten.GetCollection<BsonDocument>("profesor");
 
 
-            baja.DeleteOneAsync(Builders<BsonDocument>.Filter.Eq("Id_P", id));
+            baja.DeleteOneAsync(Builders<BsonDocument>.Filter.Eq("Id_P", ID_P));
         }
 
 
@@ -118,6 +113,7 @@ namespace Login
 
         private void button1_Click(object sender, EventArgs e)
         {
+            ID_P = Convert.ToInt32(textBox1.Text);
             if (string.IsNullOrEmpty(textBox1.Text))
             {
                 MessageBox.Show("Ingrese un numero de cuenta para actualizarlo");
@@ -131,7 +127,7 @@ namespace Login
                 var usuarios = db.GetCollection<BsonDocument>("profesor");
 
 
-                var filter_id = Builders<BsonDocument>.Filter.Eq("Id_P", Convert.ToUInt32(textBox1.Text));
+                var filter_id = Builders<BsonDocument>.Filter.Eq("Id_P", ID_P);
                 var entity = usuarios.Find(filter_id).FirstOrDefault();
                 //  MessageBox.Show(entity.ToString());
 
@@ -152,15 +148,24 @@ namespace Login
                     char[] separador = { '"', '"' };
                     DatosProf = DtAdmjson.Split(separador);
 
-                    textBox2.Text = DatosProf[13];
-                    textBox3.Text = DatosProf[17];
-                    textBox4.Text = DatosProf[33];
-                    textBox5.Text = DatosProf[29];
-                    textBox6.Text = DatosProf[21];
+                    MessageBox.Show(Convert.ToString( DtAdmjson));
+                    /*
+                    MessageBox.Show(Convert.ToString(DatosProf[12])+
+                        Convert.ToString(DatosProf[16])+
+                        Convert.ToString(DatosProf[20])+
+                        Convert.ToString(DatosProf[24])+
+                        Convert.ToString(DatosProf[28])+
+                        Convert.ToString(DatosProf[32]));
+                        */
+                    
+                   textBox2.Text = DatosProf[12];
+                   textBox3.Text = DatosProf[16];
+                   textBox4.Text = DatosProf[33];
+                   textBox5.Text = DatosProf[28];
+                   textBox6.Text = DatosProf[20];
+                   dateTimePicker1.Text=DatosProf[24];
+                    
 
-                    dateTimePicker3.Text = DatosProf[25];
-
-                   
 
                 }
 
@@ -216,6 +221,10 @@ namespace Login
             usuarios.AsQueryable<BsonDocument>().ToList().ForEach(song =>
             dataGridView1.Rows.Add(Convert.ToString(song["Id_P"]), Convert.ToString(song["Nombre"]))
             );
+
+            dataGridView1.Show();
+            groupBox1.Hide();
+            button2.Hide();
         }
 
         private void dateTimePicker3_ValueChanged(object sender, EventArgs e)
@@ -251,16 +260,16 @@ namespace Login
                     MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
                     var db = client.GetDatabase("sistemaescolar");
                     var usuarios = db.GetCollection<BsonDocument>("profesor");
-                     usuarios.DeleteOneAsync(Builders<BsonDocument>.Filter.Eq("Id_P", textBox1.Text));
+                     usuarios.DeleteOneAsync(Builders<BsonDocument>.Filter.Eq("Id_P", ID_P));
 
 
                     BsonDocument crearProf = new BsonDocument
                     {
-                      {"Id_P",Convert.ToInt32(textBox1.Text)},
+                      {"Id_P",ID_P},
                      {"Nombre",textBox2.Text},
                      {"Apaterno",textBox3.Text},
                      {"Amaterno",textBox6.Text},
-                     {"fecha_nac",dateTimePicker3.Text},
+                     {"fecha_nac",dateTimePicker1.Text},
                      {"Telefono",textBox5.Text},
                      {"email",textBox4.Text},
                      {"contraseña",textBox14.Text}
@@ -275,9 +284,15 @@ namespace Login
 
                     MessageBox.Show("Profesor Actualizado correctamente");
                     Actualizar();
+                    limpiar();
 
                 }
             }
+        }
+        void limpiar()
+        {
+            ID_P = 0;
+            dateTimePicker1.ResetText();
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
