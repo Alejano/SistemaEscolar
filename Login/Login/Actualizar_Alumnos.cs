@@ -16,12 +16,9 @@ namespace Login
     {
         string[] DatosAlum = new string[99];
         public static string t_alumno = "";
-        public static int ID_A = 0;
+        public static int ID_A = 14949460;
         public static int id;
-        //public IDP;
-        public static string Id_Pr;
-        public static string tipoProf;
-
+        
 
 
         
