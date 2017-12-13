@@ -55,9 +55,9 @@ namespace Login
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox13.Text == textBox14.Text)
+            if (textBox13.Text != textBox14.Text)
             {
-
+                MessageBox.Show("Las contraseñas no coinciden");
             }
             else
             {

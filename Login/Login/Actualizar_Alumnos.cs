@@ -14,12 +14,14 @@ namespace Login
 {
     public partial class Actualizar_Alumnos : Form
     {
+        public static int ID_A = 0;
+        public static string Diferenciador_A = "";
         string[] DatosAlum = new string[99];
         public static string t_alumno = "";
-        //static int ID_A = 0;
+        //public static string ID_A = "Id_A";
         public static int id;
 
-        public static string Id_Al;
+        public static int Id_Al;
         public static string tipoProf;
         public Actualizar_Alumnos()
         {
@@ -36,7 +38,7 @@ namespace Login
             var filter_id = Builders<BsonDocument>.Filter.Eq("Id_A", Convert.ToUInt32(textBox1.Text));
             var entity = usuarios.Find(filter_id).FirstOrDefault();
 
-            //MessageBox.Show(entity.ToString());
+           
 
             String DtAdmjson = entity.ToString();
             char[] separador = { '"', '"' };
@@ -50,13 +52,41 @@ namespace Login
             textBox10.Text = DatosAlum[25];
 
         }
-        void Actualizardireccion()
+        void ActualizarAlumno()
         {
-            Id_Al = textBox1.Text;
+            id = Convert.ToInt32(textBox1.Text);
+            BsonDocument crearAlum = new BsonDocument
+                    {
+
+                     {"Id_A",id},
+
+                     {"Nombre",textBox2.Text},
+                     {"Apellido_Paterno",textBox3.Text},
+                     {"Apellido_Materno",textBox6.Text},
+                     {"Edad",dateTimePicker3.Text},
+                     {"Telefono_Casa",textBox5.Text},
+                     {"Telefono_Celular",textBox7.Text},
+
+                     {"Correo_Electronico",textBox4.Text},
+                     {"Contraseña",textBox14.Text},
+                     {"T_Alumno",t_alumno},
+                    };
+            BsonDocument DatosAlum = crearAlum;
+
+
+            MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
+            var db = client.GetDatabase("sistemaescolar");
+            var usuarios = db.GetCollection<BsonDocument>("alumno");
+            usuarios.InsertOne(DatosAlum);
+            
+        }
+        void ActualizarDireccion()
+        {
+            id = Convert.ToInt32(textBox1.Text);
             BsonDocument crearDireccion = new BsonDocument
             {
                 
-                { "Id_A",Id_Al },
+                { "Id_A",id },
                 {"Calle", textBox12.Text},
                 {"Colonia",textBox11.Text},
                 {"Estado",textBox8.Text},
@@ -78,13 +108,7 @@ namespace Login
 
         void Baja_Alumno()
         {
-
-
             id = Convert.ToInt32(textBox1.Text);
-
-
-
-            // MessageBox.Show("Eliminando Profesor ...");
 
             MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
             var obten = client.GetDatabase("sistemaescolar");
@@ -94,7 +118,7 @@ namespace Login
             baja.DeleteOneAsync(Builders<BsonDocument>.Filter.Eq("Id_A", id));
         }
 
-        void bajaDireccion()
+        void Baja_Direccion()
         {
             id = Convert.ToInt32(textBox1.Text);
 
@@ -141,7 +165,7 @@ namespace Login
 
                 var filter_id = Builders<BsonDocument>.Filter.Eq("Id_A", Convert.ToUInt32(textBox1.Text));
                 var entity = usuarios.Find(filter_id).FirstOrDefault();
-                //  MessageBox.Show(entity.ToString());
+                
 
 
                 if (entity == null)
@@ -169,9 +193,9 @@ namespace Login
                     textBox5.Text = DatosAlum[25];
                     textBox6.Text = DatosAlum[17];
                     textBox7.Text = DatosAlum[29];
-                    textBox13.Text =DatosAlum[21];
-                    checkBox1.Text= DatosAlum[41];
-                    checkBox2.Text = DatosAlum[41];
+                    dateTimePicker3.Text =DatosAlum[21];
+                    //checkBox1.Text= DatosAlum[41];
+                    //checkBox2.Text = DatosAlum[41];
                     textBox14.Text = DatosAlum[37];
                     direccion();
 
@@ -185,55 +209,83 @@ namespace Login
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text) || string.IsNullOrEmpty(textBox3.Text)
+           if (string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text) || string.IsNullOrEmpty(textBox3.Text)
               || string.IsNullOrEmpty(textBox4.Text) || string.IsNullOrEmpty(textBox5.Text) || string.IsNullOrEmpty(textBox6.Text)
               || string.IsNullOrEmpty(textBox7.Text) || string.IsNullOrEmpty(textBox8.Text) || string.IsNullOrEmpty(textBox9.Text)
               || string.IsNullOrEmpty(textBox10.Text) || string.IsNullOrEmpty(textBox11.Text) || string.IsNullOrEmpty(textBox12.Text)
-              || string.IsNullOrEmpty(textBox13.Text) || string.IsNullOrEmpty(textBox14.Text)
-              || string.IsNullOrEmpty(checkBox1.Text) || string.IsNullOrEmpty(checkBox2.Text))
+               || string.IsNullOrEmpty(textBox14.Text)
+             || string.IsNullOrEmpty(checkBox1.Text) || string.IsNullOrEmpty(checkBox2.Text))
             {
                 MessageBox.Show("No puede dejar campos vacios");
             }
 
-            else
+            if(checkBox1.Checked)
             {
                 if (MessageBox.Show("Seguro que deseas actualizar los datos de este alumno?", "Actualizando",
            MessageBoxButtons.YesNo, MessageBoxIcon.Question)
            == DialogResult.Yes)
                 {
+                    t_alumno = "interno";
                     Baja_Alumno();
-                    bajaDireccion();
-                    Id_Al = textBox1.Text;
-                    //int idActualizado = Convert.ToInt32(Id_Al);
-                    BsonDocument crearAlum = new BsonDocument
-                    {
-                     {"Id_A",Id_Al},
-                     {"T_Alumno",t_alumno},
-                     {"Nombre",textBox2.Text},
-                     {"Apellido_paterno",textBox3.Text},
-                     {"Apellido_materno",textBox6.Text},
-                     {"Edad",textBox13.Text},
-                     {"Telefono_Casa",textBox5.Text},
-                     {"Telefono_Celular",textBox7.Text},
+                    Baja_Direccion();
+                    ActualizarAlumno();
+                    ActualizarDireccion();
+                    MessageBox.Show("El alumno " + Diferenciador_A + " se guardo en la base correctamente");
+                    limpiar();
+                    groupBox1.Hide();
+                    button2.Hide();
+                    dataGridView1.Show();
+                    textBox1.Enabled = true;
 
-                     {"Correo_Electronico",textBox4.Text},
-                     {"contraseña",textBox14.Text}
-                    };
-                    BsonDocument DatosAlum = crearAlum;
-
-
-                    MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
-                    var db = client.GetDatabase("sistemaescolar");
-                    var usuarios = db.GetCollection<BsonDocument>("alumno");
-
-                    //Sintaxis para insertar un profesor
-                    // direccionP();
-                    usuarios.InsertOne(DatosAlum);
-                    Actualizardireccion();
 
                 }
             }
+            else
+            {
+
+
+                if (checkBox2.Checked)
+                {
+
+                    if (MessageBox.Show("Seguro desesas guardar?", "Guardando",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                    == DialogResult.Yes)
+                    {
+                        t_alumno = "externo";
+                        Baja_Alumno();
+                        Baja_Direccion();
+                        ActualizarAlumno();
+                        ActualizarDireccion();
+                        MessageBox.Show("El alumno " + Diferenciador_A + " Se guardo en la base correctamente");
+                        limpiar();
+                        groupBox1.Hide();
+                        button2.Hide();
+                        dataGridView1.Show();
+                        textBox1.Enabled = true;
+                    }
+
+
+
+
+
+                
+                }
+                else
+                {
+
+                    if (checkBox1.Checked == false || checkBox2.Checked == false)
+                    {
+
+                        MessageBox.Show("Se necesita elegir tipo otra vez el alumno (interno/externo) para continuar");
+                    }
+
+
+                }
+            }
+            
         }
+                   
+    
 
         private void textBox7_TextChanged(object sender, EventArgs e)
         {
@@ -261,5 +313,176 @@ namespace Login
             ini.Show();
             Hide();
         }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter) && (e.KeyChar != (char)Keys.Space))
+            // if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter))
+            {
+                MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter))
+            {
+                MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox6_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter))
+            {
+                MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void textBox7_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void textBox12_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox12_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter) && (e.KeyChar != (char)Keys.Space))
+            {
+                MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void textBox11_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter) && (e.KeyChar != (char)Keys.Space))
+            {
+                MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void textBox9_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox9_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void textBox11_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox8_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        void limpiar()
+        {
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
+            textBox5.Clear();
+            textBox6.Clear();
+            textBox7.Clear();
+            textBox8.Clear();
+            textBox9.Clear();
+            textBox10.Clear();
+            textBox12.Clear();
+            textBox11.Clear();
+            textBox14.Clear();
+
+           // checkBox1.Checked = false;
+            //checkBox2.Checked = false;
+        }
+            private void textBox8_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter) && (e.KeyChar != (char)Keys.Space))
+            {
+                MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void textBox10_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void checkBox2_Click(object sender, EventArgs e)
+        {
+            checkBox2.Checked = false;
+        }
+
+        private void checkBox1_Click(object sender, EventArgs e)
+        {
+            checkBox2.Checked = false;
+        }
     }
 }
+
+
