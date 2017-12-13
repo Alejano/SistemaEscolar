@@ -15,14 +15,14 @@ namespace Login
     public partial class Actualizar_Alumnos : Form
     {
         public static int ID_A = 0;
-        public static string Diferenciador_A = "";
+       
         string[] DatosAlum = new string[99];
         public static string t_alumno = "";
-        //public static string ID_A = "Id_A";
+        
         public static int id;
 
-        public static int Id_Al;
-        public static string tipoProf;
+        
+        
         public Actualizar_Alumnos()
         {
             InitializeComponent();
@@ -63,7 +63,7 @@ namespace Login
                      {"Nombre",textBox2.Text},
                      {"Apellido_Paterno",textBox3.Text},
                      {"Apellido_Materno",textBox6.Text},
-                     {"Edad",dateTimePicker3.Text},
+                     {"Fecha_Nacimiento",dateTimePicker3.Text},
                      {"Telefono_Casa",textBox5.Text},
                      {"Telefono_Celular",textBox7.Text},
 
@@ -230,7 +230,7 @@ namespace Login
                     Baja_Direccion();
                     ActualizarAlumno();
                     ActualizarDireccion();
-                    MessageBox.Show("El alumno " + Diferenciador_A + " se guardo en la base correctamente");
+                    MessageBox.Show("El alumno " + t_alumno + " se guardo en la base correctamente");
                     limpiar();
                     groupBox1.Hide();
                     button2.Hide();
@@ -256,7 +256,7 @@ namespace Login
                         Baja_Direccion();
                         ActualizarAlumno();
                         ActualizarDireccion();
-                        MessageBox.Show("El alumno " + Diferenciador_A + " Se guardo en la base correctamente");
+                        MessageBox.Show("El alumno " + t_alumno + " Se guardo en la base correctamente");
                         limpiar();
                         groupBox1.Hide();
                         button2.Hide();
@@ -276,7 +276,7 @@ namespace Login
                     if (checkBox1.Checked == false || checkBox2.Checked == false)
                     {
 
-                        MessageBox.Show("Se necesita elegir tipo otra vez el alumno (interno/externo) para continuar");
+                        MessageBox.Show("Se necesita elegir tipo otra vez el alumno interno/externo para continuar");
                     }
 
 

@@ -34,7 +34,7 @@ namespace Login
 
                 usuarios.AsQueryable<BsonDocument>().ToList().ForEach(equis =>
                 dataGridView1.Rows.Add(Convert.ToString(equis["Id_A"]), Convert.ToString(equis["Nombre"]), Convert.ToString(equis["Apellido_Paterno"]),
-                 Convert.ToString(equis["Apellido_Materno"]), Convert.ToString(equis["Edad"]), Convert.ToString(equis["Telefono_Casa"]),
+                 Convert.ToString(equis["Apellido_Materno"]), Convert.ToString(equis["Fecha_Nacimiento"]), Convert.ToString(equis["Telefono_Casa"]),
                   Convert.ToString(equis["Telefono_Celular"]), Convert.ToString(equis["Correo_Electronico"]),
                   Convert.ToString(equis["Contraseña"]), Convert.ToString(equis["T_Alumno"]))
                  

@@ -154,7 +154,7 @@ namespace Login
                     {"Nombre",textBox1.Text},
                     {"Apellido_Paterno",textBox2.Text},
                     {"Apellido_Materno",textBox3.Text},
-                    {"Edad",dateTimePicker3.Text},
+                    {"Fecha_Nacimiento",dateTimePicker3.Text},
                     {"Telefono_Casa",textBox4.Text },
                     {"Telefono_Celular",textBox5.Text },
                     {"Correo_Electronico",textBox9.Text },

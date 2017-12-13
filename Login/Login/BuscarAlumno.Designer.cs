@@ -60,7 +60,7 @@
             this.Column4,
             this.Contraseña,
             this.Column5});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 133);
+            this.dataGridView1.Location = new System.Drawing.Point(31, 119);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -130,7 +130,7 @@
             // 
             // Edad
             // 
-            this.Edad.HeaderText = "Edad";
+            this.Edad.HeaderText = "Fecha_Nacimiento";
             this.Edad.Name = "Edad";
             this.Edad.ReadOnly = true;
             // 
