@@ -149,21 +149,21 @@ namespace Login
                     DatosProf = DtAdmjson.Split(separador);
 
                     MessageBox.Show(Convert.ToString( DtAdmjson));
-                    /*
-                    MessageBox.Show(Convert.ToString(DatosProf[12])+
-                        Convert.ToString(DatosProf[16])+
-                        Convert.ToString(DatosProf[20])+
-                        Convert.ToString(DatosProf[24])+
-                        Convert.ToString(DatosProf[28])+
-                        Convert.ToString(DatosProf[32]));
-                        */
                     
-                   textBox2.Text = DatosProf[12];
-                   textBox3.Text = DatosProf[16];
-                   textBox4.Text = DatosProf[33];
-                   textBox5.Text = DatosProf[28];
-                   textBox6.Text = DatosProf[20];
-                   dateTimePicker1.Text=DatosProf[24];
+                    MessageBox.Show(Convert.ToString(DatosProf[9])+
+                        Convert.ToString(DatosProf[13])+
+                        Convert.ToString(DatosProf[17])+
+                        Convert.ToString(DatosProf[21])+
+                        Convert.ToString(DatosProf[25])+
+                        Convert.ToString(DatosProf[33]));
+                        
+                    
+                   textBox2.Text = DatosProf[9];
+                   textBox3.Text = DatosProf[13];
+                   textBox6.Text = DatosProf[17];
+                   textBox5.Text = DatosProf[25];
+                   textBox4.Text = DatosProf[29];
+                   dateTimePicker1.Text=DatosProf[21];
                     
 
 
@@ -260,7 +260,7 @@ namespace Login
                     MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
                     var db = client.GetDatabase("sistemaescolar");
                     var usuarios = db.GetCollection<BsonDocument>("profesor");
-                     usuarios.DeleteOneAsync(Builders<BsonDocument>.Filter.Eq("Id_P", ID_P));
+                   
 
 
                     BsonDocument crearProf = new BsonDocument
@@ -288,6 +288,11 @@ namespace Login
 
                 }
             }
+
+            Inicio inic = new Inicio();
+            
+            inic.Show();
+            Close();
         }
         void limpiar()
         {
@@ -315,7 +320,19 @@ namespace Login
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
+            checkBox2.Checked = false;
+        }
 
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            checkBox1.Checked = false;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Inicio inic = new Inicio();
+            inic.Show();
+            Close();
         }
     }
 }
