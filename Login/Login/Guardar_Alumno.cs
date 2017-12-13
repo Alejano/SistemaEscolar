@@ -15,7 +15,7 @@ namespace Login
     public partial class Guardar_Alumno : Form
     {
         public static string Diferenciador_A = "";
-        public static int ID_A = 0;
+        public static int ID_A = 14949460;
         public Guardar_Alumno()
          
         {
