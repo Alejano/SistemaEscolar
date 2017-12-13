@@ -507,6 +507,13 @@ namespace Login
                 return;
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Inicio ini = new Inicio();
+            ini.Show();
+            Close();
+        }
     }
 }
 

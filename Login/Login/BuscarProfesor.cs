@@ -94,5 +94,12 @@ namespace Login
                 e.Handled = true;
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Inicio ini = new Inicio();
+            ini.Show();
+            Close();
+        }
     }
 }

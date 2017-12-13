@@ -59,7 +59,7 @@ namespace Login
                                 Administracion ad = new Administracion();
                                 ad.Show();
                                 usu = Valor;
-                               
+                                Hide();
                                 
                             }
                             else
@@ -69,7 +69,7 @@ namespace Login
                                     Inicio ini = new Inicio();
                                     ini.Show();
                                     usu = Valor;
-                                    
+                                    Hide();
                                 };
 
                             }
@@ -105,7 +105,7 @@ namespace Login
             dataGridView1.Hide();
 
             conectar();
-           
+            label4.Hide();
 
 
         }

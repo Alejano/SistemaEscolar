@@ -190,5 +190,13 @@ namespace Login
         {
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Inicio ini =new Inicio();
+            ini.Show();
+            Close();
+
+        }
     }
 }

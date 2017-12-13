@@ -581,11 +581,14 @@ namespace Login
         {
             e.Handled = true;
         }
-
+        public static int adm = 0;
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            PDF_Alumnos padfa = new PDF_Alumnos();
-            padfa.Show();
+            adm = 1;
+            Inicio ini = new Inicio();
+            ini.Show();
+            Hide();
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -613,6 +616,13 @@ namespace Login
 
 
             usuarios.InsertOne(DatosAdmin);
+        }
+
+        private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            IniciarSesion ini = new IniciarSesion();
+            ini.Show();
+            Close();
         }
     }
 }
