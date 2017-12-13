@@ -16,7 +16,7 @@ namespace Login
 {
     public partial class PDF_Alumnos : Form
     {
-        string DireccionPDF = "";
+       
         public PDF_Alumnos()
         {
             InitializeComponent();
@@ -24,7 +24,7 @@ namespace Login
 
         private void PDF_Alumnos_Load(object sender, EventArgs e)
         {
-            DireccionPDF= textBox1.Text;
+           
             
             
         }
