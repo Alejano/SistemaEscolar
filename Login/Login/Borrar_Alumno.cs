@@ -176,21 +176,27 @@ namespace Login
                 return;
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Inicio ini = new Inicio();
+            ini.Show();
+        }
         /* void buscarDireccion()
 {
-    MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
-    var db = client.GetDatabase("sistemaescolar");
-    var usuarios = db.GetCollection<BsonDocument>("Direccion_Alumno");
+MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
+var db = client.GetDatabase("sistemaescolar");
+var usuarios = db.GetCollection<BsonDocument>("Direccion_Alumno");
 
 
-    var filter_id = Builders<BsonDocument>.Filter.Eq("Id_A", Convert.ToUInt32(textBox1.Text));
-    var entity = usuarios.Find(filter_id).FirstOrDefault();
+var filter_id = Builders<BsonDocument>.Filter.Eq("Id_A", Convert.ToUInt32(textBox1.Text));
+var entity = usuarios.Find(filter_id).FirstOrDefault();
 
-    //MessageBox.Show(entity.ToString());
+//MessageBox.Show(entity.ToString());
 
-    String DtAdmjson = entity.ToString();
-    char[] separador = { '"', '"' };
-    DatosAlum = DtAdmjson.Split(separador);
+String DtAdmjson = entity.ToString();
+char[] separador = { '"', '"' };
+DatosAlum = DtAdmjson.Split(separador);
 }*/
     }
     }

@@ -35,7 +35,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.label17 = new System.Windows.Forms.Label();
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -63,6 +63,7 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -70,11 +71,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 134);
+            this.label1.Location = new System.Drawing.Point(6, 136);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 17);
+            this.label1.Size = new System.Drawing.Size(125, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Edad";
+            this.label1.Text = "Fecha  Nacimiento";
             // 
             // label2
             // 
@@ -116,7 +117,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(131, 31);
+            this.textBox1.Location = new System.Drawing.Point(140, 31);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(169, 22);
@@ -126,7 +127,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox15);
+            this.groupBox1.Controls.Add(this.dateTimePicker3);
             this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.textBox14);
             this.groupBox1.Controls.Add(this.label16);
@@ -156,15 +157,13 @@
             this.groupBox1.Text = "Informacion del Alumno";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // textBox15
+            // dateTimePicker3
             // 
-            this.textBox15.Location = new System.Drawing.Point(131, 134);
-            this.textBox15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(169, 22);
-            this.textBox15.TabIndex = 4;
-            this.textBox15.TextChanged += new System.EventHandler(this.textBox15_TextChanged);
-            this.textBox15.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox15_KeyPress);
+            this.dateTimePicker3.Location = new System.Drawing.Point(140, 136);
+            this.dateTimePicker3.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePicker3.Name = "dateTimePicker3";
+            this.dateTimePicker3.Size = new System.Drawing.Size(265, 22);
+            this.dateTimePicker3.TabIndex = 62;
             // 
             // label17
             // 
@@ -277,7 +276,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(131, 100);
+            this.textBox3.Location = new System.Drawing.Point(140, 100);
             this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(169, 22);
@@ -287,7 +286,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(131, 66);
+            this.textBox2.Location = new System.Drawing.Point(140, 66);
             this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(169, 22);
@@ -437,11 +436,23 @@
             this.label7.Size = new System.Drawing.Size(0, 17);
             this.label7.TabIndex = 4;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(713, 460);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 18;
+            this.button2.Text = "Cerrar";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Guardar_Alumno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(979, 513);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
@@ -493,6 +504,7 @@
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.Button button2;
     }
 }

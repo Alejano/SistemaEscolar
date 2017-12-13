@@ -15,7 +15,7 @@ namespace Login
     public partial class Guardar_Alumno : Form
     {
         public static String Diferenciador_A = "";
-       // public static int ID_A = 0;
+       
         public Guardar_Alumno()
          
         {
@@ -29,14 +29,14 @@ namespace Login
 
         }
 
-      
-       static int ID_A = 0;
+
+        static int ID_A = 0; 
 
         void BuscarID()
         {
             
             
-            MessageBox.Show("Cargando");
+            
             MongoClient client = new MongoClient("mongodb://Directivo:q234ty@ds111496.mlab.com:11496/sistemaescolar");
             var db = client.GetDatabase("sistemaescolar");
             var Matriculas= db.GetCollection<BsonDocument>("Adm_Matricula");
@@ -55,10 +55,20 @@ namespace Login
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text) || string.IsNullOrEmpty(textBox3.Text)
+               || string.IsNullOrEmpty(textBox4.Text) || string.IsNullOrEmpty(textBox5.Text) || string.IsNullOrEmpty(textBox6.Text)
+               || string.IsNullOrEmpty(textBox7.Text) || string.IsNullOrEmpty(textBox8.Text) || string.IsNullOrEmpty(textBox9.Text)
+               || string.IsNullOrEmpty(textBox10.Text) || string.IsNullOrEmpty(textBox12.Text)
+               || string.IsNullOrEmpty(textBox13.Text)
+               || string.IsNullOrEmpty(textBox14.Text))
+            {
+                MessageBox.Show("No puede dejar campos vacios");
+            }
+
+           
 
 
-
-            if (checkBox1.Checked)
+                    if (checkBox1.Checked)
             {
 
                 if ( MessageBox.Show("Seguro desesas guardar?", "Guardando",
@@ -124,21 +134,22 @@ namespace Login
         void Agregar_Alumno()
         {
 
-
+           //public static int ID_A = 0;
 
             MessageBox.Show("creando Alumno");
             BsonDocument Alumno = new BsonDocument
                   {//informacion del alumno
-                    {"Id_A",ID_A},
+                    //ID_A = ID_A + 1;
+                    { "Id_A",ID_A},
                     {"Nombre",textBox1.Text},
                     {"Apellido_Paterno",textBox2.Text},
                     {"Apellido_Materno",textBox3.Text},
-                    {"Edad",textBox15.Text },
+                    {"Edad",dateTimePicker3.Text},
                     {"Telefono_Casa",textBox4.Text },
                     {"Telefono_Celular",textBox5.Text },
                     {"Correo_Electronico",textBox9.Text },
                     {"Contraseña",textBox13.Text },
-                    //{"Confirmacion",textBox14.Text },
+                   
                     {"T_Alumno",Diferenciador_A },
 
 
@@ -155,12 +166,12 @@ namespace Login
 
            
             
-            MessageBox.Show("alumno creado");
+            
 
         }
         void Agregar_Direccion() {
 
-            MessageBox.Show("creando direccion del  Alumno");
+            
             BsonDocument Direccion = new BsonDocument
                   {
                     {"Id_A",ID_A},
@@ -181,7 +192,7 @@ namespace Login
 
             usuarios.InsertOne(DireccionAlumno);
 
-            MessageBox.Show("direccion de alumno creada");
+           
 
 
 
@@ -201,7 +212,7 @@ namespace Login
             textBox12.Clear();
             textBox13.Clear();
             textBox14.Clear();
-            textBox15.Clear();
+           
             checkBox1.Checked = false;
             checkBox2.Checked = false;
             
@@ -411,6 +422,12 @@ namespace Login
         private void textBox15_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Inicio ini = new Inicio();
+            ini.Show();
         }
     }
 }
